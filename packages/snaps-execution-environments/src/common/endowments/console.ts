@@ -72,7 +72,7 @@ function getMessage(snapId: string, message: unknown, ...args: unknown[]) {
 }
 
 /**
- * Create a a {@link console} object, with the same properties as the global
+ * Create a {@link console} object, with the same properties as the global
  * {@link console} object, but with some methods replaced.
  *
  * @param options - Factory options used in construction of the endowment.

@@ -458,7 +458,7 @@ function createTarballStream(
 
   let totalSize = 0;
 
-  // "entry" is fired for every discreet entity in the tarball. This includes
+  // "entry" is fired for every discrete entity in the tarball. This includes
   // files and folders.
   extractStream.on('entry', (header, entryStream, next) => {
     const { name: headerName, type: headerType } = header;
