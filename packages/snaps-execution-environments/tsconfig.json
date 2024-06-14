@@ -7,7 +7,7 @@
   },
   "include": [
     "./src",
-    "webpack.config.js",
+    "webpack.config.ts",
     "scripts",
     "package.json",
     "tsup.config.ts"
