@@ -1,13 +1,13 @@
 import type { PermissionConstraint } from '@metamask/permission-controller';
 import { SnapCaveatType } from '@metamask/snaps-utils';
 
-import { getCronjobCaveatMapper } from '../cronjob';
 import {
   createMaxRequestTimeMapper,
   getMaxRequestTimeCaveat,
   getMaxRequestTimeCaveatMapper,
   maxRequestTimeCaveatSpecifications,
 } from './requestTime';
+import { getCronjobCaveatMapper } from '../cronjob';
 
 describe('maxRequestTimeCaveatSpecifications', () => {
   describe('validator', () => {

@@ -8,10 +8,10 @@ import { promises as fs } from 'fs';
 import pathUtils from 'path';
 import semver from 'semver';
 
-import { resetFileSystem } from '../../test-utils';
-import type { YargsArgs } from '../../types/yargs';
 import { initHandler } from './initHandler';
 import * as initUtils from './initUtils';
+import { resetFileSystem } from '../../test-utils';
+import type { YargsArgs } from '../../types/yargs';
 
 jest.mock('fs');
 

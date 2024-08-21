@@ -1,5 +1,5 @@
-import { render } from '../../../utils';
 import { History } from './History';
+import { render } from '../../../utils';
 
 describe('History', () => {
   it('renders', () => {

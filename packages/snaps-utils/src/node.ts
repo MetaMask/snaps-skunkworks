@@ -1,4 +1,4 @@
-/* eslint-disable import/export */
+/* eslint-disable import-x/export */
 
 export * from '.';
 export * from './eval';

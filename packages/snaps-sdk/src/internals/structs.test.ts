@@ -1,8 +1,8 @@
 import { is, validate } from '@metamask/superstruct';
 
+import { enumValue, literal, typedUnion, union } from './structs';
 import { Text } from '../jsx';
 import { BoxStruct, FieldStruct, TextStruct } from '../jsx/validation';
-import { enumValue, literal, typedUnion, union } from './structs';
 
 describe('enumValue', () => {
   it('validates an enum value', () => {

@@ -1,11 +1,11 @@
 import { isFile } from '@metamask/snaps-utils/node';
 import { resolve } from 'path';
 
+import { evaluate } from './implementation';
 import type { ProcessedConfig } from '../../config';
 import { CommandError } from '../../errors';
 import type { Steps } from '../../utils';
 import { executeSteps, getRelativePath } from '../../utils';
-import { evaluate } from './implementation';
 
 export type EvalOptions = {
   input?: string;

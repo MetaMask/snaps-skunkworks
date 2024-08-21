@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line import-x/no-unassigned-import
 import 'ses';
 import { HandlerType, SNAP_STREAM_NAMES } from '@metamask/snaps-utils';
 import { MOCK_ORIGIN, MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';

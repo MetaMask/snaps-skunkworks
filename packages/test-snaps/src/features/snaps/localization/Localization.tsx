@@ -2,14 +2,14 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { useInvokeMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
-import { getSnapId } from '../../../utils';
 import {
   LOCALIZATION_SNAP_ID,
   LOCALIZATION_SNAP_PORT,
   LOCALIZATION_VERSION,
 } from './constants';
+import { useInvokeMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
+import { getSnapId } from '../../../utils';
 
 export const Localization: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data }] = useInvokeMutation();

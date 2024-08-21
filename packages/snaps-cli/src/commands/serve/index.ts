@@ -1,8 +1,8 @@
 import type yargs from 'yargs';
 
+import { serveHandler } from './serve';
 import builders from '../../builders';
 import type { YargsArgs } from '../../types/yargs';
-import { serveHandler } from './serve';
 
 const command = {
   command: ['serve', 's'],

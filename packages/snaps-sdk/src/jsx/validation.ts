@@ -25,9 +25,6 @@ import {
   JsonStruct,
 } from '@metamask/utils';
 
-import type { Describe } from '../internals';
-import { literal, nullUnion, svg, typedUnion } from '../internals';
-import type { EmptyObject } from '../types';
 import type {
   GenericSnapElement,
   JsonObject,
@@ -70,6 +67,9 @@ import {
   type IconElement,
   IconName,
 } from './components';
+import type { Describe } from '../internals';
+import { literal, nullUnion, svg, typedUnion } from '../internals';
+import type { EmptyObject } from '../types';
 
 /**
  * A struct for the {@link Key} type.

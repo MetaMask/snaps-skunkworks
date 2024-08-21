@@ -1,5 +1,5 @@
-import { render } from '../utils';
 import { Link } from './Link';
+import { render } from '../utils';
 
 describe('Link', () => {
   it('renders', () => {

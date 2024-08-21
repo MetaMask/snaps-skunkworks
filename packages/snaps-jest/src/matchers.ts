@@ -218,7 +218,7 @@ const toRenderLegacy: MatcherFunction<[expected: Component]> = function (
 };
 
 export const toRender: MatcherFunction<[expected: ComponentOrElement]> =
-  function (actual, expected) {
+  async function (actual, expected) {
     assertHasInterface(actual, 'toRender');
 
     if (!isJSXElementUnsafe(expected)) {

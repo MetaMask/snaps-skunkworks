@@ -4,13 +4,13 @@ import { getJsxElementFromComponent } from '@metamask/snaps-utils';
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 
 import {
-  getRestrictedSnapInterfaceControllerMessenger,
-  getRootControllerMessenger,
-} from '../../../../test-utils';
-import {
   getCreateInterfaceImplementation,
   getGetInterfaceImplementation,
 } from './interface';
+import {
+  getRestrictedSnapInterfaceControllerMessenger,
+  getRootControllerMessenger,
+} from '../../../../test-utils';
 
 describe('getCreateInterfaceImplementation', () => {
   it('returns the implementation of the `createInterface` hook', async () => {

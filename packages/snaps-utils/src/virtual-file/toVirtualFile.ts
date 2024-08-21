@@ -29,6 +29,7 @@ type WriteVFileOptions = Exclude<
  *
  * @param vfile - The vfile to write.
  * @param options - Options to pass down to fs.writeFile.
+ * @returns Nothing.
  */
 export async function writeVirtualFile(
   vfile: VirtualFile,

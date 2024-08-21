@@ -23,7 +23,7 @@ declare global {
 const log = createModuleLogger(rootLogger, 'environment');
 
 export class SnapsEnvironment extends NodeEnvironment {
-  #options: SnapsEnvironmentOptions;
+  readonly #options: SnapsEnvironmentOptions;
 
   #server: Server | undefined;
 

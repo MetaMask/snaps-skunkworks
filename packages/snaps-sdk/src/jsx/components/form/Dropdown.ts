@@ -1,6 +1,6 @@
+import type { OptionElement } from './Option';
 import type { SnapsChildren } from '../../component';
 import { createSnapComponent } from '../../component';
-import type { OptionElement } from './Option';
 
 /**
  * The props of the {@link Dropdown} component.

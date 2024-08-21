@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { isSnapManifest } from './is-snap-manifest';
 import { getMockSnapFiles } from '../../test-utils';
 import { VirtualFile } from '../../virtual-file';
-import { isSnapManifest } from './is-snap-manifest';
 
 describe('isSnapManifest', () => {
   it("does nothing if there's not manifest", async () => {

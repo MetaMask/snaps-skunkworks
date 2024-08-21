@@ -2,15 +2,15 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { useInvokeMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
-import { getSnapId } from '../../../utils';
 import { SignMessage } from './components/SignMessage';
 import {
   ETHEREUM_PROVIDER_SNAP_ID,
   ETHEREUM_PROVIDER_SNAP_PORT,
   ETHEREUM_PROVIDER_VERSION,
 } from './constants';
+import { useInvokeMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
+import { getSnapId } from '../../../utils';
 
 export const EthereumProvider: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data, error }] = useInvokeMutation();

@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { repositoryMatch } from './repository-match';
 import { deepClone } from '../../deep-clone';
 import { getMockSnapFiles, getSnapManifest } from '../../test-utils';
-import { repositoryMatch } from './repository-match';
 
 describe('repositoryMatch', () => {
   it('does nothing if repositories match', async () => {

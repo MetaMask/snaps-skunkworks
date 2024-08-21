@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { text } from './text';
+import { NodeType } from '../nodes';
 
 describe('text', () => {
   it('creates a text component', () => {

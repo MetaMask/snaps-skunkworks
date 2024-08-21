@@ -105,29 +105,6 @@ import { createMachine, interpret } from '@xstate/fsm';
 import type { Patch } from 'immer';
 import { nanoid } from 'nanoid';
 
-import { forceStrict, validateMachine } from '../fsm';
-import type { CreateInterface, GetInterface } from '../interface';
-import { log } from '../logging';
-import type {
-  ExecuteSnapAction,
-  ExecutionServiceEvents,
-  HandleRpcRequestAction,
-  SnapErrorJson,
-  TerminateAllSnapsAction,
-  TerminateSnapAction,
-} from '../services';
-import type { EncryptionResult } from '../types';
-import {
-  type ExportableKeyEncryptor,
-  type KeyDerivationOptions,
-} from '../types';
-import {
-  fetchSnap,
-  hasTimedOut,
-  permissionsDiff,
-  setDiff,
-  withTimeout,
-} from '../utils';
 import {
   ALLOWED_PERMISSIONS,
   LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS,
@@ -146,6 +123,29 @@ import type {
 import { SnapsRegistryStatus } from './registry';
 import { RequestQueue } from './RequestQueue';
 import { Timer } from './Timer';
+import { forceStrict, validateMachine } from '../fsm';
+import type { CreateInterface, GetInterface } from '../interface';
+import { log } from '../logging';
+import type {
+  ExecuteSnapAction,
+  ExecutionServiceEvents,
+  HandleRpcRequestAction,
+  SnapErrorJson,
+  TerminateAllSnapsAction,
+  TerminateSnapAction,
+} from '../services';
+import type {
+  EncryptionResult,
+  type ExportableKeyEncryptor,
+  type KeyDerivationOptions,
+} from '../types';
+import {
+  fetchSnap,
+  hasTimedOut,
+  permissionsDiff,
+  setDiff,
+  withTimeout,
+} from '../utils';
 
 export const controllerName = 'SnapController';
 
@@ -739,36 +739,36 @@ export class SnapController extends BaseController<
   SnapControllerState,
   SnapControllerMessenger
 > {
-  #closeAllConnections?: CloseAllConnectionsFunction;
+  readonly #closeAllConnections?: CloseAllConnectionsFunction;
 
-  #dynamicPermissions: string[];
+  readonly #dynamicPermissions: string[];
 
-  #environmentEndowmentPermissions: string[];
+  readonly #environmentEndowmentPermissions: string[];
 
-  #excludedPermissions: Record<string, string>;
+  readonly #excludedPermissions: Record<string, string>;
 
-  #featureFlags: FeatureFlags;
+  readonly #featureFlags: FeatureFlags;
 
-  #fetchFunction: typeof fetch;
+  readonly #fetchFunction: typeof fetch;
 
-  #idleTimeCheckInterval: number;
+  readonly #idleTimeCheckInterval: number;
 
-  #maxIdleTime: number;
+  readonly #maxIdleTime: number;
 
   // This property cannot be hash private yet because of tests.
   private readonly maxRequestTime: number;
 
-  #encryptor: ExportableKeyEncryptor;
+  readonly #encryptor: ExportableKeyEncryptor;
 
-  #getMnemonic: () => Promise<Uint8Array>;
+  readonly #getMnemonic: () => Promise<Uint8Array>;
 
-  #getFeatureFlags: () => DynamicFeatureFlags;
+  readonly #getFeatureFlags: () => DynamicFeatureFlags;
 
-  #detectSnapLocation: typeof detectSnapLocation;
+  readonly #detectSnapLocation: typeof detectSnapLocation;
 
-  #snapsRuntimeData: Map<SnapId, SnapRuntimeData>;
+  readonly #snapsRuntimeData: Map<SnapId, SnapRuntimeData>;
 
-  #rollbackSnapshots: Map<string, RollbackSnapshot>;
+  readonly #rollbackSnapshots: Map<string, RollbackSnapshot>;
 
   #timeoutForLastRequestStatus?: number;
 
@@ -778,7 +778,7 @@ export class SnapController extends BaseController<
     StatusStates
   >;
 
-  #preinstalledSnaps: PreinstalledSnap[] | null;
+  readonly #preinstalledSnaps: PreinstalledSnap[] | null;
 
   constructor({
     closeAllConnections,
@@ -1411,7 +1411,7 @@ export class SnapController extends BaseController<
    * @param snapId - The id of the snap to transition.
    * @param event - The event enum to use to transition.
    */
-  #transition(snapId: SnapId, event: StatusEvents | StatusEvents['type']) {
+  #transition(snapId: SnapId, event: StatusEvents) {
     const { interpreter } = this.#getRuntimeExpect(snapId);
     interpreter.send(event);
     this.update((state: any) => {

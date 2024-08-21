@@ -1,5 +1,5 @@
-import { render } from '../../utils';
 import { StatusIndicator } from './StatusIndicator';
+import { render } from '../../utils';
 
 describe('StatusIndicator', () => {
   it('renders', () => {

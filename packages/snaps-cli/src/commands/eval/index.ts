@@ -1,8 +1,8 @@
 import type yargs from 'yargs';
 
+import { evaluateHandler } from './eval';
 import builders from '../../builders';
 import type { YargsArgs } from '../../types/yargs';
-import { evaluateHandler } from './eval';
 
 const command = {
   command: ['eval', 'e'],

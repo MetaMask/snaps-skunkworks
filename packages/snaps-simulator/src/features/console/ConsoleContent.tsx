@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react';
 
-import { useSelector } from '../../hooks';
 import { ConsoleEntryType, getConsoleEntries } from './slice';
+import { useSelector } from '../../hooks';
 
 export const ConsoleContent = () => {
   const entries = useSelector(getConsoleEntries);

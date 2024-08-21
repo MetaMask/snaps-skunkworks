@@ -1,4 +1,4 @@
-/* eslint-disable import/unambiguous */
+/* eslint-disable import-x/unambiguous */
 // Typescript doesn't type WeakRef on ES2020, only on ESNext
 // But it's supported on all browsers and Node
 // Note, it's stated that it's not supported on Opera,

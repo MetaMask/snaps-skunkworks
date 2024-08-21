@@ -85,6 +85,8 @@ export class TestRunner extends EventEmitter {
 
   /**
    * Wait for the process to exit.
+   *
+   * @returns The exit code of the process.
    */
   async wait() {
     if (!this.running) {

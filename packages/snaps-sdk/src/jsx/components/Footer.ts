@@ -1,5 +1,5 @@
-import { createSnapComponent } from '../component';
 import type { ButtonElement } from './form';
+import { createSnapComponent } from '../component';
 
 /**
  * The props of the {@link Footer} component.

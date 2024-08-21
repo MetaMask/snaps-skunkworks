@@ -1,6 +1,9 @@
 import { JsonRpcEngine } from '@metamask/json-rpc-engine';
-import type { UpdateInterfaceParams } from '@metamask/snaps-sdk';
-import { text, type UpdateInterfaceResult } from '@metamask/snaps-sdk';
+import { text } from '@metamask/snaps-sdk';
+import type {
+  UpdateInterfaceParams,
+  type UpdateInterfaceResult,
+} from '@metamask/snaps-sdk';
 import { Box, type JSXElement, Text } from '@metamask/snaps-sdk/jsx';
 import type { JsonRpcRequest, PendingJsonRpcResponse } from '@metamask/utils';
 

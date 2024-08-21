@@ -1,10 +1,10 @@
 import { Box, List, Text } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
+import { Item } from './Item';
 import { Icon } from '../../../components';
 import { useDispatch } from '../../../hooks';
 import { openConfigurationModal } from '../../configuration';
-import { Item } from './Item';
 
 export const Bottom: FunctionComponent = () => {
   const dispatch = useDispatch();

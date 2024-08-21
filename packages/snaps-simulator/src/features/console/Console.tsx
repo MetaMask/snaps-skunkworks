@@ -9,10 +9,10 @@ import {
 import type { FunctionComponent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import { Icon } from '../../components';
-import { useSelector } from '../../hooks';
 import { ConsoleContent } from './ConsoleContent';
 import { getConsoleEntries } from './slice';
+import { Icon } from '../../components';
+import { useSelector } from '../../hooks';
 
 /**
  * Console component.

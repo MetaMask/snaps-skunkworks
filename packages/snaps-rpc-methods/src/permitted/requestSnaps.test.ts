@@ -20,12 +20,12 @@ import type {
   PendingJsonRpcResponse,
 } from '@metamask/utils';
 
-import { WALLET_SNAP_PERMISSION_KEY } from '../restricted/invokeSnap';
 import {
   requestSnapsHandler,
   hasRequestedSnaps,
   getSnapPermissionsRequest,
 } from './requestSnaps';
+import { WALLET_SNAP_PERMISSION_KEY } from '../restricted/invokeSnap';
 
 describe('requestSnapsHandler', () => {
   it('has the expected shape', () => {

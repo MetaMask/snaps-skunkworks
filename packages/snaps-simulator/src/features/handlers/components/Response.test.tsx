@@ -1,5 +1,5 @@
-import { render } from '../../../utils';
 import { Response } from './Response';
+import { render } from '../../../utils';
 
 describe('Response', () => {
   it('renders', () => {

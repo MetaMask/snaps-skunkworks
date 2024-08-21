@@ -12,6 +12,10 @@ module.exports = {
       globals: {
         snaps: true,
       },
+
+      rules: {
+        'n/no-sync': 'off',
+      },
     },
 
     {

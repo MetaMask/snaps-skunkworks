@@ -1,6 +1,5 @@
 import { expectTypeOf } from 'expect-type';
 
-import type { text } from '../../ui';
 import type {
   ConfirmationDialog,
   PromptDialog,
@@ -8,6 +7,7 @@ import type {
   DialogParams,
 } from './dialog';
 import { DialogType } from './dialog';
+import type { text } from '../../ui';
 
 describe('DialogType', () => {
   it('has the correct values', () => {

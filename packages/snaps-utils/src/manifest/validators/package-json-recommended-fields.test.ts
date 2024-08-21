@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { getMockSnapFiles, getPackageJson } from '../../test-utils';
 import { packageJsonRecommendedFields } from './package-json-recommended-fields';
+import { getMockSnapFiles, getPackageJson } from '../../test-utils';
 
 describe('packageJsonRecommendedFields', () => {
   it('does nothing if fields exist', async () => {

@@ -13,12 +13,12 @@ import {
 import { getJsxElementFromComponent } from '@metamask/snaps-utils';
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 
+import { SnapInterfaceController } from './SnapInterfaceController';
 import {
   MockApprovalController,
   getRestrictedSnapInterfaceControllerMessenger,
   getRootSnapInterfaceControllerMessenger,
 } from '../test-utils';
-import { SnapInterfaceController } from './SnapInterfaceController';
 
 describe('SnapInterfaceController', () => {
   describe('createInterface', () => {

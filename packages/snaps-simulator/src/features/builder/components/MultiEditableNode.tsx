@@ -8,10 +8,10 @@ import type {
 } from '@metamask/snaps-sdk/jsx';
 import type { FunctionComponent } from 'react';
 
-import type { EditableNodeProps } from '../../../types';
 import { BaseNode } from './BaseNode';
 import { EditableNodeInput } from './EditableNodeInput';
 import { EditableNodeSelect } from './EditableNodeSelect';
+import type { EditableNodeProps } from '../../../types';
 
 export type MultiEditableComponent =
   | ButtonElement

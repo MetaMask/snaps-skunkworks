@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { input, InputType } from './input';
+import { NodeType } from '../nodes';
 
 describe('Input', () => {
   it('creates an input component', () => {

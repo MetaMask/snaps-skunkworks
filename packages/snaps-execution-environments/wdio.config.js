@@ -1,4 +1,4 @@
-/* eslint-disable import/unambiguous, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, n/no-process-env */
+/* eslint-disable import-x/unambiguous, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, n/no-process-env */
 
 const {
   NodeGlobalsPolyfillPlugin,

@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/unambiguous
+// eslint-disable-next-line import-x/unambiguous
 declare module '*.svg' {
   const content: string;
   export default content;

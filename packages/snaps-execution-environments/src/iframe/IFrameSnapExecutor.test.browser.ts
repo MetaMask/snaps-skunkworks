@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line import-x/no-unassigned-import
 import 'ses';
 import { HandlerType } from '@metamask/snaps-utils';
 import {

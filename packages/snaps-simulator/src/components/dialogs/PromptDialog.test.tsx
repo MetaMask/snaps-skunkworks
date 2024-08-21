@@ -1,7 +1,7 @@
 import { Box } from '@metamask/snaps-sdk/jsx';
 
-import { render } from '../../utils';
 import { PromptDialog } from './PromptDialog';
+import { render } from '../../utils';
 
 describe('PromptDialog', () => {
   it('renders', () => {

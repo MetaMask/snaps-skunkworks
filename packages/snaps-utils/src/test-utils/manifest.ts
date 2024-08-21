@@ -1,12 +1,12 @@
 import type { SemVerVersion } from '@metamask/utils';
 
+import type { MakeSemVer } from './common';
 import type { LocalizationFile } from '../localization';
 import type { SnapManifest } from '../manifest/validation';
 import type { Chain, Namespace } from '../namespace';
 import { getSnapChecksum } from '../snaps';
 import type { NpmSnapPackageJson, SnapFiles } from '../types';
 import { VirtualFile } from '../virtual-file';
-import type { MakeSemVer } from './common';
 
 type GetSnapManifestOptions = Partial<MakeSemVer<SnapManifest>> & {
   shasum?: string;

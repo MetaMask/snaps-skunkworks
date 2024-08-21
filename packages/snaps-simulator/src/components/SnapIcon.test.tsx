@@ -1,5 +1,5 @@
-import { render } from '../utils';
 import { SnapIcon } from './SnapIcon';
+import { render } from '../utils';
 
 describe('SnapIcon', () => {
   it('renders', () => {

@@ -1,6 +1,10 @@
 import { logError } from '@metamask/snaps-utils';
-import type { FunctionComponent } from 'react';
-import { type ChangeEvent, type FormEvent, useState } from 'react';
+import { useState } from 'react';
+import type {
+  FunctionComponent,
+  type ChangeEvent,
+  type FormEvent,
+} from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 import { useInvokeMutation } from '../../../../api';

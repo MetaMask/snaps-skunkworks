@@ -1,7 +1,5 @@
 import { dim } from 'chalk';
 
-import type { ProcessedWebpackConfig } from '../config';
-import { getMockConfig } from '../test-utils';
 import { browserify } from './loaders';
 import {
   WEBPACK_FALLBACKS,
@@ -15,6 +13,8 @@ import {
   formatText,
   getImageSVG,
 } from './utils';
+import type { ProcessedWebpackConfig } from '../config';
+import { getMockConfig } from '../test-utils';
 
 describe('getDefaultLoader', () => {
   it('returns the Browserify loader if `legacy` is set', async () => {

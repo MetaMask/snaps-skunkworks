@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { getMockSnapFiles, getSnapManifest } from '../../test-utils';
 import { iconDeclared } from './icon-declared';
+import { getMockSnapFiles, getSnapManifest } from '../../test-utils';
 
 describe('iconDeclared', () => {
   it('does nothing if icon is declared', async () => {

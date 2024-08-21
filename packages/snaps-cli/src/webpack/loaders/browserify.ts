@@ -18,6 +18,7 @@ import { getBrowserslistTargets } from '../utils';
  *
  * @param content - The input file contents as a string.
  * @param sourceMap - The source map of the input file.
+ * @returns The Browserify loader.
  */
 const loader: LoaderDefinitionFunction<LegacyOptions> = async function (
   content,

@@ -9,6 +9,7 @@ import { stringToBytes } from '@metamask/utils';
 import fetchMock from 'jest-fetch-mock';
 import { expectSaga } from 'redux-saga-test-plan';
 
+import { fetchingSaga, pollingSaga } from './sagas';
 import {
   setAuxiliaryFiles,
   setIcon,
@@ -26,7 +27,6 @@ import {
   MOCK_SNAP_SOURCE,
   MOCK_SNAP_SOURCE_FILE,
 } from '../simulation/test/mockSnap';
-import { fetchingSaga, pollingSaga } from './sagas';
 
 fetchMock.enableMocks();
 

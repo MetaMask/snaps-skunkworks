@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import-x/no-extraneous-dependencies
 import cliPackageJson from '@metamask/create-snap/package.json';
 import type { NpmSnapPackageJson } from '@metamask/snaps-utils';
 import {
@@ -12,7 +12,6 @@ import pathUtils from 'path';
 import type { SemVer } from 'semver';
 import semver from 'semver';
 
-import type { YargsArgs } from '../../types/yargs';
 import {
   buildSnap,
   cloneTemplate,
@@ -23,6 +22,7 @@ import {
   SNAP_LOCATION,
   yarnInstall,
 } from './initUtils';
+import type { YargsArgs } from '../../types/yargs';
 
 /**
  * Creates a new snap package, based on one of the provided templates. This

@@ -7,7 +7,6 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { SagaIterator } from 'redux-saga';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
-import { getAuxiliaryFiles, getIcon, getSourceCode } from '../simulation';
 import type { ValidationResult } from './slice';
 import {
   ManifestStatus,
@@ -16,6 +15,7 @@ import {
   validateManifest,
 } from './slice';
 import { validators } from './validators';
+import { getAuxiliaryFiles, getIcon, getSourceCode } from '../simulation';
 
 /**
  * Validate the snap manifest.

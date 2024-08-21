@@ -1,7 +1,8 @@
 import { assertIsComponent, isComponent } from './component';
-import type { Input, Form } from './components';
-import {
-  ButtonVariant,
+import { ButtonVariant, ButtonType, InputType } from './components';
+import type {
+  Input,
+  Form,
   type Button,
   type Divider,
   type Heading,
@@ -9,8 +10,6 @@ import {
   type Panel,
   type Spinner,
   type Text,
-  ButtonType,
-  InputType,
 } from './components';
 import { NodeType } from './nodes';
 

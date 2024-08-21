@@ -5,10 +5,10 @@ import {
 import type { Json, JsonRpcRequest } from '@metamask/utils';
 import { isJsonRpcRequest, isPlainObject } from '@metamask/utils';
 
-import { createService } from '../../test-utils';
-import { parseInjectedJS } from '../../test-utils/webview';
 import { WebViewExecutionService } from './WebViewExecutionService';
 import type { WebViewInterface } from './WebViewMessageStream';
+import { createService } from '../../test-utils';
+import { parseInjectedJS } from '../../test-utils/webview';
 
 /**
  * Create a response message for the given request. This function assumes that

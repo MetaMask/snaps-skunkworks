@@ -1,8 +1,8 @@
 import type { FunctionComponent } from 'react';
 
-import { Snap } from '../../../components';
 import { ShowImage, ShowQr } from './components';
 import { IMAGES_SNAP_ID, IMAGES_SNAP_PORT, IMAGES_VERSION } from './constants';
+import { Snap } from '../../../components';
 
 export const Images: FunctionComponent = () => {
   return (

@@ -100,15 +100,15 @@ export class JsonSnapsRegistry extends BaseController<
   SnapsRegistryState,
   SnapsRegistryMessenger
 > {
-  #url: JsonSnapsRegistryUrl;
+  readonly #url: JsonSnapsRegistryUrl;
 
-  #publicKey: Hex;
+  readonly #publicKey: Hex;
 
-  #fetchFunction: typeof fetch;
+  readonly #fetchFunction: typeof fetch;
 
-  #recentFetchThreshold: number;
+  readonly #recentFetchThreshold: number;
 
-  #refetchOnAllowlistMiss: boolean;
+  readonly #refetchOnAllowlistMiss: boolean;
 
   #currentUpdate: Promise<void> | null;
 

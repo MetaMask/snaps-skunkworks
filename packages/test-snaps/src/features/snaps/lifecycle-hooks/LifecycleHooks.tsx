@@ -1,11 +1,11 @@
 import type { FunctionComponent } from 'react';
 
-import { Snap } from '../../../components';
 import {
   LIFECYCLE_HOOKS_SNAP_ID,
   LIFECYCLE_HOOKS_SNAP_PORT,
   LIFECYCLE_HOOKS_VERSION,
 } from './constants';
+import { Snap } from '../../../components';
 
 export const LifecycleHooks: FunctionComponent = () => {
   // TODO: Right now there isn't any published version of this snap, so we can't

@@ -11,8 +11,8 @@ import type {
   UnionToIntersection,
 } from '@metamask/superstruct';
 
-import type { EmptyObject } from '../types';
 import { union } from './structs';
+import type { EmptyObject } from '../types';
 
 /**
  * Check if a type is a union. Infers `true` if it is a union, otherwise

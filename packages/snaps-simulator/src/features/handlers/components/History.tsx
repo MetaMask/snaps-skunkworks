@@ -1,9 +1,9 @@
 import { Center, Heading, List, Text } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
+import { HistoryItem } from './HistoryItem';
 import { Icon } from '../../../components';
 import { useHandler, useSelector } from '../../../hooks';
-import { HistoryItem } from './HistoryItem';
 
 export const History: FunctionComponent = () => {
   const handler = useHandler();

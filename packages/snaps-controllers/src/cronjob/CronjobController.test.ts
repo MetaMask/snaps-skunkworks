@@ -5,12 +5,12 @@ import { MOCK_ORIGIN, MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 import type { SemVerVersion } from '@metamask/utils';
 import { Duration, inMilliseconds } from '@metamask/utils';
 
+import { CronjobController } from './CronjobController';
 import {
   getRestrictedCronjobControllerMessenger,
   getRootCronjobControllerMessenger,
 } from '../test-utils';
 import { getCronjobPermission } from '../test-utils/cronjob';
-import { CronjobController } from './CronjobController';
 
 const MOCK_VERSION = '1.0' as SemVerVersion;
 

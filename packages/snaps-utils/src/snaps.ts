@@ -346,6 +346,7 @@ export function isSnapPermitted(
     (
       (
         (permissions?.wallet_snap?.caveats?.find(
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
           (caveat) => caveat.type === SnapCaveatType.SnapIds,
         ) ?? {}) as Caveat<string, Json>
       ).value as Record<string, unknown>

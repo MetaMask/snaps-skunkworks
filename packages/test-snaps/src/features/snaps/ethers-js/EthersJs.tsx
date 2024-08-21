@@ -1,12 +1,12 @@
 import type { FunctionComponent } from 'react';
 
-import { Snap } from '../../../components';
 import { SignMessage } from './components';
 import {
   ETHERS_JS_PORT,
   ETHERS_JS_SNAP_ID,
   ETHERS_JS_VERSION,
 } from './constants';
+import { Snap } from '../../../components';
 
 export const EthersJs: FunctionComponent = () => {
   return (

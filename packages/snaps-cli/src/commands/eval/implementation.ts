@@ -10,6 +10,7 @@ import { CommandError } from '../../errors';
  *
  * @param path - The path to the bundle.
  * @throws If the bundle cannot be evaluated.
+ * @returns The status of the eval.
  */
 export async function evaluate(path: string) {
   try {

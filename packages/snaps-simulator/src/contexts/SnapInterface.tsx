@@ -6,6 +6,7 @@ import throttle from 'lodash.throttle';
 import type { FunctionComponent, ReactNode } from 'react';
 import { createContext, useContext } from 'react';
 
+import { mergeValue } from './utils';
 import {
   getSnapInterfaceController,
   getSnapInterface,
@@ -13,7 +14,6 @@ import {
   setSnapInterfaceState,
 } from '../features';
 import { useDispatch, useSelector } from '../hooks';
-import { mergeValue } from './utils';
 
 /**
  * A no-op function.

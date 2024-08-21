@@ -1,9 +1,9 @@
 import { logInfo } from '@metamask/snaps-utils';
 import type yargs from 'yargs';
 
+import { initHandler } from './initHandler';
 import builders from '../../builders';
 import type { YargsArgs } from '../../types/yargs';
-import { initHandler } from './initHandler';
 
 export const initCommand = {
   command: ['$0 [directory]'],

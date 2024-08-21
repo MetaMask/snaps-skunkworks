@@ -2,8 +2,8 @@ import { promises as fs } from 'fs';
 import ora from 'ora';
 import { dirname } from 'path';
 
-import { getMockConfig, normalizeConfig } from '../test-utils';
 import { getDefaultConfiguration } from './config';
+import { getMockConfig, normalizeConfig } from '../test-utils';
 
 jest.mock('fs');
 jest.mock('path', () => ({

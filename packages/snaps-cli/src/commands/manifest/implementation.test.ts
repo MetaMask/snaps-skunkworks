@@ -6,8 +6,8 @@ import {
 import normalFs from 'fs';
 import ora from 'ora';
 
-import type * as webpack from '../../webpack';
 import { manifest } from './implementation';
+import type * as webpack from '../../webpack';
 
 const { promises: fs } = normalFs;
 

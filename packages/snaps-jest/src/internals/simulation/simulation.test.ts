@@ -10,15 +10,15 @@ import { AuxiliaryFileEncoding, text } from '@metamask/snaps-sdk';
 import { VirtualFile } from '@metamask/snaps-utils';
 import { getSnapManifest } from '@metamask/snaps-utils/test-utils';
 
+import { DEFAULT_SRP } from './constants';
+import { getHooks, handleInstallSnap, registerActions } from './simulation';
+import { createStore, setInterface } from './store';
 import {
   getMockOptions,
   getMockServer,
   getRestrictedSnapInterfaceControllerMessenger,
   getRootControllerMessenger,
 } from '../../test-utils';
-import { DEFAULT_SRP } from './constants';
-import { getHooks, handleInstallSnap, registerActions } from './simulation';
-import { createStore, setInterface } from './store';
 
 describe('handleInstallSnap', () => {
   it('installs a Snap and returns the execution service', async () => {

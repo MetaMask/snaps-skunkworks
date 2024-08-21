@@ -4,14 +4,14 @@ import { promisify } from 'util';
 import type { Compiler, Watching } from 'webpack';
 import { WebpackError, ProvidePlugin } from 'webpack';
 
-import * as evalImplementation from '../commands/eval/implementation';
-import { compile, getCompiler } from '../test-utils';
 import {
   SnapsBuiltInResolver,
   SnapsBundleWarningsPlugin,
   SnapsStatsPlugin,
   SnapsWatchPlugin,
 } from './plugins';
+import * as evalImplementation from '../commands/eval/implementation';
+import { compile, getCompiler } from '../test-utils';
 
 jest.dontMock('fs');
 jest.mock('../commands/eval/implementation');

@@ -1,6 +1,18 @@
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
+import {
+  checkManifest,
+  getSnapFilePaths,
+  getSnapFiles,
+  getSnapIcon,
+  getSnapSourceCode,
+  getWritableManifest,
+  runFixes,
+} from './manifest';
+import type { SnapManifest } from './validation';
+import { runValidators } from './validator';
+import type { ValidatorMeta } from './validator-types';
 import { readJsonFile } from '../fs';
 import {
   DEFAULT_SNAP_BUNDLE,
@@ -14,18 +26,6 @@ import {
   getMockSnapFiles,
 } from '../test-utils';
 import { NpmSnapFileNames } from '../types';
-import {
-  checkManifest,
-  getSnapFilePaths,
-  getSnapFiles,
-  getSnapIcon,
-  getSnapSourceCode,
-  getWritableManifest,
-  runFixes,
-} from './manifest';
-import type { SnapManifest } from './validation';
-import { runValidators } from './validator';
-import type { ValidatorMeta } from './validator-types';
 
 jest.mock('fs');
 

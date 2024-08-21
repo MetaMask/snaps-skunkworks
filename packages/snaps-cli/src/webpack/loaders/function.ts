@@ -18,7 +18,7 @@ export type FunctionLoaderOptions = {
  * @param content - The input file contents as a `Uint8Array`.
  * @returns The output of the function.
  */
-const loader: LoaderDefinitionFunction<FunctionLoaderOptions> = function (
+const loader: LoaderDefinitionFunction<FunctionLoaderOptions> = async function (
   content,
 ) {
   const { fn } = this.getOptions();

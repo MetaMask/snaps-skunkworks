@@ -6,12 +6,12 @@ import type { RequestArguments } from '@metamask/providers';
 import { StreamProvider } from '@metamask/providers/stream-provider';
 import { SNAP_STREAM_NAMES } from '@metamask/snaps-utils';
 
+import { SILENT_LOGGER } from './logger';
 import {
   assertEthereumOutboundRequest,
   proxyStreamProvider,
   withTeardown,
 } from '../utils';
-import { SILENT_LOGGER } from './logger';
 
 /**
  * Object walker test utility function.

@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/unambiguous
+// eslint-disable-next-line import-x/unambiguous
 declare namespace chrome.offscreen {
   export type Reason =
     | 'TESTING'

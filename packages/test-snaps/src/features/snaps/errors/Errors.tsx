@@ -2,10 +2,10 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
 
+import { ERRORS_SNAP_ID, ERRORS_SNAP_PORT, ERRORS_VERSION } from './constants';
 import { useInvokeMutation } from '../../../api';
 import { Result, Snap } from '../../../components';
 import { getSnapId } from '../../../utils';
-import { ERRORS_SNAP_ID, ERRORS_SNAP_PORT, ERRORS_VERSION } from './constants';
 
 export const Errors: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data, error }] = useInvokeMutation();

@@ -1,7 +1,7 @@
 import { List, Tabs } from '@chakra-ui/react';
 
-import { render } from '../../../utils';
 import { HistoryItem } from './HistoryItem';
+import { render } from '../../../utils';
 
 describe('HistoryItem', () => {
   it('renders', () => {

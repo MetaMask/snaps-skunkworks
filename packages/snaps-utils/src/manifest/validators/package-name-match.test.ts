@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { packageNameMatch } from './package-name-match';
 import { deepClone } from '../../deep-clone';
 import { getMockSnapFiles, getSnapManifest } from '../../test-utils';
-import { packageNameMatch } from './package-name-match';
 
 describe('packageNameMatch', () => {
   it('does nothing if name matches', async () => {

@@ -1,9 +1,9 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
+import { TransactionPrefill } from './TransactionPrefill';
 import { TRANSACTION_PRESETS } from '../presets';
 import type { TransactionFormData } from '../utils';
-import { TransactionPrefill } from './TransactionPrefill';
 
 export type TransactionPrefillsProps = {
   onClick: (prefill: TransactionFormData) => void;

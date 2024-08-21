@@ -35,20 +35,6 @@ import type { SagaIterator } from 'redux-saga';
 import { take } from 'redux-saga/effects';
 
 import {
-  assertIsAlertDialog,
-  assertIsConfirmationDialog,
-  assertIsCustomDialog,
-  assertIsPromptDialog,
-  assertCustomDialogHasFooter,
-  assertCustomDialogHasPartialFooter,
-  assertCustomDialogHasNoFooter,
-} from '../../helpers';
-import {
-  getMockOptions,
-  getRestrictedSnapInterfaceControllerMessenger,
-  getRootControllerMessenger,
-} from '../../test-utils';
-import {
   clickElement,
   getElement,
   getInterface,
@@ -62,6 +48,20 @@ import {
 } from './interface';
 import type { RunSagaFunction } from './store';
 import { createStore, resolveInterface, setInterface } from './store';
+import {
+  assertIsAlertDialog,
+  assertIsConfirmationDialog,
+  assertIsCustomDialog,
+  assertIsPromptDialog,
+  assertCustomDialogHasFooter,
+  assertCustomDialogHasPartialFooter,
+  assertCustomDialogHasNoFooter,
+} from '../../helpers';
+import {
+  getMockOptions,
+  getRestrictedSnapInterfaceControllerMessenger,
+  getRootControllerMessenger,
+} from '../../test-utils';
 
 /**
  * Wait for the `resolveInterface` action to be dispatched and return the

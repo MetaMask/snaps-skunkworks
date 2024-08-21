@@ -1,14 +1,14 @@
-import type { ExecutionServiceArgs } from '../AbstractExecutionService';
-import { ProxyExecutionService } from '../proxy/ProxyExecutionService';
 import type { WebViewInterface } from './WebViewMessageStream';
 import { WebViewMessageStream } from './WebViewMessageStream';
+import type { ExecutionServiceArgs } from '../AbstractExecutionService';
+import { ProxyExecutionService } from '../proxy/ProxyExecutionService';
 
 export type WebViewExecutionServiceArgs = ExecutionServiceArgs & {
   getWebView: () => Promise<WebViewInterface>;
 };
 
 export class WebViewExecutionService extends ProxyExecutionService {
-  #getWebView;
+  readonly #getWebView;
 
   constructor({
     messenger,
@@ -32,6 +32,7 @@ export class WebViewExecutionService extends ProxyExecutionService {
    * in a stream specific to the job.
    *
    * @param jobId - The job ID.
+   * @returns An object with the job ID and stream.
    */
   protected async initEnvStream(jobId: string) {
     // Ensure that the WebView has been loaded before we proceed.

@@ -131,6 +131,7 @@ export type MiddlewareHooks = {
  * provided execution service.
  * @param options.options - The simulation options.
  * @template Service - The type of the execution service.
+ * @returns An object containing values to interact with the simulation.
  */
 export async function handleInstallSnap<
   Service extends new (...args: any[]) => InstanceType<

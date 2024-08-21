@@ -21,9 +21,9 @@ type WebViewStreamArgs = {
  */
 
 export class WebViewMessageStream extends BasePostMessageStream {
-  #name;
+  readonly #name;
 
-  #target;
+  readonly #target;
 
   #webView: WebViewInterface | undefined;
 

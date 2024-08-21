@@ -5,9 +5,9 @@ import {
   JsonRpcEngine,
 } from '@metamask/json-rpc-engine';
 import { createEngineStream } from '@metamask/json-rpc-middleware-stream';
-import type { PermissionConstraint } from '@metamask/permission-controller';
-import {
-  SubjectType,
+import { SubjectType } from '@metamask/permission-controller';
+import type {
+  PermissionConstraint,
   type Caveat,
   type SubjectPermissions,
   type ValidPermission,
@@ -65,6 +65,14 @@ import fetchMock from 'jest-fetch-mock';
 import { pipeline } from 'readable-stream';
 import type { Duplex } from 'readable-stream';
 
+import { LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS } from './constants';
+import { SnapsRegistryStatus } from './registry';
+import type { SnapControllerState } from './SnapController';
+import {
+  SNAP_APPROVAL_INSTALL,
+  SNAP_APPROVAL_RESULT,
+  SNAP_APPROVAL_UPDATE,
+} from './SnapController';
 import { setupMultiplex } from '../services';
 import type { NodeThreadExecutionService } from '../services/node';
 import {
@@ -96,14 +104,6 @@ import {
   sleep,
 } from '../test-utils';
 import { delay } from '../utils';
-import { LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS } from './constants';
-import { SnapsRegistryStatus } from './registry';
-import type { SnapControllerState } from './SnapController';
-import {
-  SNAP_APPROVAL_INSTALL,
-  SNAP_APPROVAL_RESULT,
-  SNAP_APPROVAL_UPDATE,
-} from './SnapController';
 
 if (!('CryptoKey' in globalThis)) {
   // We can remove this once we drop Node 18
@@ -3869,7 +3869,7 @@ describe('SnapController', () => {
       // we need an rpc message handler function to be returned
       jest
         .spyOn(messenger, 'call')
-        .mockImplementation((method, ..._args: unknown[]) => {
+        .mockImplementation(async (method, ..._args: unknown[]) => {
           if (method === 'ExecutionService:executeSnap') {
             return deferredExecutePromise;
           } else if (method === 'ExecutionService:handleRpcRequest') {

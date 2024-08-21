@@ -2,8 +2,8 @@ import { Flex } from '@chakra-ui/react';
 import type { FunctionComponent, ReactNode } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Console } from '../console';
 import { Header, Sidebar } from './components';
+import { Console } from '../console';
 
 type LayoutProps = {
   children?: ReactNode;

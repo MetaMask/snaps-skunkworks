@@ -1,8 +1,8 @@
 import { Bold, Text } from '@metamask/snaps-sdk/jsx';
 import { getJsxChildren } from '@metamask/snaps-utils';
 
-import { SnapComponent } from '../features/renderer';
 import { renderTextChildren } from './render';
+import { SnapComponent } from '../features/renderer';
 
 describe('renderTextChildren', () => {
   it('returns a sting child', () => {

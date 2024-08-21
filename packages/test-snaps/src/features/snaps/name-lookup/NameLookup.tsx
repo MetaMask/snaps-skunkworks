@@ -1,11 +1,11 @@
 import type { FunctionComponent } from 'react';
 
-import { Snap } from '../../../components';
 import {
   NAME_LOOKUP_SNAP_ID,
   NAME_LOOKUP_SNAP_PORT,
   NAME_LOOKUP_VERSION,
 } from './constants';
+import { Snap } from '../../../components';
 
 export const NameLookup: FunctionComponent = () => {
   return (

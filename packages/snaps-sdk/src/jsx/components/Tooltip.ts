@@ -1,9 +1,9 @@
-import { createSnapComponent } from '../component';
 import type { StandardFormattingElement } from './formatting';
 import type { IconElement } from './Icon';
 import type { ImageElement } from './Image';
 import type { LinkElement } from './Link';
 import type { TextElement } from './Text';
+import { createSnapComponent } from '../component';
 
 export type TooltipChildren =
   | TextElement

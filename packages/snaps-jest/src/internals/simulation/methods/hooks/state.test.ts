@@ -1,12 +1,12 @@
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 
-import { getMockOptions } from '../../../../test-utils';
-import { createStore, getState, setState } from '../../store';
 import {
   getClearSnapStateMethodImplementation,
   getGetSnapStateMethodImplementation,
   getUpdateSnapStateMethodImplementation,
 } from './state';
+import { getMockOptions } from '../../../../test-utils';
+import { createStore, getState, setState } from '../../store';
 
 describe('getGetSnapStateMethodImplementation', () => {
   it('returns the implementation of the `getSnapState` hook', async () => {

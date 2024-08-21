@@ -1,7 +1,7 @@
 import { assert } from '@metamask/utils';
 
-import { withTeardown } from '../utils';
 import type { EndowmentFactoryOptions } from './commonEndowmentFactory';
+import { withTeardown } from '../utils';
 
 /**
  * This class wraps a Response object.
@@ -10,11 +10,11 @@ import type { EndowmentFactoryOptions } from './commonEndowmentFactory';
 class ResponseWrapper implements Response {
   readonly #teardownRef: { lastTeardown: number };
 
-  #ogResponse: Response;
+  readonly #ogResponse: Response;
 
-  #onStart: () => Promise<void>;
+  readonly #onStart: () => Promise<void>;
 
-  #onFinish: () => Promise<void>;
+  readonly #onFinish: () => Promise<void>;
 
   constructor(
     ogResponse: Response,

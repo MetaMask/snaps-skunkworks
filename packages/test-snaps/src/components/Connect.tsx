@@ -3,10 +3,10 @@ import type { ChangeEvent, FormEvent, FunctionComponent } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
+import { ButtonSpinner } from './ButtonSpinner';
 import packageJson from '../../package.json';
 import { useInstallSnapMutation } from '../api';
 import { useInstalled } from '../utils';
-import { ButtonSpinner } from './ButtonSpinner';
 
 type ConnectProps = {
   name: string;

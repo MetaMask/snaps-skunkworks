@@ -7,7 +7,7 @@ import { Root } from './components';
 import { createStore } from './store';
 import { IS_TEST_BUILD } from './utils';
 
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line import-x/no-unassigned-import
 import './assets/fonts/fonts.css';
 
 const rootElement = document.getElementById('root');

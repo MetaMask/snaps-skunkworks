@@ -1,11 +1,11 @@
 import { Box, Container, List, Stack, Text } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
-import { Icon } from '../../components';
-import { useSelector } from '../../hooks';
 import { Item, ManifestStatusIndicator } from './components';
 import { NavigationTag } from './components/NavigationTag';
 import { NAVIGATION_ITEMS } from './items';
+import { Icon } from '../../components';
+import { useSelector } from '../../hooks';
 
 /**
  * The navigation component, which holds the navigation buttons.

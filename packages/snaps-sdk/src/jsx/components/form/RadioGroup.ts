@@ -1,6 +1,6 @@
+import type { RadioElement } from './Radio';
 import type { SnapsChildren } from '../../component';
 import { createSnapComponent } from '../../component';
-import type { RadioElement } from './Radio';
 
 const TYPE = 'RadioGroup';
 

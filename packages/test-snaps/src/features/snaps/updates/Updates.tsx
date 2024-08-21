@@ -2,13 +2,13 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { useGetSnapsQuery, useInstallSnapMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
 import {
   UPDATES_SNAP_ID,
   UPDATES_SNAP_NEW_VERSION,
   UPDATES_SNAP_OLD_VERSION,
 } from './constants';
+import { useGetSnapsQuery, useInstallSnapMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
 
 export const Updates: FunctionComponent = () => {
   const [installSnap, { isLoading }] = useInstallSnapMutation();

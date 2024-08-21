@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { expectedFiles } from './expected-files';
 import { getMockSnapFiles } from '../../test-utils';
 import type { UnvalidatedSnapFiles } from '../../types';
-import { expectedFiles } from './expected-files';
 
 describe('expectedFiles', () => {
   it('does nothing if files exist', async () => {

@@ -1,5 +1,5 @@
-import { render } from '../utils';
 import { Author } from './Author';
+import { render } from '../utils';
 
 describe('Author', () => {
   it('renders', () => {

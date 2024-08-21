@@ -1,11 +1,11 @@
 import { isFile } from '@metamask/snaps-utils/node';
 
+import { watch } from './implementation';
 import type { ProcessedConfig, ProcessedWebpackConfig } from '../../config';
 import { CommandError } from '../../errors';
 import type { Steps } from '../../utils';
 import { executeSteps, info } from '../../utils';
 import { getServer } from '../../webpack';
-import { watch } from './implementation';
 
 type WatchOptions = {
   /**

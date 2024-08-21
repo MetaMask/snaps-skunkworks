@@ -2799,14 +2799,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@es-joy/jsdoccomment@npm:~0.36.0":
-  version: 0.36.0
-  resolution: "@es-joy/jsdoccomment@npm:0.36.0"
+"@es-joy/jsdoccomment@npm:~0.41.0":
+  version: 0.41.0
+  resolution: "@es-joy/jsdoccomment@npm:0.41.0"
   dependencies:
-    comment-parser: 1.3.1
-    esquery: ^1.4.0
-    jsdoc-type-pratt-parser: ~3.1.0
-  checksum: c2fa95bc01f6b2a0caa521adaa37562b10b12095b5308948f3e122880d2ae9684c09e5b0e0809ac3e31e17580886d2d3b41fbf4ff4831649efce8cba8e30cf5c
+    comment-parser: 1.4.1
+    esquery: ^1.5.0
+    jsdoc-type-pratt-parser: ~4.0.0
+  checksum: cfe0714027ff8fa82dad8c84f75af3f6df9d6797d60c289b8d3c259c5375c134bd5ca630beba0daed3adceef01a74f19e05052018f6b66ad6a4f483adf599c39
   languageName: node
   linkType: hard
 
@@ -3165,20 +3165,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "@eslint/eslintrc@npm:1.3.3"
+"@eslint-community/eslint-utils@npm:^4.1.2, @eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@eslint-community/eslint-utils@npm:4.4.0"
+  dependencies:
+    eslint-visitor-keys: ^3.3.0
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
+  checksum: cdfe3ae42b4f572cbfb46d20edafe6f36fc5fb52bf2d90875c58aefe226892b9677fef60820e2832caf864a326fe4fc225714c46e8389ccca04d5f9288aabd22
+  languageName: node
+  linkType: hard
+
+"@eslint-community/regexpp@npm:^4.11.0, @eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1":
+  version: 4.11.0
+  resolution: "@eslint-community/regexpp@npm:4.11.0"
+  checksum: 97d2fe46690b69417a551bd19a3dc53b6d9590d2295c43cc4c4e44e64131af541e2f4a44d5c12e87de990403654d3dae9d33600081f3a2f0386b368abc9111ec
+  languageName: node
+  linkType: hard
+
+"@eslint/eslintrc@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "@eslint/eslintrc@npm:2.1.4"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
-    espree: ^9.4.0
-    globals: ^13.15.0
+    espree: ^9.6.0
+    globals: ^13.19.0
     ignore: ^5.2.0
     import-fresh: ^3.2.1
     js-yaml: ^4.1.0
     minimatch: ^3.1.2
     strip-json-comments: ^3.1.1
-  checksum: f03e9d6727efd3e0719da2051ea80c0c73d20e28c171121527dbb868cd34232ca9c1d0525a66e517a404afea26624b1e47895b6a92474678418c2f50c9566694
+  checksum: 10957c7592b20ca0089262d8c2a8accbad14b4f6507e35416c32ee6b4dbf9cad67dfb77096bbd405405e9ada2b107f3797fe94362e1c55e0b09d6e90dd149127
+  languageName: node
+  linkType: hard
+
+"@eslint/js@npm:8.57.0":
+  version: 8.57.0
+  resolution: "@eslint/js@npm:8.57.0"
+  checksum: 315dc65b0e9893e2bff139bddace7ea601ad77ed47b4550e73da8c9c2d2766c7a575c3cddf17ef85b8fd6a36ff34f91729d0dcca56e73ca887c10df91a41b0bb
   languageName: node
   linkType: hard
 
@@ -3278,14 +3303,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.11.6":
-  version: 0.11.7
-  resolution: "@humanwhocodes/config-array@npm:0.11.7"
+"@humanwhocodes/config-array@npm:^0.11.14":
+  version: 0.11.14
+  resolution: "@humanwhocodes/config-array@npm:0.11.14"
   dependencies:
-    "@humanwhocodes/object-schema": ^1.2.1
-    debug: ^4.1.1
+    "@humanwhocodes/object-schema": ^2.0.2
+    debug: ^4.3.1
     minimatch: ^3.0.5
-  checksum: cf506dc45d9488af7fbf108ea6ac2151ba1a25e6d2b94b9b4fc36d2c1e4099b89ff560296dbfa13947e44604d4ca4a90d97a4fb167370bf8dd01a6ca2b6d83ac
+  checksum: 861ccce9eaea5de19546653bccf75bf09fe878bc39c3aab00aeee2d2a0e654516adad38dd1098aab5e3af0145bbcbf3f309bdf4d964f8dab9dcd5834ae4c02f2
   languageName: node
   linkType: hard
 
@@ -3296,10 +3321,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/object-schema@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@humanwhocodes/object-schema@npm:1.2.1"
-  checksum: a824a1ec31591231e4bad5787641f59e9633827d0a2eaae131a288d33c9ef0290bd16fda8da6f7c0fcb014147865d12118df10db57f27f41e20da92369fcb3f1
+"@humanwhocodes/object-schema@npm:^2.0.2":
+  version: 2.0.3
+  resolution: "@humanwhocodes/object-schema@npm:2.0.3"
+  checksum: d3b78f6c5831888c6ecc899df0d03bcc25d46f3ad26a11d7ea52944dc36a35ef543fad965322174238d677a43d5c694434f6607532cff7077062513ad7022631
   languageName: node
   linkType: hard
 
@@ -3881,10 +3906,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/key-tree": ^9.1.2
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
@@ -3894,16 +3919,16 @@ __metadata:
     "@noble/secp256k1": ^1.7.1
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -3921,10 +3946,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/key-tree": ^9.1.2
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
@@ -3933,16 +3958,16 @@ __metadata:
     "@noble/bls12-381": ^1.2.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -3970,25 +3995,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4007,27 +4032,27 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-browserify-plugin": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     babelify: ^10.0.0
     browserify: ^17.0.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4045,25 +4070,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4082,10 +4107,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/key-tree": ^9.1.2
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
@@ -4094,16 +4119,16 @@ __metadata:
     "@noble/hashes": ^1.3.1
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4138,10 +4163,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/key-tree": ^9.1.2
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
@@ -4151,17 +4176,17 @@ __metadata:
     "@noble/hashes": ^1.3.1
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     async-mutex: ^0.4.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4200,10 +4225,10 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-utils": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
@@ -4211,16 +4236,16 @@ __metadata:
     "@types/node": 18.14.2
     "@types/rimraf": ^3.0.0
     "@types/yargs": ^17.0.24
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4247,25 +4272,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4284,25 +4309,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4320,25 +4345,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4359,53 +4384,53 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/eslint-config-jest@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "@metamask/eslint-config-jest@npm:12.1.0"
+"@metamask/eslint-config-jest@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@metamask/eslint-config-jest@npm:13.0.0"
   peerDependencies:
-    "@metamask/eslint-config": ^12.0.0
-    eslint: ^8.27.0
-    eslint-plugin-jest: ^27.1.5
-  checksum: 98f60234412051d429237dbf32b147a648a0e3b6adacafda24999ec9eb8096155c8000c62204415100c97980cc3bfe0a0fe19e4c318b8bb529eaf57e9f96e680
+    "@metamask/eslint-config": ^13.0.0
+    eslint: ^8.57.0
+    eslint-plugin-jest: ^27.9.0
+  checksum: 1680646add66f3da2e802d41babcbd9c2c164e3eeb4cec8b37ba322591ba2e25937616362a83a8e72cba98932b746a9b8bd414d2787e0ee08da91e75fde6bff3
   languageName: node
   linkType: hard
 
-"@metamask/eslint-config-nodejs@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "@metamask/eslint-config-nodejs@npm:12.1.0"
+"@metamask/eslint-config-nodejs@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@metamask/eslint-config-nodejs@npm:13.0.0"
   peerDependencies:
-    "@metamask/eslint-config": ^12.0.0
-    eslint: ^8.27.0
-    eslint-plugin-n: ^15.7.0
-  checksum: f4387ba5b0a5173197b960dc59b8e29b7ef02754107b61c3af98f505397048717bd8ba5f9d09555740886c968fc0898520c26899268886f1967bc80f93c26919
+    "@metamask/eslint-config": ^13.0.0
+    eslint: ^8.57.0
+    eslint-plugin-n: ^16.6.2
+  checksum: 8a21804b7525cef73ec5302b40811b02628f0e2a93ab60932dd23752bb97d6f58f5db1500cd96fd41c5b0a40eb3aa06766215a51c9d5d8a5ffee14529b63bc9a
   languageName: node
   linkType: hard
 
-"@metamask/eslint-config-typescript@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "@metamask/eslint-config-typescript@npm:12.1.0"
+"@metamask/eslint-config-typescript@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@metamask/eslint-config-typescript@npm:13.0.0"
   peerDependencies:
-    "@metamask/eslint-config": ^12.0.0
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
-    eslint: ^8.27.0
-    typescript: ~4.8.4 || ~5.0 || ~5.1
-  checksum: a854574e4c2ca7b036d0a2a454aecb93ba538d1b92c1615878dfe06a14972df6af2fcdd5e2911ef369b3b2eeb04b8c6879bd037c618a35f6cb98950cdab84d50
+    "@metamask/eslint-config": ^13.0.0
+    "@typescript-eslint/eslint-plugin": ^8.1.0
+    "@typescript-eslint/parser": ^8.1.0
+    eslint: ^8.57.0
+    typescript: ">=4.8.4 <5.6"
+  checksum: d05f1be8f86edbaf6961176379939a1e4a0f51bc7c32430589b25333726372cea56b9e5af00a735f248ac4424aa10496989fc92e32bfc3194a963fd3c5d0fde5
   languageName: node
   linkType: hard
 
-"@metamask/eslint-config@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "@metamask/eslint-config@npm:12.1.0"
+"@metamask/eslint-config@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "@metamask/eslint-config@npm:13.0.0"
   peerDependencies:
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-jsdoc: ^39.6.2 || ^41
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jsdoc: ">=43.0.7 <48"
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     prettier: ^2.7.1
-  checksum: 03f11538241f82eadb0a61e35c4f1ed3bddc40599188f7af5ee2a1eca0ea6dc9a9e2b5096f59071a41a1a3ceb1ecccff14936ea0712dd20ad0ea66e57080b2a7
+  checksum: a0375b0692589984d9a93ce10bce1b6fe7b0dfe2eca5237279e8bf92ba338bde9802a8d2aae255bd410ef7e9c56ce78022193a6684f17fcd01509b9eb389a4d1
   languageName: node
   linkType: hard
 
@@ -4485,26 +4510,26 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4522,25 +4547,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     ethers: ^6.3.0
@@ -4571,19 +4596,19 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     prettier: ^2.7.1
@@ -4600,26 +4625,26 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4638,10 +4663,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
@@ -4649,16 +4674,16 @@ __metadata:
     "@noble/bls12-381": ^1.2.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4676,25 +4701,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4712,25 +4737,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4748,25 +4773,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4785,26 +4810,26 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4822,26 +4847,26 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4859,19 +4884,19 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     prettier: ^2.7.1
@@ -4899,25 +4924,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4947,10 +4972,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/rpc-errors": ^6.3.1
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
@@ -4958,16 +4983,16 @@ __metadata:
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -4998,25 +5023,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5034,25 +5059,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5070,25 +5095,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5106,25 +5131,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5142,10 +5167,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-controllers": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
@@ -5153,16 +5178,16 @@ __metadata:
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5180,25 +5205,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5303,10 +5328,10 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-rollup-plugin": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
@@ -5316,16 +5341,16 @@ __metadata:
     "@rollup/plugin-terser": ^0.4.3
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5371,25 +5396,25 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5413,29 +5438,29 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-utils": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
     "@types/browserify": ^12.0.37
     "@types/convert-source-map": ^1.5.2
     "@types/jest": ^27.5.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     browserify: ^17.0.0
     concat-stream: ^2.0.0
     convert-source-map: ^1.8.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5464,10 +5489,10 @@ __metadata:
     "@babel/preset-typescript": ^7.23.2
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/snaps-utils": "workspace:^"
     "@metamask/snaps-webpack-plugin": "workspace:^"
@@ -5481,8 +5506,8 @@ __metadata:
     "@types/rimraf": ^3.0.0
     "@types/serve-handler": ^6.1.0
     "@types/yargs": ^17.0.24
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     assert: ^2.0.0
     babelify: ^10.0.0
     browserify: ^17.0.0
@@ -5496,12 +5521,12 @@ __metadata:
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
     domain-browser: ^4.22.0
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     events: ^3.3.0
@@ -5556,10 +5581,10 @@ __metadata:
     "@metamask/auto-changelog": ^3.4.4
     "@metamask/base-controller": ^6.0.2
     "@metamask/browser-passworder": ^5.0.0
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/json-rpc-engine": ^9.0.2
     "@metamask/json-rpc-middleware-stream": ^8.0.2
     "@metamask/object-multiplex": ^2.0.0
@@ -5583,8 +5608,8 @@ __metadata:
     "@types/node": 18.14.2
     "@types/readable-stream": ^2.3.15
     "@types/tar-stream": ^3.1.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     "@wdio/browser-runner": ^8.19.0
     "@wdio/cli": ^8.19.0
     "@wdio/globals": ^8.19.0
@@ -5597,12 +5622,12 @@ __metadata:
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
     esbuild: ^0.18.10
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     expect-webdriverio: ^4.4.1
@@ -5651,10 +5676,10 @@ __metadata:
     "@lavamoat/lavapack": ^6.1.1
     "@lavamoat/lavatube": ^1.0.0
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/json-rpc-engine": ^9.0.2
     "@metamask/object-multiplex": ^2.0.0
     "@metamask/post-message-stream": ^8.1.0
@@ -5669,8 +5694,8 @@ __metadata:
     "@types/express": ^4.17.17
     "@types/jest": ^27.5.1
     "@types/node": 18.14.2
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     "@wdio/browser-runner": ^8.19.0
     "@wdio/cli": ^8.19.0
     "@wdio/globals": ^8.19.0
@@ -5683,12 +5708,12 @@ __metadata:
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
     esbuild: ^0.18.10
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     expect-webdriverio: ^4.4.1
@@ -5731,10 +5756,10 @@ __metadata:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
     "@metamask/base-controller": ^6.0.2
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/eth-json-rpc-middleware": ^13.0.0
     "@metamask/json-rpc-engine": ^9.0.2
     "@metamask/json-rpc-middleware-stream": ^8.0.2
@@ -5753,16 +5778,16 @@ __metadata:
     "@types/jest": ^27.5.1
     "@types/mime": ^3.0.0
     "@types/semver": ^7.5.0
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     express: ^4.18.2
@@ -5800,25 +5825,25 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-utils": "workspace:^"
     "@rollup/plugin-virtual": ^2.1.0
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
     "@types/jest": ^27.5.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5839,10 +5864,10 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/json-rpc-engine": ^9.0.2
     "@metamask/key-tree": ^9.1.2
     "@metamask/permission-controller": ^11.0.0
@@ -5855,16 +5880,16 @@ __metadata:
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
     "@types/node": 18.14.2
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -5883,10 +5908,10 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/key-tree": ^9.1.2
     "@metamask/providers": ^17.1.2
     "@metamask/rpc-errors": ^6.3.1
@@ -5894,16 +5919,16 @@ __metadata:
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@types/jest": ^27.5.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     expect-type: ^0.17.3
@@ -5930,11 +5955,11 @@ __metadata:
     "@ethersproject/units": ^5.7.0
     "@metamask/auto-changelog": ^3.4.4
     "@metamask/base-controller": ^6.0.2
-    "@metamask/eslint-config": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
     "@metamask/eslint-config-browser": ^11.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/eth-json-rpc-middleware": ^13.0.0
     "@metamask/json-rpc-engine": ^9.0.2
     "@metamask/json-rpc-middleware-stream": ^8.0.2
@@ -5965,20 +5990,20 @@ __metadata:
     "@types/react": ^18.2.5
     "@types/react-dom": ^18.2.3
     "@types/webpack-env": ^1.18.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     assert: ^2.0.0
     copy-webpack-plugin: ^11.0.0
     css-loader: ^6.7.3
     date-fns: ^2.30.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     eslint-plugin-react: ^7.32.2
@@ -6041,10 +6066,10 @@ __metadata:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
     "@metamask/base-controller": ^6.0.2
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/key-tree": ^9.1.2
     "@metamask/permission-controller": ^11.0.0
     "@metamask/post-message-stream": ^8.1.0
@@ -6063,8 +6088,8 @@ __metadata:
     "@types/node": 18.14.2
     "@types/semver": ^7.5.0
     "@types/validate-npm-package-name": ^4.0.0
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     "@wdio/browser-runner": ^8.19.0
     "@wdio/cli": ^8.19.0
     "@wdio/globals": ^8.19.0
@@ -6077,12 +6102,12 @@ __metadata:
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
     esbuild: ^0.18.10
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     expect-webdriverio: ^4.4.1
@@ -6119,10 +6144,10 @@ __metadata:
   dependencies:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/snaps-utils": "workspace:^"
     "@metamask/utils": ^9.1.0
@@ -6130,16 +6155,16 @@ __metadata:
     "@swc/jest": ^0.2.26
     "@types/jest": ^27.5.1
     "@types/webpack-sources": ^3.2.0
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -6180,10 +6205,10 @@ __metadata:
     "@metamask/cronjob-example-snap": "workspace:^"
     "@metamask/dialog-example-snap": "workspace:^"
     "@metamask/error-example-snap": "workspace:^"
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/ethereum-provider-example-snap": "workspace:^"
     "@metamask/ethers-js-example-snap": "workspace:^"
     "@metamask/file-upload-example-snap": "workspace:^"
@@ -6214,20 +6239,20 @@ __metadata:
     "@types/jest": ^27.5.1
     "@types/node": 18.14.2
     "@types/webpack-env": ^1.18.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     bootstrap: ^5.2.2
     copy-webpack-plugin: ^11.0.0
     cross-env: ^7.0.3
     css-loader: ^6.7.3
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     favicons: ^7.1.2
@@ -6296,26 +6321,26 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-cli": "workspace:^"
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     assemblyscript: ^0.27.5
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -6333,26 +6358,26 @@ __metadata:
     "@jest/globals": ^29.5.0
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/snaps-jest": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/snaps-webpack-plugin": "workspace:^"
     "@swc/core": 1.3.78
     "@swc/jest": ^0.2.26
     "@types/webpack-env": ^1.18.1
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     deepmerge: ^4.2.2
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     jest: ^29.0.2
@@ -7748,10 +7773,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
-  version: 7.0.11
-  resolution: "@types/json-schema@npm:7.0.11"
-  checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d
+"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.12, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
+  version: 7.0.15
+  resolution: "@types/json-schema@npm:7.0.15"
+  checksum: 97ed0cb44d4070aecea772b7b2e2ed971e10c81ec87dd4ecc160322ffa55ff330dace1793489540e3e318d90942064bb697cc0f8989391797792d919737b3b98
   languageName: node
   linkType: hard
 
@@ -8153,43 +8178,46 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.42.1":
-  version: 5.43.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:5.43.0"
+"@typescript-eslint/eslint-plugin@npm:^6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:6.21.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.43.0
-    "@typescript-eslint/type-utils": 5.43.0
-    "@typescript-eslint/utils": 5.43.0
+    "@eslint-community/regexpp": ^4.5.1
+    "@typescript-eslint/scope-manager": 6.21.0
+    "@typescript-eslint/type-utils": 6.21.0
+    "@typescript-eslint/utils": 6.21.0
+    "@typescript-eslint/visitor-keys": 6.21.0
     debug: ^4.3.4
-    ignore: ^5.2.0
-    natural-compare-lite: ^1.4.0
-    regexpp: ^3.2.0
-    semver: ^7.3.7
-    tsutils: ^3.21.0
+    graphemer: ^1.4.0
+    ignore: ^5.2.4
+    natural-compare: ^1.4.0
+    semver: ^7.5.4
+    ts-api-utils: ^1.0.1
   peerDependencies:
-    "@typescript-eslint/parser": ^5.0.0
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+    "@typescript-eslint/parser": ^6.0.0 || ^6.0.0-alpha
+    eslint: ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: aa0e9bcd9982e9601ada2088f46c1e9389abd31ceaf6cd1d492684fd711a67d595d4c95d97ba14081c2ea7eb3b98a9ebb33f91ef008e7450ce2f70b2a8ec4309
+  checksum: 5ef2c502255e643e98051e87eb682c2a257e87afd8ec3b9f6274277615e1c2caf3131b352244cfb1987b8b2c415645eeacb9113fa841fc4c9b2ac46e8aed6efd
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.42.1":
-  version: 5.43.0
-  resolution: "@typescript-eslint/parser@npm:5.43.0"
+"@typescript-eslint/parser@npm:^6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/parser@npm:6.21.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.43.0
-    "@typescript-eslint/types": 5.43.0
-    "@typescript-eslint/typescript-estree": 5.43.0
+    "@typescript-eslint/scope-manager": 6.21.0
+    "@typescript-eslint/types": 6.21.0
+    "@typescript-eslint/typescript-estree": 6.21.0
+    "@typescript-eslint/visitor-keys": 6.21.0
     debug: ^4.3.4
   peerDependencies:
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+    eslint: ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: a28e0ef2807f1c3381c6dc1d9ddfd83ea8db657d3f808511adf13023b469ed64fc09619e05d7f68746b05ea68770a0882883c77ce908682965ba266f95e168c9
+  checksum: 162fe3a867eeeffda7328bce32dae45b52283c68c8cb23258fb9f44971f761991af61f71b8c9fe1aa389e93dfe6386f8509c1273d870736c507d76dd40647b68
   languageName: node
   linkType: hard
 
@@ -8203,20 +8231,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:5.43.0":
-  version: 5.43.0
-  resolution: "@typescript-eslint/type-utils@npm:5.43.0"
+"@typescript-eslint/scope-manager@npm:6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/scope-manager@npm:6.21.0"
   dependencies:
-    "@typescript-eslint/typescript-estree": 5.43.0
-    "@typescript-eslint/utils": 5.43.0
+    "@typescript-eslint/types": 6.21.0
+    "@typescript-eslint/visitor-keys": 6.21.0
+  checksum: 71028b757da9694528c4c3294a96cc80bc7d396e383a405eab3bc224cda7341b88e0fc292120b35d3f31f47beac69f7083196c70616434072fbcd3d3e62d3376
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:7.18.0":
+  version: 7.18.0
+  resolution: "@typescript-eslint/scope-manager@npm:7.18.0"
+  dependencies:
+    "@typescript-eslint/types": 7.18.0
+    "@typescript-eslint/visitor-keys": 7.18.0
+  checksum: b982c6ac13d8c86bb3b949c6b4e465f3f60557c2ccf4cc229799827d462df56b9e4d3eaed7711d79b875422fc3d71ec1ebcb5195db72134d07c619e3c5506b57
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/type-utils@npm:6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/type-utils@npm:6.21.0"
+  dependencies:
+    "@typescript-eslint/typescript-estree": 6.21.0
+    "@typescript-eslint/utils": 6.21.0
     debug: ^4.3.4
-    tsutils: ^3.21.0
+    ts-api-utils: ^1.0.1
   peerDependencies:
-    eslint: "*"
+    eslint: ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 08dbc0b194d0ef1454a95d76c082503e04d9957e89a056068002e233f8d98113f50b2707f7c4b9b44f428e223d5b4485ee2b4df4e0cde354827c5edc92ede973
+  checksum: 77025473f4d80acf1fafcce99c5c283e557686a61861febeba9c9913331f8a41e930bf5cd8b7a54db502a57b6eb8ea6d155cbd4f41349ed00e3d7aeb1f477ddc
   languageName: node
   linkType: hard
 
@@ -8224,6 +8272,20 @@ __metadata:
   version: 5.43.0
   resolution: "@typescript-eslint/types@npm:5.43.0"
   checksum: fc5e5431c305feee4a3faae84f34df482e08d74b910a6f9376b01326c682ceefeeb0e270d03d7778787bc94ef05b3b85ee6d3c9d732290fbdb4a67ae1b110226
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/types@npm:6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/types@npm:6.21.0"
+  checksum: 9501b47d7403417af95fc1fb72b2038c5ac46feac0e1598a46bcb43e56a606c387e9dcd8a2a0abe174c91b509f2d2a8078b093786219eb9a01ab2fbf9ee7b684
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/types@npm:7.18.0":
+  version: 7.18.0
+  resolution: "@typescript-eslint/types@npm:7.18.0"
+  checksum: 7df2750cd146a0acd2d843208d69f153b458e024bbe12aab9e441ad2c56f47de3ddfeb329c4d1ea0079e2577fea4b8c1c1ce15315a8d49044586b04fedfe7a4d
   languageName: node
   linkType: hard
 
@@ -8245,7 +8307,62 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.43.0, @typescript-eslint/utils@npm:^5.10.0":
+"@typescript-eslint/typescript-estree@npm:6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/typescript-estree@npm:6.21.0"
+  dependencies:
+    "@typescript-eslint/types": 6.21.0
+    "@typescript-eslint/visitor-keys": 6.21.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    minimatch: 9.0.3
+    semver: ^7.5.4
+    ts-api-utils: ^1.0.1
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: dec02dc107c4a541e14fb0c96148f3764b92117c3b635db3a577b5a56fc48df7a556fa853fb82b07c0663b4bf2c484c9f245c28ba3e17e5cb0918ea4cab2ea21
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:7.18.0":
+  version: 7.18.0
+  resolution: "@typescript-eslint/typescript-estree@npm:7.18.0"
+  dependencies:
+    "@typescript-eslint/types": 7.18.0
+    "@typescript-eslint/visitor-keys": 7.18.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    minimatch: ^9.0.4
+    semver: ^7.6.0
+    ts-api-utils: ^1.3.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: c82d22ec9654973944f779eb4eb94c52f4a6eafaccce2f0231ff7757313f3a0d0256c3252f6dfe6d43f57171d09656478acb49a629a9d0c193fb959bc3f36116
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/utils@npm:6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/utils@npm:6.21.0"
+  dependencies:
+    "@eslint-community/eslint-utils": ^4.4.0
+    "@types/json-schema": ^7.0.12
+    "@types/semver": ^7.5.0
+    "@typescript-eslint/scope-manager": 6.21.0
+    "@typescript-eslint/types": 6.21.0
+    "@typescript-eslint/typescript-estree": 6.21.0
+    semver: ^7.5.4
+  peerDependencies:
+    eslint: ^7.0.0 || ^8.0.0
+  checksum: b129b3a4aebec8468259f4589985cb59ea808afbfdb9c54f02fad11e17d185e2bf72bb332f7c36ec3c09b31f18fc41368678b076323e6e019d06f74ee93f7bf2
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/utils@npm:^5.10.0":
   version: 5.43.0
   resolution: "@typescript-eslint/utils@npm:5.43.0"
   dependencies:
@@ -8263,6 +8380,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/utils@npm:^7.4.0":
+  version: 7.18.0
+  resolution: "@typescript-eslint/utils@npm:7.18.0"
+  dependencies:
+    "@eslint-community/eslint-utils": ^4.4.0
+    "@typescript-eslint/scope-manager": 7.18.0
+    "@typescript-eslint/types": 7.18.0
+    "@typescript-eslint/typescript-estree": 7.18.0
+  peerDependencies:
+    eslint: ^8.56.0
+  checksum: 751dbc816dab8454b7dc6b26a56671dbec08e3f4ef94c2661ce1c0fc48fa2d05a64e03efe24cba2c22d03ba943cd3c5c7a5e1b7b03bbb446728aec1c640bd767
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/visitor-keys@npm:5.43.0":
   version: 5.43.0
   resolution: "@typescript-eslint/visitor-keys@npm:5.43.0"
@@ -8270,6 +8401,33 @@ __metadata:
     "@typescript-eslint/types": 5.43.0
     eslint-visitor-keys: ^3.3.0
   checksum: 4820679e50096dcdaadc7c95d32e5dca3ba8510acf1a865e283822bae3940a2faec02ad8abe793f8a25f75b600f1e7215e1fd3b3ba73779eff737fa90d092550
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:6.21.0":
+  version: 6.21.0
+  resolution: "@typescript-eslint/visitor-keys@npm:6.21.0"
+  dependencies:
+    "@typescript-eslint/types": 6.21.0
+    eslint-visitor-keys: ^3.4.1
+  checksum: 67c7e6003d5af042d8703d11538fca9d76899f0119130b373402819ae43f0bc90d18656aa7add25a24427ccf1a0efd0804157ba83b0d4e145f06107d7d1b7433
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:7.18.0":
+  version: 7.18.0
+  resolution: "@typescript-eslint/visitor-keys@npm:7.18.0"
+  dependencies:
+    "@typescript-eslint/types": 7.18.0
+    eslint-visitor-keys: ^3.4.3
+  checksum: 6e806a7cdb424c5498ea187a5a11d0fef7e4602a631be413e7d521e5aec1ab46ba00c76cfb18020adaa0a8c9802354a163bfa0deb74baa7d555526c7517bb158
+  languageName: node
+  linkType: hard
+
+"@ungap/structured-clone@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@ungap/structured-clone@npm:1.2.0"
+  checksum: 4f656b7b4672f2ce6e272f2427d8b0824ed11546a601d8d5412b9d7704e83db38a8d9f402ecdf2b9063fc164af842ad0ec4a55819f621ed7e7ea4d1efcc74524
   languageName: node
   linkType: hard
 
@@ -9026,7 +9184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^6.10.0, ajv@npm:^6.12.4, ajv@npm:^6.12.5":
+"ajv@npm:^6.12.4, ajv@npm:^6.12.5":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
   dependencies:
@@ -9202,6 +9360,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"are-docs-informative@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "are-docs-informative@npm:0.0.2"
+  checksum: 7a48ca90d66e29afebc4387d7029d86cfe97bad7e796c8e7de01309e02dcfc027250231c02d4ca208d2984170d09026390b946df5d3d02ac638ab35f74501c74
+  languageName: node
+  linkType: hard
+
 "are-we-there-yet@npm:^3.0.0":
   version: 3.0.0
   resolution: "are-we-there-yet@npm:3.0.0"
@@ -9281,7 +9446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-includes@npm:^3.1.4, array-includes@npm:^3.1.5, array-includes@npm:^3.1.6":
+"array-includes@npm:^3.1.5, array-includes@npm:^3.1.6":
   version: 3.1.6
   resolution: "array-includes@npm:3.1.6"
   dependencies:
@@ -9298,18 +9463,6 @@ __metadata:
   version: 2.1.0
   resolution: "array-union@npm:2.1.0"
   checksum: 5bee12395cba82da674931df6d0fea23c4aa4660cb3b338ced9f828782a65caa232573e6bf3968f23e0c5eb301764a382cef2f128b170a9dc59de0e36c39f98d
-  languageName: node
-  linkType: hard
-
-"array.prototype.flat@npm:^1.2.5":
-  version: 1.3.1
-  resolution: "array.prototype.flat@npm:1.3.1"
-  dependencies:
-    call-bind: ^1.0.2
-    define-properties: ^1.1.4
-    es-abstract: ^1.20.4
-    es-shim-unscopables: ^1.0.0
-  checksum: 5a8415949df79bf6e01afd7e8839bbde5a3581300e8ad5d8449dea52639e9e59b26a467665622783697917b43bf39940a6e621877c7dd9b3d1c1f97484b9b88b
   languageName: node
   linkType: hard
 
@@ -10770,10 +10923,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"comment-parser@npm:1.3.1":
-  version: 1.3.1
-  resolution: "comment-parser@npm:1.3.1"
-  checksum: 421e6a113a3afd548500e7174ab46a2049dccf92e82bbaa3b209031b1bdf97552aabfa1ae2a120c0b62df17e1ba70e0d8b05d68504fee78e1ef974c59bcfe718
+"comment-parser@npm:1.4.1":
+  version: 1.4.1
+  resolution: "comment-parser@npm:1.4.1"
+  checksum: e0f6f60c5139689c4b1b208ea63e0730d9195a778e90dd909205f74f00b39eb0ead05374701ec5e5c29d6f28eb778cd7bc41c1366ab1d271907f1def132d6bf1
   languageName: node
   linkType: hard
 
@@ -11309,7 +11462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:2.6.9, debug@npm:^2.6.9":
+"debug@npm:2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
   dependencies:
@@ -12659,6 +12812,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-compat-utils@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "eslint-compat-utils@npm:0.5.1"
+  dependencies:
+    semver: ^7.5.4
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: beccf2a5bd7c7974e3584b269f8a02667c83bca64cfd4c866f3055867f187e78b00ee826721765bdee9b13efaaa248f8068c581f7bb05803e8f47abb116e68fc
+  languageName: node
+  linkType: hard
+
 "eslint-config-prettier@npm:^8.5.0":
   version: 8.5.0
   resolution: "eslint-config-prettier@npm:8.5.0"
@@ -12670,112 +12834,105 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-node@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "eslint-import-resolver-node@npm:0.3.6"
+"eslint-import-resolver-node@npm:^0.3.9":
+  version: 0.3.9
+  resolution: "eslint-import-resolver-node@npm:0.3.9"
   dependencies:
     debug: ^3.2.7
-    resolve: ^1.20.0
-  checksum: 6266733af1e112970e855a5bcc2d2058fb5ae16ad2a6d400705a86b29552b36131ffc5581b744c23d550de844206fb55e9193691619ee4dbf225c4bde526b1c8
+    is-core-module: ^2.13.0
+    resolve: ^1.22.4
+  checksum: 439b91271236b452d478d0522a44482e8c8540bf9df9bd744062ebb89ab45727a3acd03366a6ba2bdbcde8f9f718bab7fe8db64688aca75acf37e04eafd25e22
   languageName: node
   linkType: hard
 
-"eslint-module-utils@npm:^2.7.3":
-  version: 2.7.4
-  resolution: "eslint-module-utils@npm:2.7.4"
+"eslint-plugin-es-x@npm:^7.5.0":
+  version: 7.8.0
+  resolution: "eslint-plugin-es-x@npm:7.8.0"
   dependencies:
-    debug: ^3.2.7
-  peerDependenciesMeta:
-    eslint:
-      optional: true
-  checksum: 5da13645daff145a5c922896b258f8bba560722c3767254e458d894ff5fbb505d6dfd945bffa932a5b0ae06714da2379bd41011c4c20d2d59cc83e23895360f7
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-es@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "eslint-plugin-es@npm:4.1.0"
-  dependencies:
-    eslint-utils: ^2.0.0
-    regexpp: ^3.0.0
+    "@eslint-community/eslint-utils": ^4.1.2
+    "@eslint-community/regexpp": ^4.11.0
+    eslint-compat-utils: ^0.5.1
   peerDependencies:
-    eslint: ">=4.19.1"
-  checksum: 26b87a216d3625612b1d3ca8653ac8a1d261046d2a973bb0eb2759070267d2bfb0509051facdeb5ae03dc8dfb51a434be23aff7309a752ca901d637da535677f
+    eslint: ">=8"
+  checksum: c30fc6bd94f86781eaf34dec59e7d52ee68b8a12305ae76222d8d0ff6cc0a5c94e8306ed079b4234d64f7464bcd162a5fef59e7cc69a978ba77950e0395c79f8
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.26.0":
-  version: 2.26.0
-  resolution: "eslint-plugin-import@npm:2.26.0"
+"eslint-plugin-import-x@npm:^0.5.1":
+  version: 0.5.3
+  resolution: "eslint-plugin-import-x@npm:0.5.3"
   dependencies:
-    array-includes: ^3.1.4
-    array.prototype.flat: ^1.2.5
-    debug: ^2.6.9
-    doctrine: ^2.1.0
-    eslint-import-resolver-node: ^0.3.6
-    eslint-module-utils: ^2.7.3
-    has: ^1.0.3
-    is-core-module: ^2.8.1
+    "@typescript-eslint/utils": ^7.4.0
+    debug: ^4.3.4
+    doctrine: ^3.0.0
+    eslint-import-resolver-node: ^0.3.9
+    get-tsconfig: ^4.7.3
     is-glob: ^4.0.3
-    minimatch: ^3.1.2
-    object.values: ^1.1.5
-    resolve: ^1.22.0
-    tsconfig-paths: ^3.14.1
+    minimatch: ^9.0.3
+    semver: ^7.6.0
+    stable-hash: ^0.0.4
+    tslib: ^2.6.2
   peerDependencies:
-    eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
-  checksum: 0bf77ad80339554481eafa2b1967449e1f816b94c7a6f9614ce33fb4083c4e6c050f10d241dd50b4975d47922880a34de1e42ea9d8e6fd663ebb768baa67e655
+    eslint: ^8.56.0 || ^9.0.0-0
+  checksum: b30039a8416cdbb2f3cc6d32efc631f55e7cc677830b37e204a845f872cad3b9a07ef4313d353068df9474f9ae4f9a101d64f0287fd7f6832778ba78e12fde15
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^27.1.5":
-  version: 27.1.5
-  resolution: "eslint-plugin-jest@npm:27.1.5"
+"eslint-plugin-jest@npm:^27.9.0":
+  version: 27.9.0
+  resolution: "eslint-plugin-jest@npm:27.9.0"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^5.0.0
+    "@typescript-eslint/eslint-plugin": ^5.0.0 || ^6.0.0 || ^7.0.0
     eslint: ^7.0.0 || ^8.0.0
+    jest: "*"
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
     jest:
       optional: true
-  checksum: 7c9de765793f7161afa0bdcdce67f4d072944152880fa638b25d228188dcee47a4b4aada26c57db72bc10193c96a1979e17afb8a7c3e400e961d8adfbf23ddbe
+  checksum: e2a4b415105408de28ad146818fcc6f4e122f6a39c6b2216ec5c24a80393f1390298b20231b0467bc5fd730f6e24b05b89e1a6a3ce651fc159aa4174ecc233d0
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^39.6.2":
-  version: 39.6.2
-  resolution: "eslint-plugin-jsdoc@npm:39.6.2"
+"eslint-plugin-jsdoc@npm:^47.0.2":
+  version: 47.0.2
+  resolution: "eslint-plugin-jsdoc@npm:47.0.2"
   dependencies:
-    "@es-joy/jsdoccomment": ~0.36.0
-    comment-parser: 1.3.1
+    "@es-joy/jsdoccomment": ~0.41.0
+    are-docs-informative: ^0.0.2
+    comment-parser: 1.4.1
     debug: ^4.3.4
     escape-string-regexp: ^4.0.0
-    esquery: ^1.4.0
-    semver: ^7.3.8
-    spdx-expression-parse: ^3.0.1
+    esquery: ^1.5.0
+    is-builtin-module: ^3.2.1
+    semver: ^7.5.4
+    spdx-expression-parse: ^4.0.0
   peerDependencies:
-    eslint: ^7.0.0 || ^8.0.0
-  checksum: 613c541a644d441e5465139b2a1934842a29c701fb89f0380f105be28180c1fa2f3c08b421b134b87fef194d4fb4dab4006a972a084e476eebb14cf5bb9399fe
+    eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+  checksum: 39ad7b746add79b0140d23b6c15c58df7f8e0912cbe10678f3acd76f0da38e2de9db39f741866dfa2ea698cc2f09c7f2e020f6136b52a22cd0b937e44722f1d4
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^15.7.0":
-  version: 15.7.0
-  resolution: "eslint-plugin-n@npm:15.7.0"
+"eslint-plugin-n@npm:^16.6.2":
+  version: 16.6.2
+  resolution: "eslint-plugin-n@npm:16.6.2"
   dependencies:
+    "@eslint-community/eslint-utils": ^4.4.0
     builtins: ^5.0.1
-    eslint-plugin-es: ^4.1.0
-    eslint-utils: ^3.0.0
-    ignore: ^5.1.1
-    is-core-module: ^2.11.0
+    eslint-plugin-es-x: ^7.5.0
+    get-tsconfig: ^4.7.0
+    globals: ^13.24.0
+    ignore: ^5.2.4
+    is-builtin-module: ^3.2.1
+    is-core-module: ^2.12.1
     minimatch: ^3.1.2
-    resolve: ^1.22.1
-    semver: ^7.3.8
+    resolve: ^1.22.2
+    semver: ^7.5.3
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: cfbcc67e62adf27712afdeadf13223cb9717f95d4af8442056d9d4c97a8b88af76b7969f75deaac26fa98481023d6b7c9e43a28909e7f0468f40b3024b7bcfae
+  checksum: 3b468da0038cf25af582608983491b33ac2d481b6a94a0ff2e715d3b85e1ff8cb93df4cd67b689d520bea1bfb8f2b717f01606bf6b2ea19fe8f9c0999ea7057d
   languageName: node
   linkType: hard
 
@@ -12847,22 +13004,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "eslint-scope@npm:7.1.1"
+"eslint-scope@npm:^7.2.2":
+  version: 7.2.2
+  resolution: "eslint-scope@npm:7.2.2"
   dependencies:
     esrecurse: ^4.3.0
     estraverse: ^5.2.0
-  checksum: 9f6e974ab2db641ca8ab13508c405b7b859e72afe9f254e8131ff154d2f40c99ad4545ce326fd9fde3212ff29707102562a4834f1c48617b35d98c71a97fbf3e
-  languageName: node
-  linkType: hard
-
-"eslint-utils@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "eslint-utils@npm:2.1.0"
-  dependencies:
-    eslint-visitor-keys: ^1.1.0
-  checksum: 27500938f348da42100d9e6ad03ae29b3de19ba757ae1a7f4a087bdcf83ac60949bbb54286492ca61fac1f5f3ac8692dd21537ce6214240bf95ad0122f24d71d
+  checksum: ec97dbf5fb04b94e8f4c5a91a7f0a6dd3c55e46bfc7bbcd0e3138c3a76977570e02ed89a1810c778dcd72072ff0e9621ba1379b4babe53921d71e2e4486fda3e
   languageName: node
   linkType: hard
 
@@ -12877,13 +13025,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^1.1.0":
-  version: 1.3.0
-  resolution: "eslint-visitor-keys@npm:1.3.0"
-  checksum: 37a19b712f42f4c9027e8ba98c2b06031c17e0c0a4c696cd429bd9ee04eb43889c446f2cd545e1ff51bef9593fcec94ecd2c2ef89129fcbbf3adadbef520376a
-  languageName: node
-  linkType: hard
-
 "eslint-visitor-keys@npm:^2.0.0":
   version: 2.0.0
   resolution: "eslint-visitor-keys@npm:2.0.0"
@@ -12891,63 +13032,62 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^3.3.0, eslint-visitor-keys@npm:^3.4.1":
+"eslint-visitor-keys@npm:^3.3.0, eslint-visitor-keys@npm:^3.4.1, eslint-visitor-keys@npm:^3.4.3":
   version: 3.4.3
   resolution: "eslint-visitor-keys@npm:3.4.3"
   checksum: 36e9ef87fca698b6fd7ca5ca35d7b2b6eeaaf106572e2f7fd31c12d3bfdaccdb587bba6d3621067e5aece31c8c3a348b93922ab8f7b2cbc6aaab5e1d89040c60
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.27.0":
-  version: 8.27.0
-  resolution: "eslint@npm:8.27.0"
+"eslint@npm:^8.57.0":
+  version: 8.57.0
+  resolution: "eslint@npm:8.57.0"
   dependencies:
-    "@eslint/eslintrc": ^1.3.3
-    "@humanwhocodes/config-array": ^0.11.6
+    "@eslint-community/eslint-utils": ^4.2.0
+    "@eslint-community/regexpp": ^4.6.1
+    "@eslint/eslintrc": ^2.1.4
+    "@eslint/js": 8.57.0
+    "@humanwhocodes/config-array": ^0.11.14
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
-    ajv: ^6.10.0
+    "@ungap/structured-clone": ^1.2.0
+    ajv: ^6.12.4
     chalk: ^4.0.0
     cross-spawn: ^7.0.2
     debug: ^4.3.2
     doctrine: ^3.0.0
     escape-string-regexp: ^4.0.0
-    eslint-scope: ^7.1.1
-    eslint-utils: ^3.0.0
-    eslint-visitor-keys: ^3.3.0
-    espree: ^9.4.0
-    esquery: ^1.4.0
+    eslint-scope: ^7.2.2
+    eslint-visitor-keys: ^3.4.3
+    espree: ^9.6.1
+    esquery: ^1.4.2
     esutils: ^2.0.2
     fast-deep-equal: ^3.1.3
     file-entry-cache: ^6.0.1
     find-up: ^5.0.0
     glob-parent: ^6.0.2
-    globals: ^13.15.0
-    grapheme-splitter: ^1.0.4
+    globals: ^13.19.0
+    graphemer: ^1.4.0
     ignore: ^5.2.0
-    import-fresh: ^3.0.0
     imurmurhash: ^0.1.4
     is-glob: ^4.0.0
     is-path-inside: ^3.0.3
-    js-sdsl: ^4.1.4
     js-yaml: ^4.1.0
     json-stable-stringify-without-jsonify: ^1.0.1
     levn: ^0.4.1
     lodash.merge: ^4.6.2
     minimatch: ^3.1.2
     natural-compare: ^1.4.0
-    optionator: ^0.9.1
-    regexpp: ^3.2.0
+    optionator: ^0.9.3
     strip-ansi: ^6.0.1
-    strip-json-comments: ^3.1.0
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 153b022d309e1b647a73b1bb0fa98912add699b06e279084155f23c6f2b5fc5abd05411fc1ba81608a24bbfaf044ca079544c16fffa6fc987b8f676c9960a2c4
+  checksum: 3a48d7ff85ab420a8447e9810d8087aea5b1df9ef68c9151732b478de698389ee656fd895635b5f2871c89ee5a2652b3f343d11e9db6f8486880374ebc74a2d9
   languageName: node
   linkType: hard
 
-"espree@npm:9.6.1, espree@npm:^9.4.0, espree@npm:^9.6.1":
+"espree@npm:9.6.1, espree@npm:^9.6.0, espree@npm:^9.6.1":
   version: 9.6.1
   resolution: "espree@npm:9.6.1"
   dependencies:
@@ -12968,12 +13108,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esquery@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "esquery@npm:1.4.0"
+"esquery@npm:^1.4.2, esquery@npm:^1.5.0":
+  version: 1.6.0
+  resolution: "esquery@npm:1.6.0"
   dependencies:
     estraverse: ^5.1.0
-  checksum: a0807e17abd7fbe5fbd4fab673038d6d8a50675cdae6b04fbaa520c34581be0c5fa24582990e8acd8854f671dd291c78bb2efb9e0ed5b62f33bac4f9cf820210
+  checksum: 08ec4fe446d9ab27186da274d979558557fbdbbd10968fa9758552482720c54152a5640e08b9009e5a30706b66aba510692054d4129d32d0e12e05bbc0b96fb2
   languageName: node
   linkType: hard
 
@@ -14059,6 +14199,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-tsconfig@npm:^4.7.0, get-tsconfig@npm:^4.7.3":
+  version: 4.7.6
+  resolution: "get-tsconfig@npm:4.7.6"
+  dependencies:
+    resolve-pkg-maps: ^1.0.0
+  checksum: ebfd86f0b356cde98e2a7afe63b58d92e02b8e413ff95551933d277702bf725386ee82c5c0092fe45fb2ba60002340c94ee70777b3220bbfeca83ab45dda1544
+  languageName: node
+  linkType: hard
+
 "get-uri@npm:^6.0.1":
   version: 6.0.1
   resolution: "get-uri@npm:6.0.1"
@@ -14218,12 +14367,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.15.0":
-  version: 13.18.0
-  resolution: "globals@npm:13.18.0"
+"globals@npm:^13.19.0, globals@npm:^13.24.0":
+  version: 13.24.0
+  resolution: "globals@npm:13.24.0"
   dependencies:
     type-fest: ^0.20.2
-  checksum: 9fdaa74cfd5d4ac91319662f512c29b11d1d2deb9c8a20d3998097671deba83d195f20730b2345887de3ddab958a6fa68952feed9ae836ee4594a82ace62fdb4
+  checksum: 56066ef058f6867c04ff203b8a44c15b038346a62efbc3060052a1016be9f56f4cf0b2cd45b74b22b81e521a889fc7786c73691b0549c2f3a6e825b3d394f43c
   languageName: node
   linkType: hard
 
@@ -14323,10 +14472,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"grapheme-splitter@npm:^1.0.2, grapheme-splitter@npm:^1.0.4":
+"grapheme-splitter@npm:^1.0.2":
   version: 1.0.4
   resolution: "grapheme-splitter@npm:1.0.4"
   checksum: 0c22ec54dee1b05cd480f78cf14f732cb5b108edc073572c4ec205df4cd63f30f8db8025afc5debc8835a8ddeacf648a1c7992fe3dcd6ad38f9a476d84906620
+  languageName: node
+  linkType: hard
+
+"graphemer@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "graphemer@npm:1.4.0"
+  checksum: bab8f0be9b568857c7bec9fda95a89f87b783546d02951c40c33f84d05bb7da3fd10f863a9beb901463669b6583173a8c8cc6d6b306ea2b9b9d5d3d943c3a673
   languageName: node
   linkType: hard
 
@@ -14436,12 +14592,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hasown@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "hasown@npm:2.0.0"
+"hasown@npm:^2.0.0, hasown@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "hasown@npm:2.0.2"
   dependencies:
     function-bind: ^1.1.2
-  checksum: 6151c75ca12554565098641c98a40f4cc86b85b0fd5b6fe92360967e4605a4f9610f7757260b4e8098dd1c2ce7f4b095f2006fe72a570e3b6d2d28de0298c176
+  checksum: e8516f776a15149ca6c6ed2ae3110c417a00b62260e222590e54aa367cbcd6ed99122020b37b7fbdf05748df57b265e70095d7bf35a47660587619b15ffb93db
   languageName: node
   linkType: hard
 
@@ -14805,7 +14961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-fresh@npm:^3.0.0, import-fresh@npm:^3.2.1":
+"import-fresh@npm:^3.2.1":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
   dependencies:
@@ -15102,12 +15258,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.11.0, is-core-module@npm:^2.12.0, is-core-module@npm:^2.13.0, is-core-module@npm:^2.8.1, is-core-module@npm:^2.9.0":
-  version: 2.13.0
-  resolution: "is-core-module@npm:2.13.0"
+"is-core-module@npm:^2.12.0, is-core-module@npm:^2.12.1, is-core-module@npm:^2.13.0, is-core-module@npm:^2.8.1, is-core-module@npm:^2.9.0":
+  version: 2.15.0
+  resolution: "is-core-module@npm:2.15.0"
   dependencies:
-    has: ^1.0.3
-  checksum: 053ab101fb390bfeb2333360fd131387bed54e476b26860dc7f5a700bbf34a0ec4454f7c8c4d43e8a0030957e4b3db6e16d35e1890ea6fb654c833095e040355
+    hasown: ^2.0.2
+  checksum: a9f7a52707c9b59d7164094d183bda892514fc3ba3139f245219c7abe7f6e8d3e2cdcf861f52a891a467f785f1dfa5d549f73b0ee715f4ba56e8882d335ea585
   languageName: node
   linkType: hard
 
@@ -16140,13 +16296,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-sdsl@npm:^4.1.4":
-  version: 4.1.5
-  resolution: "js-sdsl@npm:4.1.5"
-  checksum: 695f657ddc5be462b97cac4e8e60f37de28d628ee0e23016baecff0bb584a18dddb5caeac537a775030f180b5afd62133ac4481e7024c8d03a62d73e4da0713e
-  languageName: node
-  linkType: hard
-
 "js-sha3@npm:^0.5.7":
   version: 0.5.7
   resolution: "js-sha3@npm:0.5.7"
@@ -16191,10 +16340,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdoc-type-pratt-parser@npm:~3.1.0":
-  version: 3.1.0
-  resolution: "jsdoc-type-pratt-parser@npm:3.1.0"
-  checksum: 2f437b57621f1e481918165f6cf0e48256628a9e510d8b3f88a2ab667bf2128bf8b94c628b57c43e78f555ca61983e9c282814703840dc091d2623992214a061
+"jsdoc-type-pratt-parser@npm:~4.0.0":
+  version: 4.0.0
+  resolution: "jsdoc-type-pratt-parser@npm:4.0.0"
+  checksum: af0629c9517e484be778d8564440fec8de5b7610e0c9c88a3ba4554321364faf72b46689c8d8845faa12c0718437a9ed97e231977efc0f2d50e8a2dbad807eb3
   languageName: node
   linkType: hard
 
@@ -16971,15 +17120,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "lru-cache@npm:6.0.0"
-  dependencies:
-    yallist: ^4.0.0
-  checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
-  languageName: node
-  linkType: hard
-
 "lru-cache@npm:^7.14.1, lru-cache@npm:^7.7.1":
   version: 7.18.3
   resolution: "lru-cache@npm:7.18.3"
@@ -17333,6 +17473,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:9.0.3":
+  version: 9.0.3
+  resolution: "minimatch@npm:9.0.3"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 253487976bf485b612f16bf57463520a14f512662e592e95c571afdab1442a6a6864b6c88f248ce6fc4ff0b6de04ac7aa6c8bb51e868e99d1d65eb0658a708b5
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^5.0.1, minimatch@npm:^5.1.0":
   version: 5.1.6
   resolution: "minimatch@npm:5.1.6"
@@ -17351,12 +17500,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^9.0.0, minimatch@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "minimatch@npm:9.0.1"
+"minimatch@npm:^9.0.0, minimatch@npm:^9.0.1, minimatch@npm:^9.0.3, minimatch@npm:^9.0.4":
+  version: 9.0.5
+  resolution: "minimatch@npm:9.0.5"
   dependencies:
     brace-expansion: ^2.0.1
-  checksum: 97f5f5284bb57dc65b9415dec7f17a0f6531a33572193991c60ff18450dcfad5c2dad24ffeaf60b5261dccd63aae58cc3306e2209d57e7f88c51295a532d8ec3
+  checksum: 2c035575eda1e50623c731ec6c14f65a85296268f749b9337005210bb2b34e2705f8ef1a358b188f69892286ab99dc42c8fb98a57bde55c8d81b3023c19cea28
   languageName: node
   linkType: hard
 
@@ -17742,13 +17891,6 @@ __metadata:
   version: 1.0.2
   resolution: "napi-build-utils@npm:1.0.2"
   checksum: 06c14271ee966e108d55ae109f340976a9556c8603e888037145d6522726aebe89dd0c861b4b83947feaf6d39e79e08817559e8693deedc2c94e82c5cbd090c7
-  languageName: node
-  linkType: hard
-
-"natural-compare-lite@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "natural-compare-lite@npm:1.4.0"
-  checksum: 5222ac3986a2b78dd6069ac62cbb52a7bf8ffc90d972ab76dfe7b01892485d229530ed20d0c62e79a6b363a663b273db3bde195a1358ce9e5f779d4453887225
   languageName: node
   linkType: hard
 
@@ -18140,7 +18282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.values@npm:^1.1.5, object.values@npm:^1.1.6":
+"object.values@npm:^1.1.6":
   version: 1.1.6
   resolution: "object.values@npm:1.1.6"
   dependencies:
@@ -18221,17 +18363,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"optionator@npm:^0.9.1":
-  version: 0.9.1
-  resolution: "optionator@npm:0.9.1"
+"optionator@npm:^0.9.3":
+  version: 0.9.4
+  resolution: "optionator@npm:0.9.4"
   dependencies:
     deep-is: ^0.1.3
     fast-levenshtein: ^2.0.6
     levn: ^0.4.1
     prelude-ls: ^1.2.1
     type-check: ^0.4.0
-    word-wrap: ^1.2.3
-  checksum: dbc6fa065604b24ea57d734261914e697bd73b69eff7f18e967e8912aa2a40a19a9f599a507fa805be6c13c24c4eae8c71306c239d517d42d4c041c942f508a0
+    word-wrap: ^1.2.5
+  checksum: ecbd010e3dc73e05d239976422d9ef54a82a13f37c11ca5911dff41c98a6c7f0f163b27f922c37e7f8340af9d36febd3b6e9cef508f3339d4c393d7276d716bb
   languageName: node
   linkType: hard
 
@@ -19888,13 +20030,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexpp@npm:^3.0.0, regexpp@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "regexpp@npm:3.2.0"
-  checksum: a78dc5c7158ad9ddcfe01aa9144f46e192ddbfa7b263895a70a5c6c73edd9ce85faf7c0430e59ac38839e1734e275b9c3de5c57ee3ab6edc0e0b1bdebefccef8
-  languageName: node
-  linkType: hard
-
 "regexpu-core@npm:^5.3.1":
   version: 5.3.1
   resolution: "regexpu-core@npm:5.3.1"
@@ -20015,6 +20150,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve-pkg-maps@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "resolve-pkg-maps@npm:1.0.0"
+  checksum: 1012afc566b3fdb190a6309cc37ef3b2dcc35dff5fa6683a9d00cd25c3247edfbc4691b91078c97adc82a29b77a2660c30d791d65dab4fc78bfc473f60289977
+  languageName: node
+  linkType: hard
+
 "resolve.exports@npm:^2.0.0":
   version: 2.0.2
   resolution: "resolve.exports@npm:2.0.2"
@@ -20022,7 +20164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:1.22.8, resolve@npm:^1.1.4, resolve@npm:^1.10.0, resolve@npm:^1.13.1, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1, resolve@npm:^1.22.3, resolve@npm:^1.4.0":
+"resolve@npm:1.22.8, resolve@npm:^1.1.4, resolve@npm:^1.10.0, resolve@npm:^1.13.1, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.22.2, resolve@npm:^1.22.3, resolve@npm:^1.22.4, resolve@npm:^1.4.0":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -20048,7 +20190,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@1.22.8#~builtin<compat/resolve>, resolve@patch:resolve@^1.1.4#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.3#~builtin<compat/resolve>, resolve@patch:resolve@^1.4.0#~builtin<compat/resolve>":
+"resolve@patch:resolve@1.22.8#~builtin<compat/resolve>, resolve@patch:resolve@^1.1.4#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.3#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.4#~builtin<compat/resolve>, resolve@patch:resolve@^1.4.0#~builtin<compat/resolve>":
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#~builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
@@ -20296,24 +20438,24 @@ __metadata:
     "@lavamoat/allow-scripts": ^3.0.4
     "@metamask/auto-changelog": ^3.4.4
     "@metamask/create-release-branch": ^3.0.0
-    "@metamask/eslint-config": ^12.1.0
-    "@metamask/eslint-config-jest": ^12.1.0
-    "@metamask/eslint-config-nodejs": ^12.1.0
-    "@metamask/eslint-config-typescript": ^12.1.0
+    "@metamask/eslint-config": ^13.0.0
+    "@metamask/eslint-config-jest": ^13.0.0
+    "@metamask/eslint-config-nodejs": ^13.0.0
+    "@metamask/eslint-config-typescript": ^13.0.0
     "@metamask/utils": ^9.1.0
     "@swc/core": 1.3.78
     "@types/jest": ^27.5.1
     "@types/node": 18.14.2
-    "@typescript-eslint/eslint-plugin": ^5.42.1
-    "@typescript-eslint/parser": ^5.42.1
+    "@typescript-eslint/eslint-plugin": ^6.21.0
+    "@typescript-eslint/parser": ^6.21.0
     chromedriver: ^127.0.0
     depcheck: ^1.4.7
-    eslint: ^8.27.0
+    eslint: ^8.57.0
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^27.1.5
-    eslint-plugin-jsdoc: ^39.6.2
-    eslint-plugin-n: ^15.7.0
+    eslint-plugin-import-x: ^0.5.1
+    eslint-plugin-jest: ^27.9.0
+    eslint-plugin-jsdoc: ^47.0.2
+    eslint-plugin-n: ^16.6.2
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.1.1
     execa: ^5.1.1
@@ -20499,14 +20641,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.3, semver@npm:^7.5.4":
-  version: 7.6.0
-  resolution: "semver@npm:7.6.0"
-  dependencies:
-    lru-cache: ^6.0.0
+"semver@npm:^7.0.0, semver@npm:^7.1.1, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0":
+  version: 7.6.3
+  resolution: "semver@npm:7.6.3"
   bin:
     semver: bin/semver.js
-  checksum: 7427f05b70786c696640edc29fdd4bc33b2acf3bbe1740b955029044f80575fc664e1a512e4113c3af21e767154a94b4aa214bf6cd6e42a1f6dba5914e0b208c
+  checksum: 4110ec5d015c9438f322257b1c51fe30276e5f766a3f64c09edd1d7ea7118ecbc3f379f3b69032bacf13116dc7abc4ad8ce0d7e2bd642e26b0d271b56b61a7d8
   languageName: node
   linkType: hard
 
@@ -21016,13 +21156,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"spdx-expression-parse@npm:^3.0.0, spdx-expression-parse@npm:^3.0.1":
+"spdx-expression-parse@npm:^3.0.0":
   version: 3.0.1
   resolution: "spdx-expression-parse@npm:3.0.1"
   dependencies:
     spdx-exceptions: ^2.1.0
     spdx-license-ids: ^3.0.0
   checksum: a1c6e104a2cbada7a593eaa9f430bd5e148ef5290d4c0409899855ce8b1c39652bcc88a725259491a82601159d6dc790bedefc9016c7472f7de8de7361f8ccde
+  languageName: node
+  linkType: hard
+
+"spdx-expression-parse@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "spdx-expression-parse@npm:4.0.0"
+  dependencies:
+    spdx-exceptions: ^2.1.0
+    spdx-license-ids: ^3.0.0
+  checksum: 936be681fbf5edeec3a79c023136479f70d6edb3fd3875089ac86cd324c6c8c81add47399edead296d1d0af17ae5ce88c7f88885eb150b62c2ff6e535841ca6a
   languageName: node
   linkType: hard
 
@@ -21105,6 +21255,13 @@ __metadata:
   dependencies:
     minipass: ^3.1.1
   checksum: bf33174232d07cc64e77ab1c51b55d28352273380c503d35642a19627e88a2c5f160039bb0a28608a353485075dda084dbf0390c7070f9f284559eb71d01b84b
+  languageName: node
+  linkType: hard
+
+"stable-hash@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "stable-hash@npm:0.0.4"
+  checksum: 21c039d21c1cb739cf8342561753a5e007cb95ea682ccd452e76310bbb9c6987a89de8eda023e320b019f3e4691aabda75079cdbb7dadf7ab9013e931f2f23cd
   languageName: node
   linkType: hard
 
@@ -21397,7 +21554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-json-comments@npm:3.1.1, strip-json-comments@npm:^3.1.0, strip-json-comments@npm:^3.1.1":
+"strip-json-comments@npm:3.1.1, strip-json-comments@npm:^3.1.1":
   version: 3.1.1
   resolution: "strip-json-comments@npm:3.1.1"
   checksum: 492f73e27268f9b1c122733f28ecb0e7e8d8a531a6662efbd08e22cccb3f9475e90a1b82cab06a392f6afae6d2de636f977e231296400d0ec5304ba70f166443
@@ -21866,6 +22023,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-api-utils@npm:^1.0.1, ts-api-utils@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "ts-api-utils@npm:1.3.0"
+  peerDependencies:
+    typescript: ">=4.2.0"
+  checksum: c746ddabfdffbf16cb0b0db32bb287236a19e583057f8649ee7c49995bb776e1d3ef384685181c11a1a480369e022ca97512cb08c517b2d2bd82c83754c97012
+  languageName: node
+  linkType: hard
+
 "ts-interface-checker@npm:^0.1.9":
   version: 0.1.13
   resolution: "ts-interface-checker@npm:0.1.13"
@@ -22024,10 +22190,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0":
-  version: 2.5.2
-  resolution: "tslib@npm:2.5.2"
-  checksum: 4d3c1e238b94127ed0e88aa0380db3c2ddae581dc0f4bae5a982345e9f50ee5eda90835b8bfba99b02df10a5734470be197158c36f9129ac49fdc14a6a9da222
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
+  version: 2.6.3
+  resolution: "tslib@npm:2.6.3"
+  checksum: 74fce0e100f1ebd95b8995fbbd0e6c91bdd8f4c35c00d4da62e285a3363aaa534de40a80db30ecfd388ed7c313c42d930ee0eaf108e8114214b180eec3dbe6f5
   languageName: node
   linkType: hard
 
@@ -23255,10 +23421,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"word-wrap@npm:^1.2.3":
-  version: 1.2.4
-  resolution: "word-wrap@npm:1.2.4"
-  checksum: 8f1f2e0a397c0e074ca225ba9f67baa23f99293bc064e31355d426ae91b8b3f6b5f6c1fc9ae5e9141178bb362d563f55e62fd8d5c31f2a77e3ade56cb3e35bd1
+"word-wrap@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "word-wrap@npm:1.2.5"
+  checksum: f93ba3586fc181f94afdaff3a6fef27920b4b6d9eaefed0f428f8e07adea2a7f54a5f2830ce59406c8416f033f86902b91eb824072354645eea687dff3691ccb
   languageName: node
   linkType: hard
 

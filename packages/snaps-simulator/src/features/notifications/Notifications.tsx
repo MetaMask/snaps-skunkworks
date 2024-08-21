@@ -2,8 +2,8 @@ import { useToast } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 import { useEffect } from 'react';
 
-import { useDispatch, useSelector } from '../../hooks';
 import { getNotifications, removeNotification } from './slice';
+import { useDispatch, useSelector } from '../../hooks';
 
 export const Notifications: FunctionComponent = () => {
   const dispatch = useDispatch();

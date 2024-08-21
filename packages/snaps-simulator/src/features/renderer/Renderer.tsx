@@ -1,9 +1,9 @@
 import type { JSXElement } from '@metamask/snaps-sdk/jsx';
 import type { FunctionComponent } from 'react';
 
+import { SnapComponent } from './SnapComponent';
 import { SnapInterfaceContextProvider } from '../../contexts';
 import { generateKey } from '../../utils';
-import { SnapComponent } from './SnapComponent';
 
 type RendererProps = {
   content: JSXElement;

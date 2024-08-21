@@ -1,7 +1,7 @@
 import { Box } from '@metamask/snaps-sdk/jsx';
 
-import { render } from '../../utils';
 import { ConfirmationDialog } from './ConfirmationDialog';
+import { render } from '../../utils';
 
 describe('ConfirmationDialog', () => {
   it('renders', () => {

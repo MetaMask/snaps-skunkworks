@@ -1,5 +1,5 @@
-import { rootRealmGlobal } from '../globalObject';
 import math from './math';
+import { rootRealmGlobal } from '../globalObject';
 
 describe('Math endowment', () => {
   it('has expected properties', () => {

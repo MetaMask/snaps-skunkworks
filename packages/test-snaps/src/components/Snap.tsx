@@ -2,8 +2,8 @@ import type { FunctionComponent, ReactNode } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/CardHeader';
 
-import { getSnapId } from '../utils';
 import { Connect } from './Connect';
+import { getSnapId } from '../utils';
 
 export type SnapProps = {
   /**

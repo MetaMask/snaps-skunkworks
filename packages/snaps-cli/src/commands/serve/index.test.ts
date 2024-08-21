@@ -1,7 +1,7 @@
 import command from '.';
+import { serveHandler } from './serve';
 import { getMockConfig } from '../../test-utils';
 import type { YargsArgs } from '../../types/yargs';
-import { serveHandler } from './serve';
 
 jest.mock('./serve');
 

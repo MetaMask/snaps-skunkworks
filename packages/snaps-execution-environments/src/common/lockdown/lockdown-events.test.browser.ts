@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/unambiguous
+// eslint-disable-next-line import-x/unambiguous
 import { expect } from '@wdio/globals';
 
 import { executeLockdownEvents } from './lockdown-events';

@@ -1,6 +1,6 @@
+import type { SnapManifest } from './validation';
 import type { Promisable } from '../promise';
 import type { SnapFiles, UnvalidatedSnapFiles } from '../types';
-import type { SnapManifest } from './validation';
 
 // Eslint uses patch based fixing, but it's too complex for our needs.
 // https://eslint.org/docs/latest/extend/custom-rules#applying-fixes

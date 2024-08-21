@@ -1,7 +1,7 @@
 import command from '.';
+import { manifestHandler } from './manifest';
 import { getMockConfig } from '../../test-utils';
 import type { YargsArgs } from '../../types/yargs';
-import { manifestHandler } from './manifest';
 
 jest.mock('./manifest');
 

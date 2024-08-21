@@ -9,9 +9,9 @@ import {
   isPlainObject,
 } from '@metamask/utils';
 
+import { OffscreenExecutionService } from './OffscreenExecutionService';
 import { createService } from '../../test-utils';
 import { getMockedFunction } from '../../test-utils/mock';
-import { OffscreenExecutionService } from './OffscreenExecutionService';
 
 const OFFSCREEN_PROMISE = Promise.resolve();
 

@@ -1,6 +1,6 @@
-import { NodeType } from '../nodes';
 import { RowVariant, row } from './row';
 import { text } from './text';
+import { NodeType } from '../nodes';
 
 describe('row', () => {
   it('creates a row component', () => {

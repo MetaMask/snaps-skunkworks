@@ -24,6 +24,8 @@ export type GetAccountsHandlerHooks = {
  * @param _next - The `json-rpc-engine` middleware next handler.
  * @param end - The `json-rpc-engine` middleware end handler.
  * @param hooks - Any hooks required by this handler.
+ * @returns The Ethereum address derived from the selected secret recovery
+ * phrase.
  */
 export async function getAccountsHandler(
   _request: JsonRpcRequest,

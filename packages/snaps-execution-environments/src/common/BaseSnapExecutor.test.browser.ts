@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-shadow, import/no-unassigned-import */
+/* eslint-disable @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-shadow, import-x/no-unassigned-import */
 
 import { UserInputEventType } from '@metamask/snaps-sdk';
 import { HandlerType } from '@metamask/snaps-utils';

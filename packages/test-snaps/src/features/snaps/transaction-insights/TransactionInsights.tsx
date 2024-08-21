@@ -3,13 +3,13 @@ import { assert } from '@metamask/utils';
 import type { FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { useLazyGetAccountsQuery, useLazyRequestQuery } from '../../../api';
-import { Snap, Result } from '../../../components';
 import {
   TRANSACTION_INSIGHTS_SNAP_ID,
   TRANSACTION_INSIGHTS_SNAP_PORT,
   TRANSACTION_INSIGHTS_VERSION,
 } from './constants';
+import { useLazyGetAccountsQuery, useLazyRequestQuery } from '../../../api';
+import { Snap, Result } from '../../../components';
 
 export const TransactionInsights: FunctionComponent = () => {
   const [getAccounts, { isLoading: isLoadingAccounts, data: accounts }] =

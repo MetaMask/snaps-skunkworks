@@ -1,5 +1,5 @@
-import { render } from '../../../utils';
 import { Sidebar } from './Sidebar';
+import { render } from '../../../utils';
 
 describe('Sidebar', () => {
   it('renders', () => {

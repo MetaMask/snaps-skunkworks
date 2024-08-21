@@ -1,12 +1,12 @@
 import { isFile } from '@metamask/snaps-utils/node';
 import { resolve as pathResolve } from 'path';
 
+import { build } from './implementation';
 import type { ProcessedConfig, ProcessedWebpackConfig } from '../../config';
 import { CommandError } from '../../errors';
 import type { Steps } from '../../utils';
 import { executeSteps, info } from '../../utils';
 import { evaluate } from '../eval';
-import { build } from './implementation';
 
 type BuildContext = {
   config: ProcessedWebpackConfig;
@@ -57,6 +57,7 @@ const steps: Steps<BuildContext> = [
  * This creates the destination directory if it doesn't exist.
  *
  * @param config - The config object.
+ * @returns The result of the build.
  */
 export async function buildHandler(config: ProcessedConfig): Promise<void> {
   return await executeSteps(steps, {

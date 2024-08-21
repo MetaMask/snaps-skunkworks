@@ -1,9 +1,9 @@
 import { JsonRpcEngine } from '@metamask/json-rpc-engine';
 
+import { createMockMiddleware } from './mock';
 import { getMockOptions } from '../../../test-utils';
 import { createStore } from '../store';
 import { addJsonRpcMock } from '../store/mocks';
-import { createMockMiddleware } from './mock';
 
 describe('createMockMiddleware', () => {
   it('mocks a JSON-RPC method', async () => {

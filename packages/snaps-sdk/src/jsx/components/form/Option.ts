@@ -1,6 +1,6 @@
-import { createSnapComponent } from '../../component';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Dropdown } from './Dropdown';
+import type { Dropdown } from './Dropdown';
+import { createSnapComponent } from '../../component';
 
 /**
  * The props of the {@link Option} component.

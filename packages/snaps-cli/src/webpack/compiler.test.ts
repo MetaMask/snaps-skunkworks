@@ -2,8 +2,8 @@ import type { Configuration } from 'webpack';
 import { Compiler } from 'webpack';
 import merge from 'webpack-merge';
 
-import { getMockConfig } from '../test-utils';
 import { getCompiler } from './compiler';
+import { getMockConfig } from '../test-utils';
 
 jest.dontMock('fs');
 jest.mock('serve-handler', () =>

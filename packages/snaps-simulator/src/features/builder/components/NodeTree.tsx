@@ -10,9 +10,9 @@ import { Tree } from '@minoru/react-dnd-treeview';
 import type { FunctionComponent } from 'react';
 import { useEffect, useRef } from 'react';
 
-import { canDropElement } from '../utils';
 import { Node } from './Node';
 import { Start } from './Start';
+import { canDropElement } from '../utils';
 
 export type NodeTreeProps = {
   items: NodeModel<JSXElement>[];

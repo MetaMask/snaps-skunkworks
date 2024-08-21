@@ -1,11 +1,11 @@
 import { Center, Heading, List, Text } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
+import { Item } from './Item';
 import { Icon } from '../../../components';
 import { useSelector } from '../../../hooks';
 import { getSnapManifest } from '../../simulation';
 import { getManifestResults } from '../slice';
-import { Item } from './Item';
 
 export const Validation: FunctionComponent = () => {
   const manifest = useSelector(getSnapManifest);

@@ -3,7 +3,6 @@ import childProcess from 'child_process';
 import { promises as fs } from 'fs';
 import pathUtils from 'path';
 
-import { resetFileSystem } from '../../test-utils';
 import {
   buildSnap,
   cloneTemplate,
@@ -14,6 +13,7 @@ import {
   yarnInstall,
   TEMPLATE_GIT_URL,
 } from './initUtils';
+import { resetFileSystem } from '../../test-utils';
 
 jest.mock('fs');
 

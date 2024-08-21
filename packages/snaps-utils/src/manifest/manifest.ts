@@ -4,16 +4,16 @@ import { assert, isPlainObject } from '@metamask/utils';
 import { promises as fs } from 'fs';
 import pathUtils from 'path';
 
+import type { SnapManifest } from './validation';
+import type { ValidatorResults } from './validator';
+import { hasFixes, runValidators } from './validator';
+import type { ValidatorMeta, ValidatorReport } from './validator-types';
 import { deepClone } from '../deep-clone';
 import { readJsonFile } from '../fs';
 import { parseJson } from '../json';
 import type { SnapFiles, UnvalidatedSnapFiles } from '../types';
 import { NpmSnapFileNames } from '../types';
 import { readVirtualFile, VirtualFile } from '../virtual-file/node';
-import type { SnapManifest } from './validation';
-import type { ValidatorResults } from './validator';
-import { hasFixes, runValidators } from './validator';
-import type { ValidatorMeta, ValidatorReport } from './validator-types';
 
 const MANIFEST_SORT_ORDER: Record<keyof SnapManifest, number> = {
   $schema: 1,
@@ -159,6 +159,7 @@ export async function checkManifest(
  *
  * @param results - Results of the initial run of validation.
  * @param rules - Optional list of rules to run the fixes with.
+ * @returns The result of the fix operation.
  */
 export async function runFixes(
   results: ValidatorResults,

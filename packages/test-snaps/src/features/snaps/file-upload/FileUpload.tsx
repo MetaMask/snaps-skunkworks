@@ -2,14 +2,14 @@ import { logError } from '@metamask/snaps-utils';
 import { type FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { useInvokeMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
-import { getSnapId } from '../../../utils';
 import {
   FILE_UPLOAD_SNAP_ID,
   FILE_UPLOAD_SNAP_PORT,
   FILE_UPLOAD_VERSION,
 } from './constants';
+import { useInvokeMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
+import { getSnapId } from '../../../utils';
 
 export const FileUpload: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data, error }] = useInvokeMutation();

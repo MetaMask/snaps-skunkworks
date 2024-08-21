@@ -1,10 +1,10 @@
 import { JsonRpcError } from '@metamask/rpc-errors';
 import { HandlerType } from '@metamask/snaps-utils';
 
+import { NodeProcessExecutionService } from './NodeProcessExecutionService';
 import { createService, MOCK_BLOCK_NUMBER } from '../../test-utils';
 import { delay } from '../../utils';
 import type { SnapErrorJson } from '../ExecutionService';
-import { NodeProcessExecutionService } from './NodeProcessExecutionService';
 
 const ON_RPC_REQUEST = HandlerType.OnRpcRequest;
 

@@ -1,11 +1,11 @@
 import assert from 'assert';
 
+import { manifestLocalization } from './manifest-localization';
 import {
   getMockLocalizationFile,
   getMockSnapFilesWithUpdatedChecksum,
   getSnapManifest,
 } from '../../test-utils';
-import { manifestLocalization } from './manifest-localization';
 
 describe('manifestLocalization', () => {
   it('does nothing on valid localization', async () => {

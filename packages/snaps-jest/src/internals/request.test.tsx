@@ -6,17 +6,17 @@ import { getJsxElementFromComponent, HandlerType } from '@metamask/snaps-utils';
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 
 import {
-  getMockServer,
-  getRestrictedSnapInterfaceControllerMessenger,
-  getRootControllerMessenger,
-} from '../test-utils';
-import type { SnapResponseWithInterface } from '../types';
-import {
   getInterfaceApi,
   getInterfaceFromResult,
   handleRequest,
 } from './request';
 import { handleInstallSnap } from './simulation';
+import {
+  getMockServer,
+  getRestrictedSnapInterfaceControllerMessenger,
+  getRootControllerMessenger,
+} from '../test-utils';
+import type { SnapResponseWithInterface } from '../types';
 
 describe('handleRequest', () => {
   it('sends a JSON-RPC request and returns the response', async () => {

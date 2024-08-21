@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { getMockSnapFiles } from '../../test-utils';
 import { iconMissing } from './icon-missing';
+import { getMockSnapFiles } from '../../test-utils';
 
 describe('iconMissing', () => {
   it('does nothing if icon exists', async () => {

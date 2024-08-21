@@ -1,9 +1,9 @@
 import { Avatar, Box } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
+import { Icon } from './Icon';
 import { getIcon } from '../features';
 import { useSelector } from '../hooks';
-import { Icon } from './Icon';
 
 export type SnapIconProps = {
   snapName: string;

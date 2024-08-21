@@ -6,10 +6,10 @@ import {
 import type { SemVerRange, SemVerVersion } from '@metamask/utils';
 import fetchMock from 'jest-fetch-mock';
 
-import { getRestrictedSnapsRegistryControllerMessenger } from '../../test-utils';
 import type { JsonSnapsRegistryArgs } from './json';
 import { JsonSnapsRegistry } from './json';
 import { SnapsRegistryStatus } from './registry';
+import { getRestrictedSnapsRegistryControllerMessenger } from '../../test-utils';
 
 // Public key for the private key:
 // `0x541c6759fd86c69eceb8d792d7174623db139d81a5b560aa026afcb2dd1bb21c`.

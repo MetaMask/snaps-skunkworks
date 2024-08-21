@@ -1,8 +1,8 @@
 import { is } from '@metamask/superstruct';
 
-import { NodeType } from '../nodes';
 import { heading } from './heading';
 import { panel, PanelStruct, ParentStruct } from './panel';
+import { NodeType } from '../nodes';
 
 describe('ParentStruct', () => {
   it('validates that a value is a node with children', () => {

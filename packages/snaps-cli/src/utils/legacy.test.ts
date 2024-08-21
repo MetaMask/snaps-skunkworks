@@ -1,11 +1,11 @@
 import { getMockConfig } from '@metamask/snaps-cli/test-utils';
 
-import { TranspilationModes } from '../builders';
 import {
   getDependencyRegExp,
   processDependencies,
   sanitizeDependencyPaths,
 } from './legacy';
+import { TranspilationModes } from '../builders';
 
 describe('processDependencies', () => {
   it('returns an empty array when `transpilationMode` is not `localAndDeps`', () => {

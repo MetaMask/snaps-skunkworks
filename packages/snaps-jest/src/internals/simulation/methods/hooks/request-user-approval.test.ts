@@ -1,9 +1,9 @@
 import { DIALOG_APPROVAL_TYPES } from '@metamask/snaps-rpc-methods';
 import { DialogType } from '@metamask/snaps-sdk';
 
+import { getRequestUserApprovalImplementation } from './request-user-approval';
 import { getMockOptions } from '../../../../test-utils';
 import { createStore, resolveInterface } from '../../store';
-import { getRequestUserApprovalImplementation } from './request-user-approval';
 
 describe('getShowUserApprovalImplementation', () => {
   it('returns the implementation of the `requestUserApproval` hook', async () => {

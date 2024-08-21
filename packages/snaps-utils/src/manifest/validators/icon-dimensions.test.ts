@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { getMockSnapFiles } from '../../test-utils';
 import { iconDimensions } from './icon-dimensions';
+import { getMockSnapFiles } from '../../test-utils';
 
 describe('iconDimensions', () => {
   it('does nothing if icon is square', async () => {

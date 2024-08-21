@@ -1,5 +1,5 @@
-import { render } from '../../utils';
 import { Manifest } from './Manifest';
+import { render } from '../../utils';
 
 jest.mock('react-monaco-editor');
 

@@ -3,9 +3,9 @@ import { HandlerType } from '@metamask/snaps-utils';
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 import { Duration, inMilliseconds } from '@metamask/utils';
 
-import { createService } from '../test-utils';
 import type { ExecutionServiceArgs } from './AbstractExecutionService';
 import { NodeThreadExecutionService } from './node';
+import { createService } from '../test-utils';
 
 class MockExecutionService extends NodeThreadExecutionService {
   constructor({ messenger, setupSnapProvider }: ExecutionServiceArgs) {

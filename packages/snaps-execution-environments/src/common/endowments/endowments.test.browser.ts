@@ -1,11 +1,9 @@
-/* eslint-disable import/no-unassigned-import, @typescript-eslint/restrict-template-expressions */
+/* eslint-disable import-x/no-unassigned-import, @typescript-eslint/restrict-template-expressions */
 
 import 'ses';
 
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 
-import { walkAndSearch } from '../test-utils/endowments';
-import { testEndowmentHardening } from '../test-utils/hardening';
 import buildCommonEndowments from './commonEndowmentFactory';
 import consoleEndowment from './console';
 import CryptoEndowment from './crypto';
@@ -14,6 +12,8 @@ import interval from './interval';
 import math from './math';
 import network from './network';
 import timeout from './timeout';
+import { walkAndSearch } from '../test-utils/endowments';
+import { testEndowmentHardening } from '../test-utils/hardening';
 
 // @ts-expect-error - `globalThis.process` is not optional.
 delete globalThis.process;

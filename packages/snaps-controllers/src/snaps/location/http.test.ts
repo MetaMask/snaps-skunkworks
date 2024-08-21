@@ -115,7 +115,7 @@ describe('HttpLocation', () => {
     assert(manifestFile.result.source.location.npm.iconPath !== undefined);
     const iconFile = await location.fetch(
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      manifest.source.location.npm.iconPath!,
+      manifest.source.location.npm.iconPath,
     );
 
     expect(manifestFile.path).toBe(NpmSnapFileNames.Manifest);

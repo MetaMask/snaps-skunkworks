@@ -7,7 +7,7 @@
  * so we need to declare a type for them here. This allows us to import them
  * in our code, and have TypeScript understand that they are valid modules.
  */
-// eslint-disable-next-line import/unambiguous
+// eslint-disable-next-line import-x/unambiguous
 declare module '*.wasm' {
   import type { instantiate } from '@metamask/wasm-example-snap/build/program';
 

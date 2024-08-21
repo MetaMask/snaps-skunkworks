@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { image } from './image';
+import { NodeType } from '../nodes';
 
 const MOCK_SVG = '<svg />';
 

@@ -1,11 +1,14 @@
-import type { FieldElement, FormElement } from '@metamask/snaps-sdk/jsx';
 import {
   BoxChildStruct,
   FieldChildUnionStruct,
   FormChildStruct,
   Input,
-  type BoxElement,
-  type JSXElement,
+} from '@metamask/snaps-sdk/jsx';
+import type {
+  FieldElement,
+  FormElement,
+  BoxElement,
+  JSXElement,
 } from '@metamask/snaps-sdk/jsx';
 import {
   deepClone,

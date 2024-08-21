@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { ButtonType, ButtonVariant, button } from './button';
+import { NodeType } from '../nodes';
 
 describe('button', () => {
   it('creates a button component', () => {

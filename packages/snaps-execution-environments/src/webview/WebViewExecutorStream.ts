@@ -10,11 +10,11 @@ type WebViewExecutorStreamArgs = {
 };
 
 export class WebViewExecutorStream extends BasePostMessageStream {
-  #name;
+  readonly #name;
 
-  #target;
+  readonly #target;
 
-  #targetWindow;
+  readonly #targetWindow;
 
   /**
    * A special post-message-stream to be used by the WebView executor.

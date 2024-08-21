@@ -8,12 +8,12 @@ import {
   union,
 } from '@metamask/superstruct';
 
-import { enumValue } from '../../internals';
-import { createBuilder } from '../builder';
-import { LiteralStruct, NodeType } from '../nodes';
 import { AddressStruct } from './address';
 import { ImageStruct } from './image';
 import { TextStruct } from './text';
+import { enumValue } from '../../internals';
+import { createBuilder } from '../builder';
+import { LiteralStruct, NodeType } from '../nodes';
 
 export enum RowVariant {
   Default = 'default',

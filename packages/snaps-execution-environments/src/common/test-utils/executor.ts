@@ -22,12 +22,12 @@ export class TwoWayPassThrough {
 
   readonly right: Duplex;
 
-  #leftToRight: TwoWayPassThroughBuffer = {
+  readonly #leftToRight: TwoWayPassThroughBuffer = {
     buffer: [],
     canPush: false,
   };
 
-  #rightToLeft: TwoWayPassThroughBuffer = {
+  readonly #rightToLeft: TwoWayPassThroughBuffer = {
     buffer: [],
     canPush: false,
   };

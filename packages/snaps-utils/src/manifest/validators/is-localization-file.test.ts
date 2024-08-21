@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { isLocalizationFile } from './is-localization-file';
 import { getMockLocalizationFile } from '../../test-utils';
 import { VirtualFile } from '../../virtual-file';
-import { isLocalizationFile } from './is-localization-file';
 
 describe('isLocalizationFile', () => {
   it('does nothing on valid files', async () => {

@@ -77,6 +77,7 @@ export async function getFileSize(file: string | Uint8Array) {
  * is inferred from the file name if it's a path, and defaults to
  * `application/octet-stream` if it's a `Uint8Array` or the content type
  * cannot be inferred from the file name.
+ * @returns The file object to upload.
  */
 export async function getFileToUpload(
   file: string | Uint8Array,

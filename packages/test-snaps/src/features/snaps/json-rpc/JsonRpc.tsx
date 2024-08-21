@@ -2,14 +2,14 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
 
-import { useInvokeMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
-import { getSnapId } from '../../../utils';
 import {
   JSON_RPC_SNAP_ID,
   JSON_RPC_SNAP_PORT,
   JSON_RPC_VERSION,
 } from './constants';
+import { useInvokeMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
+import { getSnapId } from '../../../utils';
 
 export const JsonRpc: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data, error }] = useInvokeMutation();

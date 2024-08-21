@@ -5,7 +5,7 @@ import { App } from './App';
 import { Root } from './components';
 import createStore from './store';
 
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line import-x/no-unassigned-import
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const rootElement = document.getElementById('root');

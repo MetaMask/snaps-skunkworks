@@ -1,10 +1,10 @@
 import { isFile } from '@metamask/snaps-utils/node';
 
+import { manifest } from './implementation';
 import type { ProcessedConfig } from '../../config';
 import { CommandError } from '../../errors';
 import type { Steps } from '../../utils';
 import { executeSteps } from '../../utils';
-import { manifest } from './implementation';
 
 type ManifestOptions = {
   fix?: boolean;

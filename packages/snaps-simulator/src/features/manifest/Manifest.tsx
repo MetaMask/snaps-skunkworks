@@ -9,10 +9,10 @@ import {
 } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
+import { Validation } from './components';
 import { Editor } from '../../components';
 import { useSelector } from '../../hooks';
 import { getLocalizedSnapManifest } from '../simulation';
-import { Validation } from './components';
 
 /**
  * Manifest page, which displays the manifest of a snap, and any errors that

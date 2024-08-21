@@ -22,15 +22,15 @@ import { nanoid } from 'nanoid';
 import { pipeline } from 'readable-stream';
 import type { Duplex } from 'readable-stream';
 
-import { log } from '../logging';
-import { Timer } from '../snaps/Timer';
-import { hasTimedOut, withTimeout } from '../utils';
 import type {
   ExecutionService,
   ExecutionServiceMessenger,
   SnapErrorJson,
   SnapExecutionData,
 } from './ExecutionService';
+import { log } from '../logging';
+import { Timer } from '../snaps/Timer';
+import { hasTimedOut, withTimeout } from '../utils';
 
 const controllerName = 'ExecutionService';
 
@@ -64,7 +64,7 @@ export type TerminateJobArgs<WorkerType> = Partial<Job<WorkerType>> &
 export abstract class AbstractExecutionService<WorkerType>
   implements ExecutionService
 {
-  #snapRpcHooks: Map<string, SnapRpcHook>;
+  readonly #snapRpcHooks: Map<string, SnapRpcHook>;
 
   // Cannot be hash private yet because of tests.
   protected jobs: Map<string, Job<WorkerType>>;
@@ -72,19 +72,19 @@ export abstract class AbstractExecutionService<WorkerType>
   // Cannot be hash private yet because of tests.
   private readonly setupSnapProvider: SetupSnapProvider;
 
-  #snapToJobMap: Map<string, string>;
+  readonly #snapToJobMap: Map<string, string>;
 
-  #jobToSnapMap: Map<string, string>;
+  readonly #jobToSnapMap: Map<string, string>;
 
-  #messenger: ExecutionServiceMessenger;
+  readonly #messenger: ExecutionServiceMessenger;
 
-  #initTimeout: number;
+  readonly #initTimeout: number;
 
-  #pingTimeout: number;
+  readonly #pingTimeout: number;
 
-  #terminationTimeout: number;
+  readonly #terminationTimeout: number;
 
-  #usePing: boolean;
+  readonly #usePing: boolean;
 
   constructor({
     setupSnapProvider,

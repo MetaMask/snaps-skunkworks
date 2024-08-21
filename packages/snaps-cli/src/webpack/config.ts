@@ -5,7 +5,6 @@ import TerserPlugin from 'terser-webpack-plugin';
 import type { Configuration } from 'webpack';
 import { DefinePlugin, ProgressPlugin, ProvidePlugin } from 'webpack';
 
-import type { ProcessedWebpackConfig } from '../config';
 import { getFunctionLoader, wasm } from './loaders';
 import {
   SnapsBuiltInResolver,
@@ -22,6 +21,7 @@ import {
   getImageSVG,
   getProgressHandler,
 } from './utils';
+import type { ProcessedWebpackConfig } from '../config';
 
 export type WebpackOptions = {
   /**

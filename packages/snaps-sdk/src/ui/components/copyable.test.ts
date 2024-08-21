@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { copyable } from './copyable';
+import { NodeType } from '../nodes';
 
 describe('copyable', () => {
   it('creates a copyable component', () => {

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import type { SimulationOptions } from '../options';
 import { mocksSlice } from './mocks';
 import { notificationsSlice } from './notifications';
 import { setState, stateSlice } from './state';
 import { uiSlice } from './ui';
+import type { SimulationOptions } from '../options';
 
 /**
  * Create a Redux store.

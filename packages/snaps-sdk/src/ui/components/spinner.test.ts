@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { spinner } from './spinner';
+import { NodeType } from '../nodes';
 
 describe('spinner', () => {
   it('creates a spinner component', () => {

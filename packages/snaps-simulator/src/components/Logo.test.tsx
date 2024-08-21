@@ -1,5 +1,5 @@
-import { render } from '../utils';
 import { Logo } from './Logo';
+import { render } from '../utils';
 
 describe('Logo', () => {
   it('renders', () => {

@@ -1,5 +1,5 @@
-import { render } from '../../../../utils';
 import { CronjobPrefills } from './CronjobPrefills';
+import { render } from '../../../../utils';
 
 describe('CronjobPrefills', () => {
   it('renders', () => {

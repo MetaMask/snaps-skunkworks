@@ -7,11 +7,11 @@ import {
   spy,
 } from '@metamask/snaps-utils/test-utils';
 
-import { createService, MOCK_BLOCK_NUMBER } from '../../test-utils';
 import {
   WebWorkerExecutionService,
   WORKER_POOL_ID,
 } from './WebWorkerExecutionService';
+import { createService, MOCK_BLOCK_NUMBER } from '../../test-utils';
 
 const WORKER_POOL_URL = 'http://localhost:4567/worker/pool';
 

@@ -1,5 +1,5 @@
-import { getMockOptions } from '../../../test-utils';
 import { createStore } from './store';
+import { getMockOptions } from '../../../test-utils';
 
 describe('createStore', () => {
   it('creates a Redux store', () => {

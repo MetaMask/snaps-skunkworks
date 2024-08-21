@@ -1,11 +1,11 @@
 import type { FunctionComponent } from 'react';
 
-import { Snap } from '../../../components';
 import {
   SIGNATURE_INSIGHTS_SNAP_ID,
   SIGNATURE_INSIGHTS_SNAP_PORT,
   SIGNATURE_INSIGHTS_VERSION,
 } from './constants';
+import { Snap } from '../../../components';
 
 export const SignatureInsights: FunctionComponent = () => {
   return (

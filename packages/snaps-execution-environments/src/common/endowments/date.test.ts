@@ -1,5 +1,5 @@
-import { rootRealmGlobal } from '../globalObject';
 import date from './date';
+import { rootRealmGlobal } from '../globalObject';
 
 describe('Date endowment', () => {
   beforeEach(() => {

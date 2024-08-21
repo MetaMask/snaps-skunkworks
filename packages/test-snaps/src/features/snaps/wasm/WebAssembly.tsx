@@ -1,8 +1,8 @@
 import type { FunctionComponent } from 'react';
 
-import { Snap } from '../../../components';
 import { FibonacciInput } from './components';
 import { WASM_SNAP_ID, WASM_SNAP_PORT, WASM_VERSION } from './constants';
+import { Snap } from '../../../components';
 
 export const WASM: FunctionComponent = () => {
   return (

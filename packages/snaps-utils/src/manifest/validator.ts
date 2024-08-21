@@ -1,6 +1,5 @@
 import { assert } from '@metamask/utils';
 
-import type { SnapFiles, UnvalidatedSnapFiles } from '../types';
 import type {
   ValidatorContext,
   ValidatorFix,
@@ -9,6 +8,7 @@ import type {
   ValidatorSeverity,
 } from './validator-types';
 import * as defaultValidators from './validators';
+import type { SnapFiles, UnvalidatedSnapFiles } from '../types';
 
 export type ValidatorResults = {
   files?: SnapFiles;
@@ -45,6 +45,7 @@ class Context implements ValidatorContext {
  *
  * @param files - All files required to run a snap.
  * @param rules - Validators to run.
+ * @returns The results of the validation run.
  */
 // TODO(ritave): snap.manifest.json and package.json should check
 //               json parsing as well instead of assuming it's

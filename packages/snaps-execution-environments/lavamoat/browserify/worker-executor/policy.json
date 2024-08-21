@@ -180,13 +180,7 @@
         "console.error": true
       },
       "packages": {
-        "browserify>process": true,
-        "depcheck>semver>lru-cache": true
-      }
-    },
-    "depcheck>semver>lru-cache": {
-      "packages": {
-        "depcheck>semver>lru-cache>yallist": true
+        "browserify>process": true
       }
     },
     "readable-stream": {

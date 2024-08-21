@@ -20,7 +20,6 @@ import { nanoid } from '@reduxjs/toolkit';
 import type { SagaIterator } from 'redux-saga';
 import { call, put, select, take } from 'redux-saga/effects';
 
-import { addNativeNotification, addNotification } from '../notifications';
 import {
   closeUserInterface,
   getAuxiliaryFiles,
@@ -35,6 +34,7 @@ import {
   setSnapInterface,
   showUserInterface,
 } from './slice';
+import { addNativeNotification, addNotification } from '../notifications';
 
 /**
  * Show a dialog to the user.

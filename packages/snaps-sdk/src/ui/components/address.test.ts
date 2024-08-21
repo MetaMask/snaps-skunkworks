@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { address } from './address';
+import { NodeType } from '../nodes';
 
 describe('address', () => {
   const MOCK_ADDRESS = '0x4bbeEB066eD09B7AEd07bF39EEe0460DFa261520';

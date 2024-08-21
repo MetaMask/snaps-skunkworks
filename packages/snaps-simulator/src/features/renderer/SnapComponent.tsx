@@ -1,7 +1,6 @@
 import type { JSXElement } from '@metamask/snaps-sdk/jsx';
 import type { FunctionComponent } from 'react';
 
-import { generateKey } from '../../utils';
 import {
   Bold,
   Copyable,
@@ -18,6 +17,7 @@ import {
   Italic,
   Link,
 } from './components';
+import { generateKey } from '../../utils';
 
 export const components: Partial<
   Record<

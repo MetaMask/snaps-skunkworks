@@ -1,5 +1,5 @@
-import { getMockOptions } from '../../../../test-utils/options';
 import { getGetPreferencesMethodImplementation } from './get-preferences';
+import { getMockOptions } from '../../../../test-utils/options';
 
 describe('getGetPreferencesMethodImplementation', () => {
   it('returns the implementation of the `getPreferences` hook', async () => {

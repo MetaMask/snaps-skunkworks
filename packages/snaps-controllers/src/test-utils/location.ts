@@ -45,15 +45,15 @@ const coerceManifest = (manifest: VirtualFile<SnapManifest>) => {
 };
 
 export class LoopbackLocation implements SnapLocation {
-  #manifest: VirtualFile<SnapManifest>;
+  readonly #manifest: VirtualFile<SnapManifest>;
 
-  #files: VirtualFile[];
+  readonly #files: VirtualFile[];
 
-  #shouldAlwaysReload: boolean;
+  readonly #shouldAlwaysReload: boolean;
 
-  #requestedRange: SemVerRange;
+  readonly #requestedRange: SemVerRange;
 
-  #resolveVersion: (range: SemVerRange) => Promise<SemVerRange>;
+  readonly #resolveVersion: (range: SemVerRange) => Promise<SemVerRange>;
 
   constructor(opts: LoopbackOptions = {}) {
     this.#requestedRange = opts.versionRange ?? DEFAULT_REQUESTED_SNAP_VERSION;

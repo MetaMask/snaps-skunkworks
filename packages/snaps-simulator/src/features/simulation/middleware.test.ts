@@ -1,8 +1,8 @@
 import { JsonRpcEngine } from '@metamask/json-rpc-engine';
 import { mnemonicPhraseToBytes } from '@metamask/key-tree';
 
-import { DEFAULT_SRP } from '../configuration';
 import { createMiscMethodMiddleware } from './middleware';
+import { DEFAULT_SRP } from '../configuration';
 
 const hooks = { getMnemonic: async () => mnemonicPhraseToBytes(DEFAULT_SRP) };
 

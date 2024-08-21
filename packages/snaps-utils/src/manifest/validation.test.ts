@@ -1,6 +1,5 @@
 import { assert, is, StructError } from '@metamask/superstruct';
 
-import { getSnapManifest, MOCK_SNAP_ID } from '../test-utils';
 import {
   assertIsSnapManifest,
   Bip32EntropyStruct,
@@ -12,6 +11,7 @@ import {
   PermissionsStruct,
   SnapIdsStruct,
 } from './validation';
+import { getSnapManifest, MOCK_SNAP_ID } from '../test-utils';
 
 describe('Bip32PathStruct', () => {
   it.each(['m/0/1/2', "m/0'/1/2", "m/1'/2'/3'/4/5/6", "m/0/1'/2"])(

@@ -20,8 +20,8 @@ import {
 } from '@metamask/snaps-sdk/jsx';
 import type { FunctionComponent } from 'react';
 
-import type { IconName } from '../../../components';
 import { TemplateComponent } from './TemplateComponent';
+import type { IconName } from '../../../components';
 
 type TemplateComponent = {
   icon: IconName;

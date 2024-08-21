@@ -1,5 +1,5 @@
-import { CommandError } from '../errors';
 import { getErrorMessage, getYargsErrorMessage } from './errors';
+import { CommandError } from '../errors';
 
 describe('getYargsErrorMessage', () => {
   it('returns the plain message if the error is undefined', () => {

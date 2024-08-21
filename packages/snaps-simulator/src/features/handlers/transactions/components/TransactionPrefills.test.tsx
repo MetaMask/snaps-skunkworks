@@ -1,5 +1,5 @@
-import { render } from '../../../../utils';
 import { TransactionPrefills } from './TransactionPrefills';
+import { render } from '../../../../utils';
 
 describe('TransactionPrefills', () => {
   it('renders', () => {

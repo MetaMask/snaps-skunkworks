@@ -1,7 +1,7 @@
 import { List } from '@chakra-ui/react';
 
-import { render } from '../../../utils';
 import { Item } from './Item';
+import { render } from '../../../utils';
 
 describe('Item', () => {
   it('renders', () => {

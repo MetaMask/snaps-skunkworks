@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { isPackageJson } from './is-package-json';
 import { getPackageJson } from '../../test-utils';
 import { VirtualFile } from '../../virtual-file';
-import { isPackageJson } from './is-package-json';
 
 describe('isPackageJson', () => {
   it("does nothing if file doesn't exist", async () => {

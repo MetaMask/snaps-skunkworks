@@ -63,6 +63,7 @@ export class ProxyExecutionService extends AbstractExecutionService<string> {
    * in a stream specific to the job.
    *
    * @param jobId - The job ID.
+   * @returns An object with the job ID and stream.
    */
   protected async initEnvStream(jobId: string) {
     const stream = new ProxyPostMessageStream({

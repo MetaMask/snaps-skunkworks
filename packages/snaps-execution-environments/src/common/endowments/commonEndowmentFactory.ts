@@ -1,5 +1,3 @@
-import type { NotifyFunction } from '../BaseSnapExecutor';
-import { rootRealmGlobal } from '../globalObject';
 import consoleEndowment from './console';
 import crypto from './crypto';
 import date from './date';
@@ -9,6 +7,8 @@ import network from './network';
 import textDecoder from './textDecoder';
 import textEncoder from './textEncoder';
 import timeout from './timeout';
+import type { NotifyFunction } from '../BaseSnapExecutor';
+import { rootRealmGlobal } from '../globalObject';
 
 export type EndowmentFactoryOptions = {
   snapId?: string;

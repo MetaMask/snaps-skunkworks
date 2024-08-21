@@ -1,5 +1,5 @@
-import { render } from '../utils';
 import { Window } from './Window';
+import { render } from '../utils';
 
 describe('Window', () => {
   it('renders', () => {

@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { heading } from './heading';
+import { NodeType } from '../nodes';
 
 describe('heading', () => {
   it('creates a heading component', () => {

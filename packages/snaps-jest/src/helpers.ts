@@ -343,7 +343,7 @@ export async function installSnap<
     return response;
   };
 
-  const onCronjob = (request: CronjobOptions) => {
+  const onCronjob = async (request: CronjobOptions) => {
     log('Running cronjob %o.', options);
 
     return handleRequest({
@@ -358,7 +358,7 @@ export async function installSnap<
   };
 
   return {
-    request: (request) => {
+    request: async (request) => {
       log('Sending request %o.', request);
 
       return handleRequest({

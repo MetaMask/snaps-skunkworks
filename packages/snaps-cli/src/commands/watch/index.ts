@@ -1,8 +1,8 @@
 import type yargs from 'yargs';
 
+import { watchHandler } from './watch';
 import builders from '../../builders';
 import type { YargsArgs } from '../../types/yargs';
-import { watchHandler } from './watch';
 
 const command = {
   command: ['watch', 'w'],

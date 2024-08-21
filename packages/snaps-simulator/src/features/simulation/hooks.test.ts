@@ -6,7 +6,6 @@ import { base64ToBytes, stringToBytes } from '@metamask/utils';
 import { File } from 'buffer';
 import { expectSaga } from 'redux-saga-test-plan';
 
-import { addNotification } from '../notifications';
 import {
   createInterface,
   getInterface,
@@ -34,6 +33,7 @@ import {
 } from './slice';
 import { getSnapInterfaceController as getTestSnapInterfaceController } from './test/controllers';
 import { MOCK_MANIFEST_FILE } from './test/mockManifest';
+import { addNotification } from '../notifications';
 
 Object.defineProperty(globalThis, 'Notification', {
   value: class Notification {

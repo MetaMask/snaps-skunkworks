@@ -1,10 +1,10 @@
 import { DEFAULT_SNAP_BUNDLE } from '@metamask/snaps-utils/test-utils';
 import fs from 'fs';
 
-import { getMockConfig } from '../../test-utils';
-import { evaluate } from '../eval';
 import { buildHandler } from './build';
 import { build } from './implementation';
+import { getMockConfig } from '../../test-utils';
+import { evaluate } from '../eval';
 
 jest.mock('fs');
 jest.mock('../eval');

@@ -1,8 +1,8 @@
 import assert from 'assert';
 
+import { versionMatch } from './version-match';
 import { deepClone } from '../../deep-clone';
 import { getMockSnapFiles, getSnapManifest } from '../../test-utils';
-import { versionMatch } from './version-match';
 
 describe('versionMatch', () => {
   it('does nothing if versions match', async () => {

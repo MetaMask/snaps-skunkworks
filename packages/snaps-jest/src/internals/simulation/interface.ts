@@ -9,8 +9,11 @@ import type {
   File,
 } from '@metamask/snaps-sdk';
 import { DialogType, UserInputEventType, assert } from '@metamask/snaps-sdk';
-import type { FooterElement } from '@metamask/snaps-sdk/jsx';
-import { type FormElement, type JSXElement } from '@metamask/snaps-sdk/jsx';
+import type {
+  FooterElement,
+  type FormElement,
+  type JSXElement,
+} from '@metamask/snaps-sdk/jsx';
 import {
   HandlerType,
   getJsxChildren,
@@ -22,15 +25,15 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { type SagaIterator } from 'redux-saga';
 import { call, put, select, take } from 'redux-saga/effects';
 
+import type { RootControllerMessenger } from './controllers';
+import { getFileSize, getFileToUpload } from './files';
+import type { Interface, RunSagaFunction } from './store';
+import { getCurrentInterface, resolveInterface, setInterface } from './store';
 import type {
   FileOptions,
   SnapInterface,
   SnapInterfaceActions,
 } from '../../types';
-import type { RootControllerMessenger } from './controllers';
-import { getFileSize, getFileToUpload } from './files';
-import type { Interface, RunSagaFunction } from './store';
-import { getCurrentInterface, resolveInterface, setInterface } from './store';
 
 /**
  * The maximum file size that can be uploaded.

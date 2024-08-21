@@ -9,13 +9,13 @@ import { HandlerType } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
+import type { CronjobData } from './CronjobPrefill';
+import { CronjobPrefills } from './CronjobPrefills';
 import { Editor } from '../../../../components';
 import { useDispatch, useSelector } from '../../../../hooks';
 import { sendRequest } from '../../../simulation';
 import { SAMPLE_JSON_RPC_REQUEST } from '../../json-rpc/schema';
 import { getCronjobRequest } from '../slice';
-import type { CronjobData } from './CronjobPrefill';
-import { CronjobPrefills } from './CronjobPrefills';
 
 type CronjobFormData = {
   origin: string;

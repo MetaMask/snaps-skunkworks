@@ -1,12 +1,12 @@
 import assert from 'assert';
 
+import { checksum } from './checksum';
 import {
   DEFAULT_SNAP_SHASUM,
   getMockSnapFiles,
   getSnapManifest,
 } from '../../test-utils';
 import type { ValidatorFix } from '../validator-types';
-import { checksum } from './checksum';
 
 describe('checksum', () => {
   it('does nothing on valid checksum', async () => {

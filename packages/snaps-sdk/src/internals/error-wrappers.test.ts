@@ -1,7 +1,7 @@
 import { rpcErrors } from '@metamask/rpc-errors';
 
-import { SnapError } from '../errors';
 import { createSnapError } from './error-wrappers';
+import { SnapError } from '../errors';
 
 describe('createSnapError', () => {
   it('creates a SnapError from an rpc-errors function', () => {

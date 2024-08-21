@@ -1,7 +1,7 @@
 import { Box } from '@metamask/snaps-sdk/jsx';
 
-import { render } from '../../utils';
 import { AlertDialog } from './AlertDialog';
+import { render } from '../../utils';
 
 describe('AlertDialog', () => {
   it('renders', () => {

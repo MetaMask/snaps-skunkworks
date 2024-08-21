@@ -1,6 +1,6 @@
+import { serveHandler } from './serve';
 import { getMockConfig } from '../../test-utils';
 import * as webpack from '../../webpack';
-import { serveHandler } from './serve';
 
 jest.mock('../../webpack');
 

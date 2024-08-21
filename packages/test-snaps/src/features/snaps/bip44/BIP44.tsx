@@ -2,11 +2,11 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
+import { SignMessage } from './components';
+import { BIP_44_PORT, BIP_44_SNAP_ID, BIP_44_VERSION } from './constants';
 import { useInvokeMutation } from '../../../api';
 import { Result, Snap } from '../../../components';
 import { getSnapId } from '../../../utils';
-import { SignMessage } from './components';
-import { BIP_44_PORT, BIP_44_SNAP_ID, BIP_44_VERSION } from './constants';
 
 export const BIP44: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data, error }] = useInvokeMutation();

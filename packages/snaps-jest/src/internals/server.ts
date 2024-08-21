@@ -11,8 +11,8 @@ import type { Server } from 'http';
 import { createServer } from 'http';
 import { resolve as pathResolve } from 'path';
 
-import type { SnapsEnvironmentOptions } from '../options';
 import { rootLogger } from './logger';
+import type { SnapsEnvironmentOptions } from '../options';
 
 export type ServerOptions = Required<
   // We need a double `Required` for the type to be inferred correctly.

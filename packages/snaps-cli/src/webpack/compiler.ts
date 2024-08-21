@@ -1,8 +1,8 @@
 import { webpack } from 'webpack';
 
-import type { ProcessedWebpackConfig } from '../config';
 import type { WebpackOptions } from './config';
 import { getDefaultConfiguration } from './config';
+import type { ProcessedWebpackConfig } from '../config';
 
 /**
  * Get a Webpack compiler for the given config.

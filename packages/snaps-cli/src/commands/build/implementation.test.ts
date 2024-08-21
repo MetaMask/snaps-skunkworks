@@ -7,12 +7,12 @@ import normalFs from 'fs';
 import { dirname, resolve } from 'path';
 import type { Configuration } from 'webpack';
 
+import { build } from './implementation';
 import { getMockConfig } from '../../test-utils';
 import { getCompiler } from '../../webpack';
 import type * as webpack from '../../webpack';
 import type * as utils from '../../webpack/utils';
 import { BROWSERSLIST_FILE } from '../../webpack/utils';
-import { build } from './implementation';
 
 const { promises: fs } = normalFs;
 

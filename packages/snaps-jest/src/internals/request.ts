@@ -16,11 +16,6 @@ import {
 } from '@metamask/utils';
 import { nanoid } from '@reduxjs/toolkit';
 
-import type {
-  RequestOptions,
-  SnapHandlerInterface,
-  SnapRequest,
-} from '../types';
 import type { RunSagaFunction, Store } from './simulation';
 import {
   clearNotifications,
@@ -30,6 +25,11 @@ import {
 } from './simulation';
 import type { RootControllerMessenger } from './simulation/controllers';
 import { SnapResponseStruct } from './structs';
+import type {
+  RequestOptions,
+  SnapHandlerInterface,
+  SnapRequest,
+} from '../types';
 
 export type HandleRequestOptions = {
   snapId: SnapId;

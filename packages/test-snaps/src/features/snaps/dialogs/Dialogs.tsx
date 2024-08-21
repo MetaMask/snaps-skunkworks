@@ -2,14 +2,14 @@ import { logError } from '@metamask/snaps-utils';
 import type { FunctionComponent } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { useInvokeMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
-import { getSnapId } from '../../../utils';
 import {
   DIALOGS_SNAP_ID,
   DIALOGS_SNAP_PORT,
   DIALOGS_VERSION,
 } from './constants';
+import { useInvokeMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
+import { getSnapId } from '../../../utils';
 
 export const Dialogs: FunctionComponent = () => {
   const [invokeSnap, { isLoading, data }] = useInvokeMutation();

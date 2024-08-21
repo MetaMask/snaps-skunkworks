@@ -1,5 +1,5 @@
-import { render } from '../../utils';
 import { Navigation } from './Navigation';
+import { render } from '../../utils';
 
 describe('Navigation', () => {
   it('renders', () => {

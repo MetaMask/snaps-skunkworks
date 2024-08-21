@@ -1,8 +1,8 @@
 import type yargs from 'yargs';
 
+import { manifestHandler } from './manifest';
 import builders from '../../builders';
 import type { YargsArgs } from '../../types/yargs';
-import { manifestHandler } from './manifest';
 
 const command = {
   command: ['manifest', 'm'],

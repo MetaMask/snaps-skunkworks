@@ -13,6 +13,7 @@ import { getMessage } from './locales';
  *
  * @param params - The request parameters.
  * @param params.request - The JSON-RPC request object.
+ * @returns The JSON-RPC response.
  * @see https://docs.metamask.io/snaps/reference/exports/#onrpcrequest
  * @see https://docs.metamask.io/snaps/reference/rpc-api/#wallet_invokesnap
  */

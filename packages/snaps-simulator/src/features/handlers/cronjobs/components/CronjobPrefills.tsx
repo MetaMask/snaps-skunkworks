@@ -1,10 +1,10 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { FunctionComponent } from 'react';
 
-import { useSelector } from '../../../../hooks';
-import { getSnapManifest } from '../../../simulation';
 import type { CronjobData } from './CronjobPrefill';
 import { CronjobPrefill } from './CronjobPrefill';
+import { useSelector } from '../../../../hooks';
+import { getSnapManifest } from '../../../simulation';
 
 export type CronjobPrefillsProps = {
   onClick: (prefill: CronjobData) => void;

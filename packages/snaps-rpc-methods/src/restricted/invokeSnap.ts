@@ -73,6 +73,7 @@ export type InvokeSnapParams = {
  * @param params - The side-effect params.
  * @param params.requestData - The request data associated to the requested permission.
  * @param params.messagingSystem - The messenger to call an action.
+ * @returns The result of the Snap installation.
  */
 export const handleSnapInstall: PermissionSideEffect<
   AllowedActions,

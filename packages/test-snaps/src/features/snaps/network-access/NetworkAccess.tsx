@@ -3,14 +3,14 @@ import type { ChangeEvent, FunctionComponent } from 'react';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-import { useInvokeMutation } from '../../../api';
-import { Result, Snap } from '../../../components';
-import { getSnapId } from '../../../utils';
 import {
   NETWORK_ACCESS_PORT,
   NETWORK_ACCESS_SNAP_ID,
   NETWORK_ACCESS_VERSION,
 } from './constants';
+import { useInvokeMutation } from '../../../api';
+import { Result, Snap } from '../../../components';
+import { getSnapId } from '../../../utils';
 
 export const NetworkAccess: FunctionComponent = () => {
   const [url, setUrl] = useState(`${window.location.href}test-data.json`);

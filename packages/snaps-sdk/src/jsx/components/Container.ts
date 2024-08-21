@@ -1,6 +1,6 @@
-import { createSnapComponent } from '../component';
 import type { BoxElement } from './Box';
 import type { FooterElement } from './Footer';
+import { createSnapComponent } from '../component';
 
 /**
  * The props of the {@link Container} component.

@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { VirtualFile } from '../../virtual-file';
 import { isSnapIcon } from './is-snap-icon';
+import { VirtualFile } from '../../virtual-file';
 
 describe('isSnapIcon', () => {
   it('does nothing on valid icon', async () => {

@@ -12,7 +12,7 @@ module.exports = {
         sourceType: 'module',
       },
       rules: {
-        'import/no-unresolved': 'off',
+        'import-x/no-unresolved': 'off',
       },
     },
   ],

@@ -1,10 +1,10 @@
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
 
-import { rootRealmGlobal } from '../globalObject';
 import consoleEndowment, {
   consoleAttenuatedMethods,
   consoleMethods,
 } from './console';
+import { rootRealmGlobal } from '../globalObject';
 
 describe('Console endowment', () => {
   it('has expected properties', () => {

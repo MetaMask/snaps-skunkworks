@@ -1,7 +1,7 @@
 import command from '.';
+import { watchHandler } from './watch';
 import { getMockConfig } from '../../test-utils';
 import type { YargsArgs } from '../../types/yargs';
-import { watchHandler } from './watch';
 
 jest.mock('./watch');
 

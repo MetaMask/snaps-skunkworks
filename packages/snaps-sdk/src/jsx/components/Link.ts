@@ -1,6 +1,6 @@
+import type { StandardFormattingElement } from './formatting';
 import type { SnapsChildren } from '../component';
 import { createSnapComponent } from '../component';
-import type { StandardFormattingElement } from './formatting';
 
 /**
  * The children of the {@link Link} component.

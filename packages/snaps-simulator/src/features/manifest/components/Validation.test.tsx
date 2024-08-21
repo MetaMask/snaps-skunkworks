@@ -1,5 +1,5 @@
-import { render } from '../../../utils';
 import { Validation } from './Validation';
+import { render } from '../../../utils';
 
 describe('Validation', () => {
   it('renders', () => {

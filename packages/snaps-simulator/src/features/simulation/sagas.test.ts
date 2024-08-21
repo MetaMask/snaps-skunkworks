@@ -11,7 +11,6 @@ import {
 import { expectSaga } from 'redux-saga-test-plan';
 import { call } from 'redux-saga-test-plan/matchers';
 
-import { DEFAULT_SRP, setSnapId } from '../configuration';
 import { createInterface, getInterface } from './hooks';
 import { initSaga, permissionsSaga, rebootSaga, requestSaga } from './sagas';
 import {
@@ -27,6 +26,7 @@ import { getSnapInterfaceController } from './test/controllers';
 import { MockExecutionService } from './test/mockExecutionService';
 import { MOCK_MANIFEST, MOCK_MANIFEST_FILE } from './test/mockManifest';
 import { MOCK_SNAP_SOURCE, MOCK_SNAP_SOURCE_FILE } from './test/mockSnap';
+import { DEFAULT_SRP, setSnapId } from '../configuration';
 
 const snapId = 'local:http://localhost:8080';
 

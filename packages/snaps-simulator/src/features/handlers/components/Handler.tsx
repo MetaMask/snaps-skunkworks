@@ -11,16 +11,16 @@ import type { FunctionComponent } from 'react';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { TestConditional } from '../../../components';
-import { useSelector } from '../../../hooks';
-import { IS_TEST_BUILD } from '../../../utils';
-import { getUserInterface } from '../../simulation';
 import { History } from './History';
 import { PlayButton } from './PlayButton';
 import { ResetTab } from './ResetTab';
 import { ResetUserInterfaceTab } from './ResetUserInterfaceTab';
 import { Response } from './Response';
 import { UserInterface } from './UserInterface';
+import { TestConditional } from '../../../components';
+import { useSelector } from '../../../hooks';
+import { IS_TEST_BUILD } from '../../../utils';
+import { getUserInterface } from '../../simulation';
 
 export const Handler: FunctionComponent = () => {
   const [tab, setTab] = useState(0);

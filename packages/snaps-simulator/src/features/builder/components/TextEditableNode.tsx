@@ -8,9 +8,9 @@ import { assert, hasProperty } from '@metamask/utils';
 import type { ChangeEvent, FunctionComponent } from 'react';
 import { useState } from 'react';
 
+import { BaseNode } from './BaseNode';
 import type { EditableNodeProps } from '../../../types';
 import { getNodeText } from '../utils';
-import { BaseNode } from './BaseNode';
 
 export type TextEditableComponent =
   | TextElement

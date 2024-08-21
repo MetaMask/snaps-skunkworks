@@ -1,5 +1,5 @@
-import { render } from '../utils';
 import { Prefill } from './Prefill';
+import { render } from '../utils';
 
 describe('Prefill', () => {
   it('renders', () => {

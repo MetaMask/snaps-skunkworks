@@ -7,8 +7,8 @@ import {
 } from '@metamask/snaps-utils/test-utils';
 import { assert } from '@metamask/utils';
 
-import { createService, MOCK_BLOCK_NUMBER } from '../../test-utils';
 import { IframeExecutionService } from './IframeExecutionService';
+import { createService, MOCK_BLOCK_NUMBER } from '../../test-utils';
 
 const IFRAME_URL = 'http://localhost:4567';
 

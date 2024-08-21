@@ -1,10 +1,6 @@
 import type { PermissionConstraint } from '@metamask/permission-controller';
 import type { Json } from '@metamask/utils';
 
-import { getBip32EntropyBuilder } from '../getBip32Entropy';
-import { getBip32PublicKeyBuilder } from '../getBip32PublicKey';
-import { getBip44EntropyBuilder } from '../getBip44Entropy';
-import { invokeSnapBuilder } from '../invokeSnap';
 import {
   permittedCoinTypesCaveatMapper,
   PermittedCoinTypesCaveatSpecification,
@@ -14,6 +10,10 @@ import {
   PermittedDerivationPathsCaveatSpecification,
 } from './permittedDerivationPaths';
 import { snapIdsCaveatMapper, SnapIdsCaveatSpecification } from './snapIds';
+import { getBip32EntropyBuilder } from '../getBip32Entropy';
+import { getBip32PublicKeyBuilder } from '../getBip32PublicKey';
+import { getBip44EntropyBuilder } from '../getBip44Entropy';
+import { invokeSnapBuilder } from '../invokeSnap';
 
 export const caveatSpecifications = {
   ...PermittedDerivationPathsCaveatSpecification,

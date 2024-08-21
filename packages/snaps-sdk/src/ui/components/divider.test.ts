@@ -1,5 +1,5 @@
-import { NodeType } from '../nodes';
 import { divider } from './divider';
+import { NodeType } from '../nodes';
 
 describe('divider', () => {
   it('creates a divider component', () => {

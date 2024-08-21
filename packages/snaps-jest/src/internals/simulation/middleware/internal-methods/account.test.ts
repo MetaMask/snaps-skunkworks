@@ -1,8 +1,8 @@
 import { mnemonicPhraseToBytes } from '@metamask/key-tree';
 import type { PendingJsonRpcResponse } from '@metamask/utils';
 
-import { DEFAULT_SRP } from '../../constants';
 import { getAccountsHandler } from './accounts';
+import { DEFAULT_SRP } from '../../constants';
 
 describe('getAccountsHandler', () => {
   it('returns the first address for the selected secret recovery phrase', async () => {

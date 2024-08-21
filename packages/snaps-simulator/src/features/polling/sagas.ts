@@ -31,6 +31,7 @@ import {
  *
  * @param location - The snap location class.
  * @param manifest - The parsed manifest.
+ * @returns The auxiliary files.
  */
 async function fetchAuxiliaryFiles(
   location: SnapLocation,

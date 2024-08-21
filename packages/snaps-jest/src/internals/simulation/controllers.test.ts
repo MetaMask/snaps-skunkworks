@@ -4,9 +4,9 @@ import {
   SubjectMetadataController,
 } from '@metamask/permission-controller';
 
-import { getMockOptions } from '../../test-utils/options';
 import { getControllers } from './controllers';
 import type { MiddlewareHooks } from './simulation';
+import { getMockOptions } from '../../test-utils/options';
 
 const MOCK_HOOKS: MiddlewareHooks = {
   getIsLocked: jest.fn(),

@@ -3,8 +3,8 @@ import { rpcErrors } from '@metamask/rpc-errors';
 import { logError } from '@metamask/snaps-utils';
 import type { Json, JsonRpcParams } from '@metamask/utils';
 
-import { selectHooks } from '../utils';
 import { methodHandlers } from './handlers';
+import { selectHooks } from '../utils';
 
 /**
  * Creates a middleware that handles permitted snap RPC methods.

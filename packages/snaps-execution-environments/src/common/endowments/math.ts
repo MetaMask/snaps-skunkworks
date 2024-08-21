@@ -1,5 +1,5 @@
-import { rootRealmGlobal } from '../globalObject';
 import { createCrypto } from './crypto';
+import { rootRealmGlobal } from '../globalObject';
 
 /**
  * Create a {@link Math} object, with the same properties as the global

@@ -8,10 +8,10 @@ import {
   union,
 } from '@metamask/superstruct';
 
-import { createBuilder } from '../builder';
-import { NodeStruct, NodeType } from '../nodes';
 import { ButtonStruct } from './button';
 import { InputStruct } from './input';
+import { createBuilder } from '../builder';
+import { NodeStruct, NodeType } from '../nodes';
 
 export const FormComponentStruct = union([InputStruct, ButtonStruct]);
 

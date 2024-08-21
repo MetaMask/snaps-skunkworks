@@ -16,7 +16,8 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "noEmit": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "strictNullChecks": true
   },
   "files": [],
   "include": ["scripts", "tsup.config.ts"]

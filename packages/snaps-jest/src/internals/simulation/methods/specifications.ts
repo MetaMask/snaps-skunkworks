@@ -7,9 +7,6 @@ import {
 import type { SnapId } from '@metamask/snaps-sdk';
 import { DEFAULT_ENDOWMENTS } from '@metamask/snaps-utils';
 
-import type { RootControllerMessenger } from '../controllers';
-import type { SimulationOptions } from '../options';
-import type { RunSagaFunction } from '../store';
 import {
   EXCLUDED_SNAP_ENDOWMENTS,
   EXCLUDED_SNAP_PERMISSIONS,
@@ -25,6 +22,9 @@ import {
   getGetInterfaceImplementation,
   getRequestUserApprovalImplementation,
 } from './hooks';
+import type { RootControllerMessenger } from '../controllers';
+import type { SimulationOptions } from '../options';
+import type { RunSagaFunction } from '../store';
 
 export type PermissionSpecificationsHooks = {
   /**

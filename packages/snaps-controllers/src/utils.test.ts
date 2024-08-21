@@ -5,7 +5,6 @@ import {
 } from '@metamask/snaps-utils/test-utils';
 import { assert } from '@metamask/utils';
 
-import { SnapEndowments } from '../../snaps-rpc-methods/src/endowments';
 import {
   LoopbackLocation,
   MOCK_ALLOWED_RPC_ORIGINS_PERMISSION,
@@ -15,6 +14,7 @@ import {
   MOCK_SNAP_DIALOG_PERMISSION,
 } from './test-utils';
 import { getSnapFiles, permissionsDiff, setDiff } from './utils';
+import { SnapEndowments } from '../../snaps-rpc-methods/src/endowments';
 
 describe('setDiff', () => {
   it('does nothing on empty type {}-B', () => {

@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line import-x/no-unassigned-import
 import 'ses';
 import { SNAP_STREAM_NAMES, HandlerType } from '@metamask/snaps-utils';
 import type { Json, JsonRpcRequest, JsonRpcSuccess } from '@metamask/utils';

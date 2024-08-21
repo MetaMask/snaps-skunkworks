@@ -15,6 +15,7 @@ import { error, info, warn } from '../../utils';
  * @param path - The path to the manifest file.
  * @param write - Whether to write the manifest to disk if it is invalid.
  * @param spinner - An optional spinner to use for logging.
+ * @returns Whether the manifest is valid.
  */
 export async function manifest(
   path: string,

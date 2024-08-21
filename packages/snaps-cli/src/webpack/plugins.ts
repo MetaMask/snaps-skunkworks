@@ -12,9 +12,9 @@ import type {
 } from 'webpack';
 import { WebpackError } from 'webpack';
 
+import { formatText, pluralize } from './utils';
 import { evaluate } from '../commands/eval';
 import { error, getErrorMessage, info, warn } from '../utils';
-import { formatText, pluralize } from './utils';
 
 export type SnapsStatsPluginOptions = {
   /**

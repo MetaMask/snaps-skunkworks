@@ -1,11 +1,11 @@
 import { NotificationType } from '@metamask/snaps-sdk';
 
-import { getMockOptions } from '../../../../test-utils';
-import { createStore } from '../../store';
 import {
   getShowInAppNotificationImplementation,
   getShowNativeNotificationImplementation,
 } from './notifications';
+import { getMockOptions } from '../../../../test-utils';
+import { createStore } from '../../store';
 
 describe('getShowNativeNotificationImplementation', () => {
   it('returns the implementation of the `showNativeNotification` hook', async () => {

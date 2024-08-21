@@ -1,14 +1,14 @@
 import type { SnapId } from '@metamask/snaps-sdk';
 import type { SemVerVersion } from '@metamask/utils';
 
-import type { PersistedSnap, Snap, TruncatedSnap } from '../snaps';
-import { SnapStatus } from '../snaps';
 import type { MakeSemVer } from './common';
 import {
   DEFAULT_SNAP_BUNDLE,
   DEFAULT_SNAP_SHASUM,
   getSnapManifest,
 } from './manifest';
+import type { PersistedSnap, Snap, TruncatedSnap } from '../snaps';
+import { SnapStatus } from '../snaps';
 
 export const MOCK_SNAP_ID = 'npm:@metamask/example-snap' as SnapId;
 export const MOCK_LOCAL_SNAP_ID = 'local:http://localhost:8080' as SnapId;

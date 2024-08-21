@@ -24,8 +24,11 @@ import {
   buildSnapEndowmentSpecifications,
   buildSnapRestrictedMethodSpecifications,
 } from '@metamask/snaps-rpc-methods';
-import type { SnapId } from '@metamask/snaps-sdk';
-import { type Component, type ComponentOrElement } from '@metamask/snaps-sdk';
+import type {
+  SnapId,
+  Component,
+  ComponentOrElement,
+} from '@metamask/snaps-sdk';
 import type {
   SnapManifest,
   SnapRpcHookArgs,
@@ -45,10 +48,6 @@ import {
   takeLatest,
 } from 'redux-saga/effects';
 
-import { runSaga } from '../../store/middleware';
-import { getSnapId, getSrp, setSnapId } from '../configuration';
-import { addError } from '../console';
-import { ManifestStatus, setValid } from '../manifest';
 import { JSON_RPC_ENDPOINT } from './constants';
 import {
   createInterface,
@@ -83,6 +82,10 @@ import {
   getEndowments,
   unrestrictedMethods,
 } from './snap-permissions';
+import { runSaga } from '../../store/middleware';
+import { getSnapId, getSrp, setSnapId } from '../configuration';
+import { addError } from '../console';
+import { ManifestStatus, setValid } from '../manifest';
 
 const DEFAULT_ENVIRONMENT_URL = `https://execution.metamask.io/iframe/${packageJson.version}/index.html`;
 

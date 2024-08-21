@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/unambiguous
+// eslint-disable-next-line import-x/unambiguous
 declare module 'readable-stream' {
   export type {
     DuplexOptions,

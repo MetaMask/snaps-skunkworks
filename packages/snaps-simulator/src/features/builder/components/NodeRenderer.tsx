@@ -5,6 +5,7 @@ import type { FunctionComponent } from 'react';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import { ErrorBoundary } from './ErrorBoundary';
 import {
   Delineator,
   DelineatorType,
@@ -15,7 +16,6 @@ import { getSnapId } from '../../configuration';
 import { Renderer } from '../../renderer';
 import { getSnapName } from '../../simulation';
 import { nodeModelsToComponent } from '../utils';
-import { ErrorBoundary } from './ErrorBoundary';
 
 export type NodeRendererProps = {
   items: NodeModel<JSXElement>[];

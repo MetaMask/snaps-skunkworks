@@ -1,5 +1,5 @@
-import { render } from '../../utils';
 import { Notifications } from './Notifications';
+import { render } from '../../utils';
 
 describe('Notifications', () => {
   it('renders', () => {

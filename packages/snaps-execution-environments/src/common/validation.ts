@@ -107,7 +107,6 @@ export type SnapRpcRequestArguments = Infer<
 
 export type RequestArguments =
   | PingRequestArguments
-  | TerminateRequestArguments
   | ExecuteSnapRequestArguments
   | SnapRpcRequestArguments;
 

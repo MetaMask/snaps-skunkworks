@@ -32,7 +32,6 @@ import {
 import type { FormEvent } from 'react';
 import { useEffect, useState } from 'react';
 
-import { useDispatch, useSelector } from '../../hooks';
 import {
   getOpen,
   getSesEnabled,
@@ -43,6 +42,7 @@ import {
   setSnapId,
   setSnapVersion,
 } from './slice';
+import { useDispatch, useSelector } from '../../hooks';
 
 export const Configuration = () => {
   const dispatch = useDispatch();

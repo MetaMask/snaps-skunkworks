@@ -1,7 +1,7 @@
 import { assert } from '@metamask/utils';
 
-import { rootRealmGlobal } from '../globalObject';
 import type { EndowmentFactoryOptions } from './commonEndowmentFactory';
+import { rootRealmGlobal } from '../globalObject';
 
 export const consoleAttenuatedMethods = new Set([
   'log',

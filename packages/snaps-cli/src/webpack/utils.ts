@@ -7,8 +7,8 @@ import { dirname, resolve } from 'path';
 import stripAnsi from 'strip-ansi';
 import type { Configuration } from 'webpack';
 
-import type { ProcessedWebpackConfig } from '../config';
 import { browserify, getFunctionLoader } from './loaders';
+import type { ProcessedWebpackConfig } from '../config';
 
 export const BROWSERSLIST_FILE = resolve(
   dirname(

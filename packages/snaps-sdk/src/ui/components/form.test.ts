@@ -1,6 +1,6 @@
-import { NodeType } from '../nodes';
 import { form } from './form';
 import { input } from './input';
+import { NodeType } from '../nodes';
 
 describe('Form', () => {
   it('creates a form component', () => {
