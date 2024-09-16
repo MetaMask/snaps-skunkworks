@@ -65,13 +65,13 @@
     "lint:dependencies": "depcheck"
   },
   "dependencies": {
-    "@metamask/approval-controller": "^7.0.2",
-    "@metamask/base-controller": "^6.0.2",
-    "@metamask/json-rpc-engine": "^9.0.2",
+    "@metamask/approval-controller": "^7.0.4",
+    "@metamask/base-controller": "^7.0.1",
+    "@metamask/json-rpc-engine": "^9.0.3",
     "@metamask/json-rpc-middleware-stream": "^8.0.2",
     "@metamask/object-multiplex": "^2.0.0",
-    "@metamask/permission-controller": "^11.0.0",
-    "@metamask/phishing-controller": "^12.0.2",
+    "@metamask/permission-controller": "^11.0.2",
+    "@metamask/phishing-controller": "^12.0.3",
     "@metamask/post-message-stream": "^8.1.1",
     "@metamask/rpc-errors": "^6.3.1",
     "@metamask/snaps-registry": "^3.2.1",
