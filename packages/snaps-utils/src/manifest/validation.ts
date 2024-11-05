@@ -174,6 +174,9 @@ export const MaxRequestTimeStruct = size(
   MAXIMUM_REQUEST_TIMEOUT,
 );
 
+// TODO: Decide on the format for this
+export const ProtocolRpcMethodsStruct = array(string());
+
 // Utility type to union with for all handler structs
 export const HandlerCaveatsStruct = object({
   maxRequestTime: optional(MaxRequestTimeStruct),
@@ -203,6 +206,12 @@ export const PermissionsStruct: Describe<InitialPermissions> = type({
   'endowment:ethereum-provider': optional(EmptyObjectStruct),
   'endowment:keyring': optional(
     mergeStructs(HandlerCaveatsStruct, KeyringOriginsStruct),
+  ),
+  'endowment:protocol': optional(
+    mergeStructs(
+      HandlerCaveatsStruct,
+      object({ chains: ChainIdsStruct, methods: ProtocolRpcMethodsStruct }),
+    ),
   ),
   'endowment:lifecycle-hooks': optional(HandlerCaveatsStruct),
   'endowment:name-lookup': optional(

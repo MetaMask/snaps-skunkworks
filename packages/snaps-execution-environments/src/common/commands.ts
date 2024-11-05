@@ -88,6 +88,7 @@ export function getHandlerArguments(
     }
     case HandlerType.OnRpcRequest:
     case HandlerType.OnKeyringRequest:
+    case HandlerType.OnProtocolRequest: // TODO: Decide on origin
       return { origin, request };
 
     case HandlerType.OnCronjob:

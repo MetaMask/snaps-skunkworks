@@ -10,7 +10,11 @@ import type {
   ValidPermission,
 } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
-import { SnapEndowments } from '@metamask/snaps-rpc-methods';
+import {
+  getProtocolCaveatChainIds,
+  getProtocolCaveatRpcMethods,
+  SnapEndowments,
+} from '@metamask/snaps-rpc-methods';
 import type {
   EmptyObject,
   Json,
@@ -106,7 +110,7 @@ export class MultichainRoutingController extends BaseController<
     return accounts.flatMap((account) => account.methods);
   }
 
-  #getProtocolSnaps(_chainId: Caip2ChainId, _method: string) {
+  #getProtocolSnaps(chainId: Caip2ChainId, method: string) {
     const allSnaps = this.messagingSystem.call('SnapController:getAll');
     const filteredSnaps = getRunnableSnaps(allSnaps);
 
@@ -115,13 +119,17 @@ export class MultichainRoutingController extends BaseController<
         'PermissionController:getPermissions',
         snap.id,
       );
-      // TODO: Protocol Snap export
-      // TODO: Filter based on chain ID and method
-      if (permissions && hasProperty(permissions, SnapEndowments.Rpc)) {
-        accumulator.push({
-          snapId: snap.id,
-          permission: permissions[SnapEndowments.Rpc],
-        });
+      if (permissions && hasProperty(permissions, SnapEndowments.Protocol)) {
+        const permission = permissions[SnapEndowments.Protocol];
+        const chains = getProtocolCaveatChainIds(permission);
+        const methods = getProtocolCaveatRpcMethods(permission);
+        // TODO: This may need to be more complicated depending on the decided format.
+        if (chains?.includes(chainId) && methods?.includes(method)) {
+          accumulator.push({
+            snapId: snap.id,
+            permission,
+          });
+        }
       }
 
       return accumulator;
@@ -155,7 +163,7 @@ export class MultichainRoutingController extends BaseController<
         snapId,
         origin: 'metamask', // TODO: Determine origin of these requests?
         request,
-        handler: HandlerType.OnRpcRequest, // TODO: Protocol Snap export
+        handler: HandlerType.OnProtocolRequest,
       });
     }
 
