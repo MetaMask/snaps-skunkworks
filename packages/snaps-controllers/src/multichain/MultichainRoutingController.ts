@@ -111,22 +111,26 @@ export class MultichainRoutingController extends BaseController<
     chainId: CaipChainId,
     request: JsonRpcRequest,
   ) {
-    const result = (await this.messagingSystem.call(
-      'SnapController:handleRequest',
-      {
-        snapId,
-        origin: 'metamask',
-        request: {
-          method: '',
-          params: {
-            chainId,
-            request,
+    try {
+      const result = (await this.messagingSystem.call(
+        'SnapController:handleRequest',
+        {
+          snapId,
+          origin: 'metamask',
+          request: {
+            method: '',
+            params: {
+              chainId,
+              request,
+            },
           },
+          handler: HandlerType.OnProtocolRequest, // TODO: Export and request format
         },
-        handler: HandlerType.OnProtocolRequest, // TODO: Export and request format
-      },
-    )) as { address: string } | null;
-    return result?.address;
+      )) as { address: string } | null;
+      return result?.address;
+    } catch {
+      throw rpcErrors.internal();
+    }
   }
 
   async #getAccountSnap(
