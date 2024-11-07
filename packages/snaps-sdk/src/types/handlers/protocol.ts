@@ -1,4 +1,9 @@
-import type { Json, JsonRpcParams, JsonRpcRequest } from '@metamask/utils';
+import type {
+  CaipChainId,
+  Json,
+  JsonRpcParams,
+  JsonRpcRequest,
+} from '@metamask/utils';
 
 /**
  * The `onProtocolRequest` handler, which is called when a Snap receives a
@@ -9,6 +14,7 @@ import type { Json, JsonRpcParams, JsonRpcRequest } from '@metamask/utils';
  * @param args - The request arguments.
  * @param args.origin - The origin of the request. This can be the ID of another
  * Snap, or the URL of a website.
+ * @param args.chainId - The chain ID of the request.
  * @param args.request - The protocol request sent to the Snap. This includes
  * the method name and parameters.
  * @returns The response to the protocol request. This must be a
@@ -19,5 +25,6 @@ export type OnProtocolRequestHandler<
   Params extends JsonRpcParams = JsonRpcParams,
 > = (args: {
   origin: string;
+  chainId: CaipChainId;
   request: JsonRpcRequest<Params>;
 }) => Promise<Json>;
