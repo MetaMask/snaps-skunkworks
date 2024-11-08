@@ -22,7 +22,11 @@ import type {
   SnapId,
 } from '@metamask/snaps-sdk';
 import { HandlerType } from '@metamask/snaps-utils';
-import type { CaipChainId } from '@metamask/utils';
+import type {
+  CaipAccountAddress,
+  CaipAccountId,
+  CaipChainId,
+} from '@metamask/utils';
 import { hasProperty } from '@metamask/utils';
 
 import { getRunnableSnaps } from '../snaps';
@@ -134,7 +138,7 @@ export class MultichainRoutingController extends BaseController<
   }
 
   async #getAccountSnap(
-    protocolSnapId: SnapId,
+    connectedAddresses: CaipAccountAddress[],
     chainId: CaipChainId,
     request: JsonRpcRequest,
   ) {
@@ -144,27 +148,31 @@ export class MultichainRoutingController extends BaseController<
         (account) =>
           account.metadata.snap?.enabled &&
           account.methods.includes(request.method),
-      );
+      ) as (InternalAccount & {
+      metadata: Required<InternalAccount['metadata']>;
+    })[];
 
     // If no accounts can service the request, return null.
     if (accounts.length === 0) {
       return null;
     }
 
+    const resolutionSnapId = accounts[0].metadata.snap.id;
+
     // Attempt to resolve the address that should be used for signing.
     const address = await this.#resolveRequestAddress(
-      protocolSnapId,
+      resolutionSnapId,
       chainId,
       request,
     );
 
-    if (!address) {
-      throw rpcErrors.invalidParams();
-    }
-
-    // TODO: Decide what happens if we have more than one possible account.
+    // If we have a resolved address, try to find the selected account based on that
+    // otherwise, default to one of the connected accounts.
+    // TODO: Eventually let the user choose if we have more than one option for the account.
     const selectedAccount = accounts.find(
-      (account) => account.address.toLowerCase() === address.toLowerCase(),
+      (account) =>
+        connectedAddresses.includes(account.address) &&
+        (!address || account.address.toLowerCase() === address.toLowerCase()),
     );
 
     if (!selectedAccount) {
@@ -173,8 +181,7 @@ export class MultichainRoutingController extends BaseController<
 
     return {
       address: selectedAccount.address,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      snapId: selectedAccount.metadata.snap!.id,
+      snapId: selectedAccount.metadata.snap.id,
     };
   }
 
@@ -203,9 +210,11 @@ export class MultichainRoutingController extends BaseController<
   }
 
   async handleRequest({
+    connectedAddresses,
     chainId,
     request,
   }: {
+    connectedAddresses: CaipAccountId[];
     origin: string;
     chainId: CaipChainId;
     request: JsonRpcRequest;
@@ -213,14 +222,9 @@ export class MultichainRoutingController extends BaseController<
     // TODO: Determine if the request is already validated here?
     const { method } = request;
 
-    const protocolSnaps = this.#getProtocolSnaps(chainId);
-    if (protocolSnaps.length === 0) {
-      throw rpcErrors.methodNotFound();
-    }
-
     // If the RPC request can be serviced by an account Snap, route it there.
     const accountSnap = await this.#getAccountSnap(
-      protocolSnaps[0].snapId,
+      connectedAddresses,
       chainId,
       request,
     );
@@ -235,7 +239,7 @@ export class MultichainRoutingController extends BaseController<
 
     // If the RPC request cannot be serviced by an account Snap,
     // but has a protocol Snap available, route it there.
-    // TODO: This may need to be more complicated depending on the decided format.
+    const protocolSnaps = this.#getProtocolSnaps(chainId);
     const protocolSnap = protocolSnaps.find((snap) =>
       getProtocolCaveatRpcMethods(snap.permission)?.includes(method),
     );
