@@ -86,9 +86,19 @@ export type MultichainRoutingControllerMessenger =
     MultichainRoutingControllerEvents['type']
   >;
 
+export type SnapKeyring = {
+  submitNonEvmRequest: (args: {
+    address: string;
+    method: string;
+    params?: Json[] | Record<string, Json>;
+    chainId: CaipChainId;
+  }) => Promise<Json>;
+};
+
 export type MultichainRoutingControllerArgs = {
   messenger: MultichainRoutingControllerMessenger;
   state?: MultichainRoutingControllerState;
+  getSnapKeyring: () => Promise<SnapKeyring>;
 };
 
 export type MultichainRoutingControllerState = EmptyObject;
@@ -105,7 +115,13 @@ export class MultichainRoutingController extends BaseController<
   MultichainRoutingControllerState,
   MultichainRoutingControllerMessenger
 > {
-  constructor({ messenger, state }: MultichainRoutingControllerArgs) {
+  #getSnapKeyring: () => Promise<SnapKeyring>;
+
+  constructor({
+    messenger,
+    state,
+    getSnapKeyring,
+  }: MultichainRoutingControllerArgs) {
     super({
       messenger,
       metadata: {},
@@ -114,6 +130,8 @@ export class MultichainRoutingController extends BaseController<
         ...state,
       },
     });
+
+    this.#getSnapKeyring = getSnapKeyring;
 
     this.messagingSystem.registerActionHandler(
       `${controllerName}:handleRequest`,
@@ -236,7 +254,7 @@ export class MultichainRoutingController extends BaseController<
     request: JsonRpcRequest;
   }): Promise<unknown> {
     // TODO: Determine if the request is already validated here?
-    const { method } = request;
+    const { method, params } = request;
 
     // If the RPC request can be serviced by an account Snap, route it there.
     const accountSnap = await this.#getAccountSnap(
@@ -245,11 +263,12 @@ export class MultichainRoutingController extends BaseController<
       request,
     );
     if (accountSnap) {
-      return this.messagingSystem.call('SnapController:handleRequest', {
-        snapId: accountSnap.snapId,
-        origin: 'metamask', // TODO: Determine origin of these requests?
-        request,
-        handler: HandlerType.OnKeyringRequest,
+      const keyring = await this.#getSnapKeyring();
+      return keyring.submitNonEvmRequest({
+        address: accountSnap.address,
+        method,
+        params,
+        chainId,
       });
     }
 

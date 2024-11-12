@@ -11,6 +11,7 @@ import {
   SOLANA_CAIP2,
   MOCK_SOLANA_ACCOUNTS,
   MOCK_BTC_ACCOUNTS,
+  getMockSnapKeyring,
 } from '../test-utils';
 import { MultichainRoutingController } from './MultichainRoutingController';
 
@@ -21,7 +22,14 @@ describe('MultichainRoutingController', () => {
       getRestrictedMultichainRoutingControllerMessenger(rootMessenger);
 
     /* eslint-disable-next-line no-new */
-    new MultichainRoutingController({ messenger });
+    new MultichainRoutingController({
+      messenger,
+      getSnapKeyring: getMockSnapKeyring(
+        jest.fn().mockResolvedValue({
+          txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
+        }),
+      ),
+    });
 
     rootMessenger.registerActionHandler(
       'AccountsController:listMultichainAccounts',
@@ -34,10 +42,6 @@ describe('MultichainRoutingController', () => {
         // TODO: Use proper handler
         if (handler === HandlerType.OnProtocolRequest) {
           return null;
-        } else if (handler === HandlerType.OnKeyringRequest) {
-          return {
-            txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
-          };
         }
         throw new Error('Unmocked request');
       },
@@ -68,7 +72,12 @@ describe('MultichainRoutingController', () => {
       getRestrictedMultichainRoutingControllerMessenger(rootMessenger);
 
     /* eslint-disable-next-line no-new */
-    new MultichainRoutingController({ messenger });
+    new MultichainRoutingController({
+      messenger,
+      getSnapKeyring: getMockSnapKeyring(
+        jest.fn().mockResolvedValue({ signature: '0x' }),
+      ),
+    });
 
     rootMessenger.registerActionHandler(
       'AccountsController:listMultichainAccounts',
@@ -86,8 +95,6 @@ describe('MultichainRoutingController', () => {
         // TODO: Use proper handler
         if (handler === HandlerType.OnProtocolRequest) {
           return { address: SOLANA_CONNECTED_ACCOUNTS[0] };
-        } else if (handler === HandlerType.OnKeyringRequest) {
-          return { signature: '0x' };
         }
         throw new Error('Unmocked request');
       },
@@ -116,7 +123,10 @@ describe('MultichainRoutingController', () => {
       getRestrictedMultichainRoutingControllerMessenger(rootMessenger);
 
     /* eslint-disable-next-line no-new */
-    new MultichainRoutingController({ messenger });
+    new MultichainRoutingController({
+      messenger,
+      getSnapKeyring: getMockSnapKeyring(),
+    });
 
     rootMessenger.registerActionHandler(
       'AccountsController:listMultichainAccounts',
@@ -163,7 +173,10 @@ describe('MultichainRoutingController', () => {
       getRestrictedMultichainRoutingControllerMessenger(rootMessenger);
 
     /* eslint-disable-next-line no-new */
-    new MultichainRoutingController({ messenger });
+    new MultichainRoutingController({
+      messenger,
+      getSnapKeyring: getMockSnapKeyring(),
+    });
 
     rootMessenger.registerActionHandler(
       'AccountsController:listMultichainAccounts',
