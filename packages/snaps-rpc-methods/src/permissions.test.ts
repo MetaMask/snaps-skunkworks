@@ -104,6 +104,20 @@ describe('buildSnapEndowmentSpecifications', () => {
           ],
           "targetName": "endowment:page-settings",
         },
+        "endowment:protocol": {
+          "allowedCaveats": [
+            "chainIds",
+            "snapRpcMethods",
+            "maxRequestTime",
+          ],
+          "endowmentGetter": [Function],
+          "permissionType": "Endowment",
+          "subjectTypes": [
+            "snap",
+          ],
+          "targetName": "endowment:protocol",
+          "validator": [Function],
+        },
         "endowment:rpc": {
           "allowedCaveats": [
             "rpcOrigin",

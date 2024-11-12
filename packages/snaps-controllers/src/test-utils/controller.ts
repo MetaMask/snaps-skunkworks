@@ -54,6 +54,11 @@ import type {
 } from '../interface/SnapInterfaceController';
 import { SnapController } from '../snaps';
 import type {
+  MultichainRoutingControllerActions,
+  MultichainRoutingControllerAllowedActions,
+  MultichainRoutingControllerEvents,
+} from '../multichain';
+import type {
   AllowedActions,
   AllowedEvents,
   PersistedSnapControllerState,
@@ -860,3 +865,39 @@ export async function waitForStateChange(
     });
   });
 }
+
+// Mock controller messenger for Multichain Routing Controller
+export const getRootMultichainRoutingControllerMessenger = () => {
+  const messenger = new MockControllerMessenger<
+    | MultichainRoutingControllerActions
+    | MultichainRoutingControllerAllowedActions,
+    MultichainRoutingControllerEvents
+  >();
+
+  jest.spyOn(messenger, 'call');
+
+  return messenger;
+};
+
+export const getRestrictedMultichainRoutingControllerMessenger = (
+  messenger: ReturnType<
+    typeof getRootMultichainRoutingControllerMessenger
+  > = getRootMultichainRoutingControllerMessenger(),
+) => {
+  const controllerMessenger = messenger.getRestricted<
+    'MultichainRoutingController',
+    MultichainRoutingControllerAllowedActions['type'],
+    never
+  >({
+    name: 'MultichainRoutingController',
+    allowedEvents: [],
+    allowedActions: [
+      'PermissionController:getPermissions',
+      'SnapController:getAll',
+      'SnapController:handleRequest',
+      'AccountsController:listMultichainAccounts',
+    ],
+  });
+
+  return controllerMessenger;
+};

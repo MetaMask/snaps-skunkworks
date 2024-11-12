@@ -52,7 +52,6 @@ const specificationBuilder: PermissionSpecificationBuilder<
     permissionType: PermissionType.Endowment,
     targetName: permissionName,
     allowedCaveats: [
-      SnapCaveatType.KeyringOrigin,
       SnapCaveatType.ChainIds,
       SnapCaveatType.SnapRpcMethods,
       SnapCaveatType.MaxRequestTime,

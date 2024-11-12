@@ -22,12 +22,8 @@ import type {
   SnapId,
 } from '@metamask/snaps-sdk';
 import { HandlerType } from '@metamask/snaps-utils';
-import type {
-  CaipAccountAddress,
-  CaipAccountId,
-  CaipChainId,
-} from '@metamask/utils';
-import { hasProperty } from '@metamask/utils';
+import type { CaipAccountId, CaipChainId } from '@metamask/utils';
+import { hasProperty, parseCaipAccountId } from '@metamask/utils';
 
 import { getRunnableSnaps } from '../snaps';
 import type { GetAllSnaps, HandleSnapRequest } from '../snaps';
@@ -37,6 +33,12 @@ export type MultichainRoutingControllerGetStateAction =
     typeof controllerName,
     MultichainRoutingControllerState
   >;
+
+export type MultichainRoutingControllerHandleRequestAction = {
+  type: `${typeof controllerName}:handleRequest`;
+  handler: MultichainRoutingController['handleRequest'];
+};
+
 export type MultichainRoutingControllerStateChangeEvent =
   ControllerStateChangeEvent<
     typeof controllerName,
@@ -62,11 +64,14 @@ export type AccountsControllerListMultichainAccountsAction = {
 };
 
 export type MultichainRoutingControllerActions =
+  | MultichainRoutingControllerGetStateAction
+  | MultichainRoutingControllerHandleRequestAction;
+
+export type MultichainRoutingControllerAllowedActions =
   | GetAllSnaps
   | HandleSnapRequest
   | GetPermissions
-  | AccountsControllerListMultichainAccountsAction
-  | MultichainRoutingControllerGetStateAction;
+  | AccountsControllerListMultichainAccountsAction;
 
 export type MultichainRoutingControllerEvents =
   MultichainRoutingControllerStateChangeEvent;
@@ -74,9 +79,10 @@ export type MultichainRoutingControllerEvents =
 export type MultichainRoutingControllerMessenger =
   RestrictedControllerMessenger<
     typeof controllerName,
-    MultichainRoutingControllerActions,
-    MultichainRoutingControllerEvents,
-    MultichainRoutingControllerActions['type'],
+    | MultichainRoutingControllerActions
+    | MultichainRoutingControllerAllowedActions,
+    never,
+    MultichainRoutingControllerAllowedActions['type'],
     MultichainRoutingControllerEvents['type']
   >;
 
@@ -108,6 +114,11 @@ export class MultichainRoutingController extends BaseController<
         ...state,
       },
     });
+
+    this.messagingSystem.registerActionHandler(
+      `${controllerName}:handleRequest`,
+      async (...args) => this.handleRequest(...args),
+    );
   }
 
   async #resolveRequestAddress(
@@ -130,22 +141,23 @@ export class MultichainRoutingController extends BaseController<
           },
           handler: HandlerType.OnProtocolRequest, // TODO: Export and request format
         },
-      )) as { address: string } | null;
-      return result?.address;
+      )) as { address: CaipAccountId } | null;
+      const address = result?.address;
+      return address ? parseCaipAccountId(address).address : null;
     } catch {
       throw rpcErrors.internal();
     }
   }
 
   async #getAccountSnap(
-    connectedAddresses: CaipAccountAddress[],
+    connectedAddresses: CaipAccountId[],
     chainId: CaipChainId,
     request: JsonRpcRequest,
   ) {
     const accounts = this.messagingSystem
       .call('AccountsController:listMultichainAccounts', chainId)
       .filter(
-        (account) =>
+        (account: InternalAccount) =>
           account.metadata.snap?.enabled &&
           account.methods.includes(request.method),
       ) as (InternalAccount & {
@@ -166,12 +178,16 @@ export class MultichainRoutingController extends BaseController<
       request,
     );
 
+    const parsedConnectedAddresses = connectedAddresses.map(
+      (connectedAddress) => parseCaipAccountId(connectedAddress).address,
+    );
+
     // If we have a resolved address, try to find the selected account based on that
     // otherwise, default to one of the connected accounts.
     // TODO: Eventually let the user choose if we have more than one option for the account.
     const selectedAccount = accounts.find(
       (account) =>
-        connectedAddresses.includes(account.address) &&
+        parsedConnectedAddresses.includes(account.address) &&
         (!address || account.address.toLowerCase() === address.toLowerCase()),
     );
 
@@ -218,7 +234,7 @@ export class MultichainRoutingController extends BaseController<
     origin: string;
     chainId: CaipChainId;
     request: JsonRpcRequest;
-  }) {
+  }): Promise<unknown> {
     // TODO: Determine if the request is already validated here?
     const { method } = request;
 
