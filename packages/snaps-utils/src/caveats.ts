@@ -57,5 +57,5 @@ export enum SnapCaveatType {
   /**
    * Caveat specifying a list of RPC methods serviced by an endowment.
    */
-  SnapRpcMethods = 'snapRpcMethods',
+  ProtocolSnapChains = 'protocolSnapChains',
 }

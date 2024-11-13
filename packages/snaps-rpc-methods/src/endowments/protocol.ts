@@ -10,10 +10,8 @@ import type {
 } from '@metamask/permission-controller';
 import { PermissionType, SubjectType } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
-import {
-  ProtocolRpcMethodsStruct,
-  SnapCaveatType,
-} from '@metamask/snaps-utils';
+import { ProtocolChainsStruct, SnapCaveatType } from '@metamask/snaps-utils';
+import type { Infer } from '@metamask/superstruct';
 import type { Json, NonEmptyArray } from '@metamask/utils';
 import {
   assertStruct,
@@ -51,15 +49,10 @@ const specificationBuilder: PermissionSpecificationBuilder<
   return {
     permissionType: PermissionType.Endowment,
     targetName: permissionName,
-    allowedCaveats: [
-      SnapCaveatType.ChainIds,
-      SnapCaveatType.SnapRpcMethods,
-      SnapCaveatType.MaxRequestTime,
-    ],
+    allowedCaveats: [SnapCaveatType.ChainIds, SnapCaveatType.MaxRequestTime],
     endowmentGetter: (_getterOptions?: EndowmentGetterParams) => null,
     validator: createGenericPermissionValidator([
-      { type: SnapCaveatType.ChainIds },
-      { type: SnapCaveatType.SnapRpcMethods },
+      { type: SnapCaveatType.ProtocolSnapChains },
       { type: SnapCaveatType.MaxRequestTime, optional: true },
     ]),
     subjectTypes: [SubjectType.Snap],
@@ -90,51 +83,29 @@ export function getProtocolCaveatMapper(
 
   if (value.chains) {
     caveats.push({
-      type: SnapCaveatType.ChainIds,
+      type: SnapCaveatType.ProtocolSnapChains,
       value: value.chains,
-    });
-  }
-
-  if (value.methods) {
-    caveats.push({
-      type: SnapCaveatType.SnapRpcMethods,
-      value: value.methods,
     });
   }
 
   return { caveats: caveats as NonEmptyArray<CaveatConstraint> };
 }
 
+export type ProtocolChains = Infer<typeof ProtocolChainsStruct>;
+
 /**
- * Getter function to get the {@link ChainIds} caveat value from a
+ * Getter function to get the {@link ProtocolSnapChains} caveat value from a
  * permission.
  *
  * @param permission - The permission to get the caveat value from.
  * @returns The caveat value.
  */
-export function getProtocolCaveatChainIds(
+export function getProtocolCaveatChains(
   permission?: PermissionConstraint,
-): string[] | null {
+): ProtocolChains | null {
   const caveat = permission?.caveats?.find(
-    (permCaveat) => permCaveat.type === SnapCaveatType.ChainIds,
-  ) as Caveat<string, string[]> | undefined;
-
-  return caveat ? caveat.value : null;
-}
-
-/**
- * Getter function to get the {@link SnapRpcMethods} caveat value from a
- * permission.
- *
- * @param permission - The permission to get the caveat value from.
- * @returns The caveat value.
- */
-export function getProtocolCaveatRpcMethods(
-  permission?: PermissionConstraint,
-): string[] | null {
-  const caveat = permission?.caveats?.find(
-    (permCaveat) => permCaveat.type === SnapCaveatType.SnapRpcMethods,
-  ) as Caveat<string, string[]> | undefined;
+    (permCaveat) => permCaveat.type === SnapCaveatType.ProtocolSnapChains,
+  ) as Caveat<string, ProtocolChains> | undefined;
 
   return caveat ? caveat.value : null;
 }
@@ -155,18 +126,18 @@ function validateCaveat(caveat: Caveat<string, any>): void {
   const { value } = caveat;
   assertStruct(
     value,
-    ProtocolRpcMethodsStruct,
-    'Invalid RPC methods specified',
+    ProtocolChainsStruct,
+    'Invalid chains specified',
     rpcErrors.invalidParams,
   );
 }
 
 export const protocolCaveatSpecifications: Record<
-  SnapCaveatType.SnapRpcMethods,
+  SnapCaveatType.ProtocolSnapChains,
   CaveatSpecificationConstraint
 > = {
-  [SnapCaveatType.SnapRpcMethods]: Object.freeze({
-    type: SnapCaveatType.SnapRpcMethods,
+  [SnapCaveatType.ProtocolSnapChains]: Object.freeze({
+    type: SnapCaveatType.ProtocolSnapChains,
     validator: (caveat: Caveat<string, any>) => validateCaveat(caveat),
   }),
 };

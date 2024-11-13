@@ -65,12 +65,8 @@ export const MOCK_SOLANA_SNAP_PERMISSIONS: Record<
   [SnapEndowments.Keyring]: {
     caveats: [
       {
-        type: SnapCaveatType.ChainIds,
-        value: [SOLANA_CAIP2],
-      },
-      {
-        type: SnapCaveatType.SnapRpcMethods,
-        value: ['getVersion'],
+        type: SnapCaveatType.KeyringOrigin,
+        value: { allowedOrigins: [] },
       },
     ],
     date: 1664187844588,
@@ -81,12 +77,8 @@ export const MOCK_SOLANA_SNAP_PERMISSIONS: Record<
   [SnapEndowments.Protocol]: {
     caveats: [
       {
-        type: SnapCaveatType.ChainIds,
-        value: [SOLANA_CAIP2],
-      },
-      {
-        type: SnapCaveatType.SnapRpcMethods,
-        value: ['getVersion'],
+        type: SnapCaveatType.ProtocolSnapChains,
+        value: { [SOLANA_CAIP2]: { methods: ['getVersion'] } },
       },
     ],
     date: 1664187844588,

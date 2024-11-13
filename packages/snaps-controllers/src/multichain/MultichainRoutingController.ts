@@ -4,15 +4,10 @@ import type {
   ControllerStateChangeEvent,
 } from '@metamask/base-controller';
 import { BaseController } from '@metamask/base-controller';
-import type {
-  Caveat,
-  GetPermissions,
-  ValidPermission,
-} from '@metamask/permission-controller';
+import type { GetPermissions } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
 import {
-  getProtocolCaveatChainIds,
-  getProtocolCaveatRpcMethods,
+  getProtocolCaveatChains,
   SnapEndowments,
 } from '@metamask/snaps-rpc-methods';
 import type {
@@ -103,9 +98,9 @@ export type MultichainRoutingControllerArgs = {
 
 export type MultichainRoutingControllerState = EmptyObject;
 
-type SnapWithPermission = {
+type ProtocolSnap = {
   snapId: SnapId;
-  permission: ValidPermission<string, Caveat<string, Json>>;
+  methods: string[];
 };
 
 const controllerName = 'MultichainRoutingController';
@@ -223,18 +218,18 @@ export class MultichainRoutingController extends BaseController<
     const allSnaps = this.messagingSystem.call('SnapController:getAll');
     const filteredSnaps = getRunnableSnaps(allSnaps);
 
-    return filteredSnaps.reduce<SnapWithPermission[]>((accumulator, snap) => {
+    return filteredSnaps.reduce<ProtocolSnap[]>((accumulator, snap) => {
       const permissions = this.messagingSystem.call(
         'PermissionController:getPermissions',
         snap.id,
       );
       if (permissions && hasProperty(permissions, SnapEndowments.Protocol)) {
         const permission = permissions[SnapEndowments.Protocol];
-        const chains = getProtocolCaveatChainIds(permission);
-        if (chains?.includes(chainId)) {
+        const chains = getProtocolCaveatChains(permission);
+        if (chains && hasProperty(chains, chainId)) {
           accumulator.push({
             snapId: snap.id,
-            permission,
+            methods: chains[chainId].methods,
           });
         }
       }
@@ -276,7 +271,7 @@ export class MultichainRoutingController extends BaseController<
     // but has a protocol Snap available, route it there.
     const protocolSnaps = this.#getProtocolSnaps(chainId);
     const protocolSnap = protocolSnaps.find((snap) =>
-      getProtocolCaveatRpcMethods(snap.permission)?.includes(method),
+      snap.methods.includes(method),
     );
     if (protocolSnap) {
       return this.messagingSystem.call('SnapController:handleRequest', {

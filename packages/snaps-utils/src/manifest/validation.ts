@@ -27,6 +27,7 @@ import {
   isValidSemVerRange,
   inMilliseconds,
   Duration,
+  CaipChainIdStruct,
 } from '@metamask/utils';
 
 import { isEqual } from '../array';
@@ -174,8 +175,10 @@ export const MaxRequestTimeStruct = size(
   MAXIMUM_REQUEST_TIMEOUT,
 );
 
-// TODO: Decide on the format for this
-export const ProtocolRpcMethodsStruct = array(string());
+export const ProtocolChainsStruct = record(
+  CaipChainIdStruct,
+  object({ methods: array(string()) }),
+);
 
 // Utility type to union with for all handler structs
 export const HandlerCaveatsStruct = object({
@@ -210,7 +213,7 @@ export const PermissionsStruct: Describe<InitialPermissions> = type({
   'endowment:protocol': optional(
     mergeStructs(
       HandlerCaveatsStruct,
-      object({ chains: ChainIdsStruct, methods: ProtocolRpcMethodsStruct }),
+      object({ chains: ProtocolChainsStruct }),
     ),
   ),
   'endowment:lifecycle-hooks': optional(HandlerCaveatsStruct),
