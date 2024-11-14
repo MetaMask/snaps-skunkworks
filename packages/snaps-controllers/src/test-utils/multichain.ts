@@ -77,7 +77,7 @@ export const MOCK_SOLANA_SNAP_PERMISSIONS: Record<
   [SnapEndowments.Protocol]: {
     caveats: [
       {
-        type: SnapCaveatType.ProtocolSnapChains,
+        type: SnapCaveatType.ProtocolSnapScopes,
         value: { [SOLANA_CAIP2]: { methods: ['getVersion'] } },
       },
     ],

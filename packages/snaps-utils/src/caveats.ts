@@ -55,7 +55,7 @@ export enum SnapCaveatType {
   MaxRequestTime = 'maxRequestTime',
 
   /**
-   * Caveat specifying a list of RPC methods serviced by an endowment.
+   * Caveat specifying a list of scopes serviced by an endowment.
    */
-  ProtocolSnapChains = 'protocolSnapChains',
+  ProtocolSnapScopes = 'protocolSnapScopes',
 }

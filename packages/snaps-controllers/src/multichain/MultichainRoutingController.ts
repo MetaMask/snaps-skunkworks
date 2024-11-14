@@ -7,7 +7,7 @@ import { BaseController } from '@metamask/base-controller';
 import type { GetPermissions } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
 import {
-  getProtocolCaveatChains,
+  getProtocolCaveatScopes,
   SnapEndowments,
 } from '@metamask/snaps-rpc-methods';
 import type {
@@ -136,7 +136,7 @@ export class MultichainRoutingController extends BaseController<
 
   async #resolveRequestAddress(
     snapId: SnapId,
-    chainId: CaipChainId,
+    scope: CaipChainId,
     request: JsonRpcRequest,
   ) {
     try {
@@ -148,7 +148,7 @@ export class MultichainRoutingController extends BaseController<
           request: {
             method: '',
             params: {
-              chainId,
+              scope,
               request,
             },
           },
@@ -164,11 +164,11 @@ export class MultichainRoutingController extends BaseController<
 
   async #getAccountSnap(
     connectedAddresses: CaipAccountId[],
-    chainId: CaipChainId,
+    scope: CaipChainId,
     request: JsonRpcRequest,
   ) {
     const accounts = this.messagingSystem
-      .call('AccountsController:listMultichainAccounts', chainId)
+      .call('AccountsController:listMultichainAccounts', scope)
       .filter(
         (account: InternalAccount) =>
           account.metadata.snap?.enabled &&
@@ -187,7 +187,7 @@ export class MultichainRoutingController extends BaseController<
     // Attempt to resolve the address that should be used for signing.
     const address = await this.#resolveRequestAddress(
       resolutionSnapId,
-      chainId,
+      scope,
       request,
     );
 
@@ -214,7 +214,7 @@ export class MultichainRoutingController extends BaseController<
     };
   }
 
-  #getProtocolSnaps(chainId: CaipChainId) {
+  #getProtocolSnaps(scope: CaipChainId) {
     const allSnaps = this.messagingSystem.call('SnapController:getAll');
     const filteredSnaps = getRunnableSnaps(allSnaps);
 
@@ -225,11 +225,11 @@ export class MultichainRoutingController extends BaseController<
       );
       if (permissions && hasProperty(permissions, SnapEndowments.Protocol)) {
         const permission = permissions[SnapEndowments.Protocol];
-        const chains = getProtocolCaveatChains(permission);
-        if (chains && hasProperty(chains, chainId)) {
+        const scopes = getProtocolCaveatScopes(permission);
+        if (scopes && hasProperty(scopes, scope)) {
           accumulator.push({
             snapId: snap.id,
-            methods: chains[chainId].methods,
+            methods: scopes[scope].methods,
           });
         }
       }
@@ -240,12 +240,12 @@ export class MultichainRoutingController extends BaseController<
 
   async handleRequest({
     connectedAddresses,
-    chainId,
+    scope,
     request,
   }: {
     connectedAddresses: CaipAccountId[];
     origin: string;
-    chainId: CaipChainId;
+    scope: CaipChainId;
     request: JsonRpcRequest;
   }): Promise<unknown> {
     // TODO: Determine if the request is already validated here?
@@ -254,7 +254,7 @@ export class MultichainRoutingController extends BaseController<
     // If the RPC request can be serviced by an account Snap, route it there.
     const accountSnap = await this.#getAccountSnap(
       connectedAddresses,
-      chainId,
+      scope,
       request,
     );
     if (accountSnap) {
@@ -263,13 +263,13 @@ export class MultichainRoutingController extends BaseController<
         address: accountSnap.address,
         method,
         params,
-        chainId,
+        chainId: scope,
       });
     }
 
     // If the RPC request cannot be serviced by an account Snap,
     // but has a protocol Snap available, route it there.
-    const protocolSnaps = this.#getProtocolSnaps(chainId);
+    const protocolSnaps = this.#getProtocolSnaps(scope);
     const protocolSnap = protocolSnaps.find((snap) =>
       snap.methods.includes(method),
     );
@@ -281,7 +281,7 @@ export class MultichainRoutingController extends BaseController<
           method: '',
           params: {
             request,
-            chainId,
+            scope,
           },
         },
         handler: HandlerType.OnProtocolRequest,

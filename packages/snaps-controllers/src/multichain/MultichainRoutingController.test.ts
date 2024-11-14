@@ -51,7 +51,7 @@ describe('MultichainRoutingController', () => {
       'MultichainRoutingController:handleRequest',
       {
         connectedAddresses: BTC_CONNECTED_ACCOUNTS,
-        chainId: BTC_CAIP2,
+        scope: BTC_CAIP2,
         request: {
           method: 'btc_sendmany',
           params: {
@@ -104,7 +104,7 @@ describe('MultichainRoutingController', () => {
       'MultichainRoutingController:handleRequest',
       {
         connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
-        chainId: SOLANA_CAIP2,
+        scope: SOLANA_CAIP2,
         request: {
           method: 'signAndSendTransaction',
           params: {
@@ -154,7 +154,7 @@ describe('MultichainRoutingController', () => {
       'MultichainRoutingController:handleRequest',
       {
         connectedAddresses: [],
-        chainId: SOLANA_CAIP2,
+        scope: SOLANA_CAIP2,
         request: {
           method: 'getVersion',
         },
@@ -190,7 +190,7 @@ describe('MultichainRoutingController', () => {
     await expect(
       messenger.call('MultichainRoutingController:handleRequest', {
         connectedAddresses: [],
-        chainId: SOLANA_CAIP2,
+        scope: SOLANA_CAIP2,
         request: {
           method: 'getVersion',
         },

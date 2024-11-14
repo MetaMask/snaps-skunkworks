@@ -139,4 +139,4 @@ export { getChainIdsCaveat, getLookupMatchersCaveat } from './name-lookup';
 export { getKeyringCaveatOrigins } from './keyring';
 export { getMaxRequestTimeCaveat } from './caveats';
 export { getCronjobCaveatJobs } from './cronjob';
-export { getProtocolCaveatChains } from './protocol';
+export { getProtocolCaveatScopes } from './protocol';
