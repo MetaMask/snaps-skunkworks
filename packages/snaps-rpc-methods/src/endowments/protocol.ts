@@ -81,10 +81,10 @@ export function getProtocolCaveatMapper(
 
   const caveats = [];
 
-  if (value.chains) {
+  if (value.scopes) {
     caveats.push({
       type: SnapCaveatType.ProtocolSnapScopes,
-      value: value.chains,
+      value: value.scopes,
     });
   }
 
