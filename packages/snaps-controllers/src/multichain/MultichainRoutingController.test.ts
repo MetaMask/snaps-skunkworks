@@ -11,7 +11,6 @@ import {
   SOLANA_CAIP2,
   MOCK_SOLANA_ACCOUNTS,
   MOCK_BTC_ACCOUNTS,
-  getMockSnapKeyring,
 } from '../test-utils';
 import { MultichainRoutingController } from './MultichainRoutingController';
 
@@ -24,16 +23,18 @@ describe('MultichainRoutingController', () => {
     /* eslint-disable-next-line no-new */
     new MultichainRoutingController({
       messenger,
-      getSnapKeyring: getMockSnapKeyring(
-        jest.fn().mockResolvedValue({
-          txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
-        }),
-      ),
     });
 
     rootMessenger.registerActionHandler(
       'AccountsController:listMultichainAccounts',
       () => MOCK_BTC_ACCOUNTS,
+    );
+
+    rootMessenger.registerActionHandler(
+      'KeyringController:submitNonEvmRequest',
+      async () => ({
+        txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
+      }),
     );
 
     rootMessenger.registerActionHandler(
@@ -74,14 +75,18 @@ describe('MultichainRoutingController', () => {
     /* eslint-disable-next-line no-new */
     new MultichainRoutingController({
       messenger,
-      getSnapKeyring: getMockSnapKeyring(
-        jest.fn().mockResolvedValue({ signature: '0x' }),
-      ),
     });
 
     rootMessenger.registerActionHandler(
       'AccountsController:listMultichainAccounts',
       () => MOCK_SOLANA_ACCOUNTS,
+    );
+
+    rootMessenger.registerActionHandler(
+      'KeyringController:submitNonEvmRequest',
+      async () => ({
+        signature: '0x',
+      }),
     );
 
     rootMessenger.registerActionHandler(
@@ -125,7 +130,6 @@ describe('MultichainRoutingController', () => {
     /* eslint-disable-next-line no-new */
     new MultichainRoutingController({
       messenger,
-      getSnapKeyring: getMockSnapKeyring(),
     });
 
     rootMessenger.registerActionHandler(
@@ -175,7 +179,6 @@ describe('MultichainRoutingController', () => {
     /* eslint-disable-next-line no-new */
     new MultichainRoutingController({
       messenger,
-      getSnapKeyring: getMockSnapKeyring(),
     });
 
     rootMessenger.registerActionHandler(

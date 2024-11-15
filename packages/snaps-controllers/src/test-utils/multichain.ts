@@ -87,10 +87,3 @@ export const MOCK_SOLANA_SNAP_PERMISSIONS: Record<
     parentCapability: SnapEndowments.Protocol,
   },
 };
-
-export const getMockSnapKeyring = (implementation = jest.fn()) => {
-  return async () =>
-    Promise.resolve({
-      submitNonEvmRequest: implementation,
-    });
-};

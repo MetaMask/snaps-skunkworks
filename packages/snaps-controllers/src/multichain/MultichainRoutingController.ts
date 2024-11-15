@@ -58,6 +58,16 @@ export type AccountsControllerListMultichainAccountsAction = {
   handler: (chainId?: CaipChainId) => InternalAccount[];
 };
 
+export type KeyringControllerSubmitNonEvmRequestAction = {
+  type: `KeyringController:submitNonEvmRequest`;
+  handler: (args: {
+    address: string;
+    method: string;
+    params?: Json[] | Record<string, Json>;
+    chainId: CaipChainId;
+  }) => Promise<Json>;
+};
+
 export type MultichainRoutingControllerActions =
   | MultichainRoutingControllerGetStateAction
   | MultichainRoutingControllerHandleRequestAction;
@@ -66,7 +76,8 @@ export type MultichainRoutingControllerAllowedActions =
   | GetAllSnaps
   | HandleSnapRequest
   | GetPermissions
-  | AccountsControllerListMultichainAccountsAction;
+  | AccountsControllerListMultichainAccountsAction
+  | KeyringControllerSubmitNonEvmRequestAction;
 
 export type MultichainRoutingControllerEvents =
   MultichainRoutingControllerStateChangeEvent;
@@ -81,19 +92,9 @@ export type MultichainRoutingControllerMessenger =
     MultichainRoutingControllerEvents['type']
   >;
 
-export type SnapKeyring = {
-  submitNonEvmRequest: (args: {
-    address: string;
-    method: string;
-    params?: Json[] | Record<string, Json>;
-    chainId: CaipChainId;
-  }) => Promise<Json>;
-};
-
 export type MultichainRoutingControllerArgs = {
   messenger: MultichainRoutingControllerMessenger;
   state?: MultichainRoutingControllerState;
-  getSnapKeyring: () => Promise<SnapKeyring>;
 };
 
 export type MultichainRoutingControllerState = EmptyObject;
@@ -110,13 +111,7 @@ export class MultichainRoutingController extends BaseController<
   MultichainRoutingControllerState,
   MultichainRoutingControllerMessenger
 > {
-  #getSnapKeyring: () => Promise<SnapKeyring>;
-
-  constructor({
-    messenger,
-    state,
-    getSnapKeyring,
-  }: MultichainRoutingControllerArgs) {
+  constructor({ messenger, state }: MultichainRoutingControllerArgs) {
     super({
       messenger,
       metadata: {},
@@ -125,8 +120,6 @@ export class MultichainRoutingController extends BaseController<
         ...state,
       },
     });
-
-    this.#getSnapKeyring = getSnapKeyring;
 
     this.messagingSystem.registerActionHandler(
       `${controllerName}:handleRequest`,
@@ -258,13 +251,16 @@ export class MultichainRoutingController extends BaseController<
       request,
     );
     if (accountSnap) {
-      const keyring = await this.#getSnapKeyring();
-      return keyring.submitNonEvmRequest({
-        address: accountSnap.address,
-        method,
-        params,
-        chainId: scope,
-      });
+      // TODO: Decide on API for this.
+      return this.messagingSystem.call(
+        'KeyringController:submitNonEvmRequest',
+        {
+          address: accountSnap.address,
+          method,
+          params,
+          chainId: scope,
+        },
+      );
     }
 
     // If the RPC request cannot be serviced by an account Snap,
