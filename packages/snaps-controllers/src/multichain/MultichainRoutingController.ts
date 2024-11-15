@@ -274,13 +274,10 @@ export class MultichainRoutingController extends BaseController<
     if (protocolSnap) {
       return this.messagingSystem.call('SnapController:handleRequest', {
         snapId: protocolSnap.snapId,
-        origin: 'metamask',
+        origin,
         request: {
           method: '',
           params: {
-            // We are overriding the origin here, so that the Snap gets the proper origin
-            // while the permissions check is skipped due to the requesting origin being metamask.
-            origin,
             request,
             scope,
           },

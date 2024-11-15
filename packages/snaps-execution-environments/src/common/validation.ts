@@ -310,7 +310,6 @@ export function assertIsOnUserInputRequestArguments(
 }
 
 export const OnProtocolRequestArgumentsStruct = object({
-  origin: string(),
   scope: ChainIdStruct,
   request: JsonRpcRequestStruct,
 });

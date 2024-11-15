@@ -91,13 +91,8 @@ export function getHandlerArguments(
     case HandlerType.OnProtocolRequest: {
       assertIsOnProtocolRequestArguments(request.params);
 
-      // For this specific handler we extract the origin from the parameters.
-      const {
-        origin: nestedOrigin,
-        request: nestedRequest,
-        scope,
-      } = request.params;
-      return { origin: nestedOrigin, request: nestedRequest, scope };
+      const { request: nestedRequest, scope } = request.params;
+      return { request: nestedRequest, scope };
     }
 
     case HandlerType.OnRpcRequest:
