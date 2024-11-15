@@ -133,19 +133,20 @@ export class MultichainRoutingController extends BaseController<
     request: JsonRpcRequest,
   ) {
     try {
+      // TODO: Decide if we should call this using another abstraction.
       const result = (await this.messagingSystem.call(
         'SnapController:handleRequest',
         {
           snapId,
           origin: 'metamask',
           request: {
-            method: '',
+            method: 'keyring_resolveAccountAddress',
             params: {
               scope,
               request,
             },
           },
-          handler: HandlerType.OnProtocolRequest, // TODO: Export and request format
+          handler: HandlerType.OnKeyringRequest,
         },
       )) as { address: CaipAccountId } | null;
       const address = result?.address;
@@ -233,6 +234,7 @@ export class MultichainRoutingController extends BaseController<
 
   async handleRequest({
     connectedAddresses,
+    origin,
     scope,
     request,
   }: {
@@ -272,10 +274,13 @@ export class MultichainRoutingController extends BaseController<
     if (protocolSnap) {
       return this.messagingSystem.call('SnapController:handleRequest', {
         snapId: protocolSnap.snapId,
-        origin: 'metamask', // TODO: Determine origin of these requests?
+        origin: 'metamask',
         request: {
           method: '',
           params: {
+            // We are overriding the origin here, so that the Snap gets the proper origin
+            // while the permissions check is skipped due to the requesting origin being metamask.
+            origin,
             request,
             scope,
           },

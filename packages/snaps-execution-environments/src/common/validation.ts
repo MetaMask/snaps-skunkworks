@@ -27,6 +27,7 @@ import {
   CaipAssetTypeStruct,
   JsonRpcIdStruct,
   JsonRpcParamsStruct,
+  JsonRpcRequestStruct,
   JsonRpcSuccessStruct,
   JsonRpcVersionStruct,
   JsonStruct,
@@ -303,6 +304,35 @@ export function assertIsOnUserInputRequestArguments(
   assertStruct(
     value,
     OnUserInputArgumentsStruct,
+    'Invalid request params',
+    rpcErrors.invalidParams,
+  );
+}
+
+export const OnProtocolRequestArgumentsStruct = object({
+  origin: string(),
+  scope: ChainIdStruct,
+  request: JsonRpcRequestStruct,
+});
+
+export type OnProtocolRequestArguments = Infer<
+  typeof OnProtocolRequestArgumentsStruct
+>;
+
+/**
+ * Asserts that the given value is a valid {@link OnProtocolRequestArguments}
+ * object.
+ *
+ * @param value - The value to validate.
+ * @throws If the value is not a valid {@link OnProtocolRequestArguments}
+ * object.
+ */
+export function assertIsOnProtocolRequestArguments(
+  value: unknown,
+): asserts value is OnProtocolRequestArguments {
+  assertStruct(
+    value,
+    OnProtocolRequestArgumentsStruct,
     'Invalid request params',
     rpcErrors.invalidParams,
   );

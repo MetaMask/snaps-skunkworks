@@ -17,6 +17,7 @@ import {
   assertIsOnUserInputRequestArguments,
   assertIsOnAssetsLookupRequestArguments,
   assertIsOnAssetsConversionRequestArguments,
+  assertIsOnProtocolRequestArguments,
 } from './validation';
 
 export type CommandMethodsMapping = {
@@ -86,9 +87,21 @@ export function getHandlerArguments(
             address,
           };
     }
+
+    case HandlerType.OnProtocolRequest: {
+      assertIsOnProtocolRequestArguments(request.params);
+
+      // For this specific handler we extract the origin from the parameters.
+      const {
+        origin: nestedOrigin,
+        request: nestedRequest,
+        scope,
+      } = request.params;
+      return { origin: nestedOrigin, request: nestedRequest, scope };
+    }
+
     case HandlerType.OnRpcRequest:
     case HandlerType.OnKeyringRequest:
-    case HandlerType.OnProtocolRequest: // TODO: Decide on origin
       return { origin, request };
 
     case HandlerType.OnCronjob:

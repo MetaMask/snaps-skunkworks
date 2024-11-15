@@ -40,8 +40,7 @@ describe('MultichainRoutingController', () => {
     rootMessenger.registerActionHandler(
       'SnapController:handleRequest',
       async ({ handler }) => {
-        // TODO: Use proper handler
-        if (handler === HandlerType.OnProtocolRequest) {
+        if (handler === HandlerType.OnKeyringRequest) {
           return null;
         }
         throw new Error('Unmocked request');
@@ -97,8 +96,7 @@ describe('MultichainRoutingController', () => {
     rootMessenger.registerActionHandler(
       'SnapController:handleRequest',
       async ({ handler }) => {
-        // TODO: Use proper handler
-        if (handler === HandlerType.OnProtocolRequest) {
+        if (handler === HandlerType.OnKeyringRequest) {
           return { address: SOLANA_CONNECTED_ACCOUNTS[0] };
         }
         throw new Error('Unmocked request');
