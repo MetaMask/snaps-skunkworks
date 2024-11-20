@@ -4,6 +4,7 @@ import {
   assertIsOnAssetsConversionRequestArguments,
   assertIsOnAssetsLookupRequestArguments,
   assertIsOnNameLookupRequestArguments,
+  assertIsOnProtocolRequestArguments,
   assertIsOnSignatureRequestArguments,
   assertIsOnTransactionRequestArguments,
   assertIsOnUserInputRequestArguments,
@@ -309,6 +310,71 @@ describe('assertIsOnAssetsConversionRequestArguments', () => {
       expect(() =>
         assertIsOnAssetsConversionRequestArguments(value as any),
       ).toThrow('Invalid request params:');
+    },
+  );
+});
+
+describe('assertIsOnProtocolRequestArguments', () => {
+  it.each([
+    {
+      scope: 'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp',
+      request: {
+        jsonrpc: '2.0',
+        id: 'foo',
+        method: 'getVersion',
+      },
+    },
+    {
+      scope: 'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp',
+      request: {
+        jsonrpc: '2.0',
+        id: 'foo',
+        method: 'getVersion',
+        params: {
+          foo: 'bar',
+        },
+      },
+    },
+  ])('does not throw for a valid protocol request param object', (value) => {
+    expect(() => assertIsOnProtocolRequestArguments(value)).not.toThrow();
+  });
+
+  it.each([
+    true,
+    false,
+    null,
+    undefined,
+    0,
+    1,
+    '',
+    'foo',
+    [],
+    {},
+    { request: { foo: 'bar' } },
+    {
+      request: {
+        jsonrpc: '2.0',
+        id: 'foo',
+        method: 'getVersion',
+        params: {
+          foo: 'bar',
+        },
+      },
+    },
+    {
+      scope: 'foo',
+      request: {
+        jsonrpc: '2.0',
+        id: 'foo',
+        method: 'getVersion',
+      },
+    },
+  ])(
+    'throws if the value is not a valid protocol request params object',
+    (value) => {
+      expect(() => assertIsOnProtocolRequestArguments(value as any)).toThrow(
+        'Invalid request params:',
+      );
     },
   );
 });
