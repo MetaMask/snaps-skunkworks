@@ -4,7 +4,7 @@ import {
   UserInputEventStruct,
 } from '@metamask/snaps-sdk';
 import { ChainIdStruct, HandlerType } from '@metamask/snaps-utils';
-import type { Infer } from '@metamask/superstruct';
+import type { Infer, Struct } from '@metamask/superstruct';
 import {
   any,
   array,
@@ -21,10 +21,16 @@ import {
   tuple,
   union,
 } from '@metamask/superstruct';
-import type { Json, JsonRpcSuccess } from '@metamask/utils';
+import type {
+  CaipChainId,
+  Json,
+  JsonRpcRequest,
+  JsonRpcSuccess,
+} from '@metamask/utils';
 import {
   assertStruct,
   CaipAssetTypeStruct,
+  CaipChainIdStruct,
   JsonRpcIdStruct,
   JsonRpcParamsStruct,
   JsonRpcRequestStruct,
@@ -310,9 +316,9 @@ export function assertIsOnUserInputRequestArguments(
 }
 
 export const OnProtocolRequestArgumentsStruct = object({
-  scope: ChainIdStruct,
+  scope: CaipChainIdStruct,
   request: JsonRpcRequestStruct,
-});
+}) as unknown as Struct<{ scope: CaipChainId; request: JsonRpcRequest }, null>;
 
 export type OnProtocolRequestArguments = Infer<
   typeof OnProtocolRequestArgumentsStruct
