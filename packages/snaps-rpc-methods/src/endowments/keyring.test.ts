@@ -23,6 +23,8 @@ describe('endowment:keyring', () => {
       subjectTypes: [SubjectType.Snap],
       validator: expect.any(Function),
     });
+
+    expect(specification.endowmentGetter()).toBeNull();
   });
 
   describe('validator', () => {

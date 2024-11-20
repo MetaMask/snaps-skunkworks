@@ -49,7 +49,10 @@ const specificationBuilder: PermissionSpecificationBuilder<
   return {
     permissionType: PermissionType.Endowment,
     targetName: permissionName,
-    allowedCaveats: [SnapCaveatType.ChainIds, SnapCaveatType.MaxRequestTime],
+    allowedCaveats: [
+      SnapCaveatType.ProtocolSnapScopes,
+      SnapCaveatType.MaxRequestTime,
+    ],
     endowmentGetter: (_getterOptions?: EndowmentGetterParams) => null,
     validator: createGenericPermissionValidator([
       { type: SnapCaveatType.ProtocolSnapScopes },
@@ -127,7 +130,7 @@ function validateCaveat(caveat: Caveat<string, any>): void {
   assertStruct(
     value,
     ProtocolScopesStruct,
-    'Invalid chains specified',
+    'Invalid scopes specified',
     rpcErrors.invalidParams,
   );
 }
