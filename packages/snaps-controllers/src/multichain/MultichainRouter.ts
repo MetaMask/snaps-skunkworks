@@ -1,21 +1,11 @@
-import type {
-  RestrictedControllerMessenger,
-  ControllerGetStateAction,
-  ControllerStateChangeEvent,
-} from '@metamask/base-controller';
-import { BaseController } from '@metamask/base-controller';
+import type { RestrictedControllerMessenger } from '@metamask/base-controller';
 import type { GetPermissions } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
 import {
   getProtocolCaveatScopes,
   SnapEndowments,
 } from '@metamask/snaps-rpc-methods';
-import type {
-  EmptyObject,
-  Json,
-  JsonRpcRequest,
-  SnapId,
-} from '@metamask/snaps-sdk';
+import type { Json, JsonRpcRequest, SnapId } from '@metamask/snaps-sdk';
 import { HandlerType } from '@metamask/snaps-utils';
 import type { CaipAccountId, CaipChainId } from '@metamask/utils';
 import { hasProperty, parseCaipAccountId } from '@metamask/utils';
@@ -23,22 +13,10 @@ import { hasProperty, parseCaipAccountId } from '@metamask/utils';
 import { getRunnableSnaps } from '../snaps';
 import type { GetAllSnaps, HandleSnapRequest } from '../snaps';
 
-export type MultichainRoutingControllerGetStateAction =
-  ControllerGetStateAction<
-    typeof controllerName,
-    MultichainRoutingControllerState
-  >;
-
-export type MultichainRoutingControllerHandleRequestAction = {
-  type: `${typeof controllerName}:handleRequest`;
-  handler: MultichainRoutingController['handleRequest'];
+export type MultichainRouterHandleRequestAction = {
+  type: `${typeof name}:handleRequest`;
+  handler: MultichainRouter['handleRequest'];
 };
-
-export type MultichainRoutingControllerStateChangeEvent =
-  ControllerStateChangeEvent<
-    typeof controllerName,
-    MultichainRoutingControllerState
-  >;
 
 // Since the AccountsController depends on snaps-controllers we manually type this
 type InternalAccount = {
@@ -68,61 +46,44 @@ export type KeyringControllerSubmitNonEvmRequestAction = {
   }) => Promise<Json>;
 };
 
-export type MultichainRoutingControllerActions =
-  | MultichainRoutingControllerGetStateAction
-  | MultichainRoutingControllerHandleRequestAction;
+export type MultichainRouterActions = MultichainRouterHandleRequestAction;
 
-export type MultichainRoutingControllerAllowedActions =
+export type MultichainRouterAllowedActions =
   | GetAllSnaps
   | HandleSnapRequest
   | GetPermissions
   | AccountsControllerListMultichainAccountsAction
   | KeyringControllerSubmitNonEvmRequestAction;
 
-export type MultichainRoutingControllerEvents =
-  MultichainRoutingControllerStateChangeEvent;
+export type MultichainRouterEvents = never;
 
-export type MultichainRoutingControllerMessenger =
-  RestrictedControllerMessenger<
-    typeof controllerName,
-    | MultichainRoutingControllerActions
-    | MultichainRoutingControllerAllowedActions,
-    never,
-    MultichainRoutingControllerAllowedActions['type'],
-    MultichainRoutingControllerEvents['type']
-  >;
+export type MultichainRouterMessenger = RestrictedControllerMessenger<
+  typeof name,
+  MultichainRouterActions | MultichainRouterAllowedActions,
+  never,
+  MultichainRouterAllowedActions['type'],
+  MultichainRouterEvents['type']
+>;
 
-export type MultichainRoutingControllerArgs = {
-  messenger: MultichainRoutingControllerMessenger;
-  state?: MultichainRoutingControllerState;
+export type MultichainRouterArgs = {
+  messenger: MultichainRouterMessenger;
 };
-
-export type MultichainRoutingControllerState = EmptyObject;
 
 type ProtocolSnap = {
   snapId: SnapId;
   methods: string[];
 };
 
-const controllerName = 'MultichainRoutingController';
+const name = 'MultichainRouter';
 
-export class MultichainRoutingController extends BaseController<
-  typeof controllerName,
-  MultichainRoutingControllerState,
-  MultichainRoutingControllerMessenger
-> {
-  constructor({ messenger, state }: MultichainRoutingControllerArgs) {
-    super({
-      messenger,
-      metadata: {},
-      name: controllerName,
-      state: {
-        ...state,
-      },
-    });
+export class MultichainRouter {
+  #messenger: MultichainRouterMessenger;
 
-    this.messagingSystem.registerActionHandler(
-      `${controllerName}:handleRequest`,
+  constructor({ messenger }: MultichainRouterArgs) {
+    this.#messenger = messenger;
+
+    this.#messenger.registerActionHandler(
+      `${name}:handleRequest`,
       async (...args) => this.handleRequest(...args),
     );
   }
@@ -134,7 +95,7 @@ export class MultichainRoutingController extends BaseController<
   ) {
     try {
       // TODO: Decide if we should call this using another abstraction.
-      const result = (await this.messagingSystem.call(
+      const result = (await this.#messenger.call(
         'SnapController:handleRequest',
         {
           snapId,
@@ -161,7 +122,7 @@ export class MultichainRoutingController extends BaseController<
     scope: CaipChainId,
     request: JsonRpcRequest,
   ) {
-    const accounts = this.messagingSystem
+    const accounts = this.#messenger
       .call('AccountsController:listMultichainAccounts', scope)
       .filter(
         (account: InternalAccount) =>
@@ -209,11 +170,11 @@ export class MultichainRoutingController extends BaseController<
   }
 
   #getProtocolSnaps(scope: CaipChainId) {
-    const allSnaps = this.messagingSystem.call('SnapController:getAll');
+    const allSnaps = this.#messenger.call('SnapController:getAll');
     const filteredSnaps = getRunnableSnaps(allSnaps);
 
     return filteredSnaps.reduce<ProtocolSnap[]>((accumulator, snap) => {
-      const permissions = this.messagingSystem.call(
+      const permissions = this.#messenger.call(
         'PermissionController:getPermissions',
         snap.id,
       );
@@ -254,15 +215,12 @@ export class MultichainRoutingController extends BaseController<
     );
     if (accountSnap) {
       // TODO: Decide on API for this.
-      return this.messagingSystem.call(
-        'KeyringController:submitNonEvmRequest',
-        {
-          address: accountSnap.address,
-          method,
-          params,
-          chainId: scope,
-        },
-      );
+      return this.#messenger.call('KeyringController:submitNonEvmRequest', {
+        address: accountSnap.address,
+        method,
+        params,
+        chainId: scope,
+      });
     }
 
     // If the RPC request cannot be serviced by an account Snap,
@@ -272,7 +230,7 @@ export class MultichainRoutingController extends BaseController<
       snap.methods.includes(method),
     );
     if (protocolSnap) {
-      return this.messagingSystem.call('SnapController:handleRequest', {
+      return this.#messenger.call('SnapController:handleRequest', {
         snapId: protocolSnap.snapId,
         origin,
         request: {

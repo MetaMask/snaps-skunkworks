@@ -1,1 +1,1 @@
-export * from './MultichainRoutingController';
+export * from './MultichainRouter';
