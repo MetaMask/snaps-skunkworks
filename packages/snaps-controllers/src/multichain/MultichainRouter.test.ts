@@ -15,265 +15,359 @@ import {
 import { MultichainRouter } from './MultichainRouter';
 
 describe('MultichainRouter', () => {
-  it('can route signing requests to account Snaps without address resolution', async () => {
-    const rootMessenger = getRootMultichainRouterMessenger();
-    const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+  describe('handleRequest', () => {
+    it('can route signing requests to account Snaps without address resolution', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
 
-    /* eslint-disable-next-line no-new */
-    new MultichainRouter({
-      messenger,
-    });
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
 
-    rootMessenger.registerActionHandler(
-      'AccountsController:listMultichainAccounts',
-      () => MOCK_BTC_ACCOUNTS,
-    );
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_BTC_ACCOUNTS,
+      );
 
-    rootMessenger.registerActionHandler(
-      'KeyringController:submitNonEvmRequest',
-      async () => ({
+      rootMessenger.registerActionHandler(
+        'KeyringController:submitNonEvmRequest',
+        async () => ({
+          txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
+        }),
+      );
+
+      rootMessenger.registerActionHandler(
+        'SnapController:handleRequest',
+        async ({ handler }) => {
+          if (handler === HandlerType.OnKeyringRequest) {
+            return null;
+          }
+          throw new Error('Unmocked request');
+        },
+      );
+
+      const result = await messenger.call('MultichainRouter:handleRequest', {
+        connectedAddresses: BTC_CONNECTED_ACCOUNTS,
+        scope: BTC_CAIP2,
+        request: {
+          method: 'btc_sendmany',
+          params: {
+            message: 'foo',
+          },
+        },
+      });
+
+      expect(result).toStrictEqual({
         txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
-      }),
-    );
+      });
+    });
 
-    rootMessenger.registerActionHandler(
-      'SnapController:handleRequest',
-      async ({ handler }) => {
-        if (handler === HandlerType.OnKeyringRequest) {
-          return null;
-        }
-        throw new Error('Unmocked request');
-      },
-    );
+    it('can route signing requests to account Snaps using address resolution', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
 
-    const result = await messenger.call('MultichainRouter:handleRequest', {
-      connectedAddresses: BTC_CONNECTED_ACCOUNTS,
-      scope: BTC_CAIP2,
-      request: {
-        method: 'btc_sendmany',
-        params: {
-          message: 'foo',
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
+
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'KeyringController:submitNonEvmRequest',
+        async () => ({
+          signature: '0x',
+        }),
+      );
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'SnapController:handleRequest',
+        async ({ handler }) => {
+          if (handler === HandlerType.OnKeyringRequest) {
+            return { address: SOLANA_CONNECTED_ACCOUNTS[0] };
+          }
+          throw new Error('Unmocked request');
         },
-      },
-    });
+      );
 
-    expect(result).toStrictEqual({
-      txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
-    });
-  });
-
-  it('can route signing requests to account Snaps using address resolution', async () => {
-    const rootMessenger = getRootMultichainRouterMessenger();
-    const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
-
-    /* eslint-disable-next-line no-new */
-    new MultichainRouter({
-      messenger,
-    });
-
-    rootMessenger.registerActionHandler(
-      'AccountsController:listMultichainAccounts',
-      () => MOCK_SOLANA_ACCOUNTS,
-    );
-
-    rootMessenger.registerActionHandler(
-      'KeyringController:submitNonEvmRequest',
-      async () => ({
-        signature: '0x',
-      }),
-    );
-
-    rootMessenger.registerActionHandler(
-      'PermissionController:getPermissions',
-      () => MOCK_SOLANA_SNAP_PERMISSIONS,
-    );
-
-    rootMessenger.registerActionHandler(
-      'SnapController:handleRequest',
-      async ({ handler }) => {
-        if (handler === HandlerType.OnKeyringRequest) {
-          return { address: SOLANA_CONNECTED_ACCOUNTS[0] };
-        }
-        throw new Error('Unmocked request');
-      },
-    );
-
-    const result = await messenger.call('MultichainRouter:handleRequest', {
-      connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
-      scope: SOLANA_CAIP2,
-      request: {
-        method: 'signAndSendTransaction',
-        params: {
-          message: 'foo',
+      const result = await messenger.call('MultichainRouter:handleRequest', {
+        connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
+        scope: SOLANA_CAIP2,
+        request: {
+          method: 'signAndSendTransaction',
+          params: {
+            message: 'foo',
+          },
         },
-      },
+      });
+
+      expect(result).toStrictEqual({ signature: '0x' });
     });
 
-    expect(result).toStrictEqual({ signature: '0x' });
-  });
+    it('can route protocol requests to procotol Snaps', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
 
-  it('can route protocol requests to procotol Snaps', async () => {
-    const rootMessenger = getRootMultichainRouterMessenger();
-    const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
 
-    /* eslint-disable-next-line no-new */
-    new MultichainRouter({
-      messenger,
-    });
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => [],
+      );
 
-    rootMessenger.registerActionHandler(
-      'AccountsController:listMultichainAccounts',
-      () => [],
-    );
+      rootMessenger.registerActionHandler('SnapController:getAll', () => {
+        return [getTruncatedSnap()];
+      });
 
-    rootMessenger.registerActionHandler('SnapController:getAll', () => {
-      return [getTruncatedSnap()];
-    });
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
 
-    rootMessenger.registerActionHandler(
-      'PermissionController:getPermissions',
-      () => MOCK_SOLANA_SNAP_PERMISSIONS,
-    );
+      rootMessenger.registerActionHandler(
+        'SnapController:handleRequest',
+        async () => ({
+          'feature-set': 2891131721,
+          'solana-core': '1.16.7',
+        }),
+      );
 
-    rootMessenger.registerActionHandler(
-      'SnapController:handleRequest',
-      async () => ({
-        'feature-set': 2891131721,
-        'solana-core': '1.16.7',
-      }),
-    );
-
-    const result = await messenger.call('MultichainRouter:handleRequest', {
-      connectedAddresses: [],
-      scope: SOLANA_CAIP2,
-      request: {
-        method: 'getVersion',
-      },
-    });
-
-    expect(result).toStrictEqual({
-      'feature-set': 2891131721,
-      'solana-core': '1.16.7',
-    });
-  });
-
-  it('throws if no suitable Snaps are found', async () => {
-    const rootMessenger = getRootMultichainRouterMessenger();
-    const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
-
-    /* eslint-disable-next-line no-new */
-    new MultichainRouter({
-      messenger,
-    });
-
-    rootMessenger.registerActionHandler(
-      'AccountsController:listMultichainAccounts',
-      () => [],
-    );
-
-    rootMessenger.registerActionHandler('SnapController:getAll', () => {
-      return [];
-    });
-
-    await expect(
-      messenger.call('MultichainRouter:handleRequest', {
+      const result = await messenger.call('MultichainRouter:handleRequest', {
         connectedAddresses: [],
         scope: SOLANA_CAIP2,
         request: {
           method: 'getVersion',
         },
-      }),
-    ).rejects.toThrow('The method does not exist / is not available');
-  });
+      });
 
-  it('throws if address resolution fails', async () => {
-    const rootMessenger = getRootMultichainRouterMessenger();
-    const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
-
-    /* eslint-disable-next-line no-new */
-    new MultichainRouter({
-      messenger,
+      expect(result).toStrictEqual({
+        'feature-set': 2891131721,
+        'solana-core': '1.16.7',
+      });
     });
 
-    rootMessenger.registerActionHandler(
-      'AccountsController:listMultichainAccounts',
-      () => MOCK_SOLANA_ACCOUNTS,
-    );
+    it('throws if no suitable Snaps are found', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
 
-    rootMessenger.registerActionHandler(
-      'PermissionController:getPermissions',
-      () => MOCK_SOLANA_SNAP_PERMISSIONS,
-    );
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
 
-    rootMessenger.registerActionHandler(
-      'SnapController:handleRequest',
-      async ({ handler }) => {
-        if (handler === HandlerType.OnKeyringRequest) {
-          // Simulate the Snap returning a bogus address
-          return { address: 'foo' };
-        }
-        throw new Error('Unmocked request');
-      },
-    );
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => [],
+      );
 
-    await expect(
-      messenger.call('MultichainRouter:handleRequest', {
-        connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
-        scope: SOLANA_CAIP2,
-        request: {
-          method: 'signAndSendTransaction',
-          params: {
-            message: 'foo',
+      rootMessenger.registerActionHandler('SnapController:getAll', () => {
+        return [];
+      });
+
+      await expect(
+        messenger.call('MultichainRouter:handleRequest', {
+          connectedAddresses: [],
+          scope: SOLANA_CAIP2,
+          request: {
+            method: 'getVersion',
           },
-        },
-      }),
-    ).rejects.toThrow('Internal JSON-RPC error');
-  });
-
-  it('throws if address resolution returns an address that isnt available', async () => {
-    const rootMessenger = getRootMultichainRouterMessenger();
-    const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
-
-    /* eslint-disable-next-line no-new */
-    new MultichainRouter({
-      messenger,
+        }),
+      ).rejects.toThrow('The method does not exist / is not available');
     });
 
-    rootMessenger.registerActionHandler(
-      'AccountsController:listMultichainAccounts',
-      () => MOCK_SOLANA_ACCOUNTS,
-    );
+    it('throws if address resolution fails', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
 
-    rootMessenger.registerActionHandler(
-      'PermissionController:getPermissions',
-      () => MOCK_SOLANA_SNAP_PERMISSIONS,
-    );
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
 
-    rootMessenger.registerActionHandler(
-      'SnapController:handleRequest',
-      async ({ handler }) => {
-        if (handler === HandlerType.OnKeyringRequest) {
-          // Simulate the Snap returning an unconnected address
-          return {
-            address:
-              'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKa',
-          };
-        }
-        throw new Error('Unmocked request');
-      },
-    );
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
 
-    await expect(
-      messenger.call('MultichainRouter:handleRequest', {
-        connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
-        scope: SOLANA_CAIP2,
-        request: {
-          method: 'signAndSendTransaction',
-          params: {
-            message: 'foo',
-          },
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'SnapController:handleRequest',
+        async ({ handler }) => {
+          if (handler === HandlerType.OnKeyringRequest) {
+            // Simulate the Snap returning a bogus address
+            return { address: 'foo' };
+          }
+          throw new Error('Unmocked request');
         },
-      }),
-    ).rejects.toThrow('Invalid method parameter(s)');
+      );
+
+      await expect(
+        messenger.call('MultichainRouter:handleRequest', {
+          connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
+          scope: SOLANA_CAIP2,
+          request: {
+            method: 'signAndSendTransaction',
+            params: {
+              message: 'foo',
+            },
+          },
+        }),
+      ).rejects.toThrow('Internal JSON-RPC error');
+    });
+
+    it('throws if address resolution returns an address that isnt available', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
+
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'SnapController:handleRequest',
+        async ({ handler }) => {
+          if (handler === HandlerType.OnKeyringRequest) {
+            // Simulate the Snap returning an unconnected address
+            return {
+              address:
+                'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKa',
+            };
+          }
+          throw new Error('Unmocked request');
+        },
+      );
+
+      await expect(
+        messenger.call('MultichainRouter:handleRequest', {
+          connectedAddresses: SOLANA_CONNECTED_ACCOUNTS,
+          scope: SOLANA_CAIP2,
+          request: {
+            method: 'signAndSendTransaction',
+            params: {
+              message: 'foo',
+            },
+          },
+        }),
+      ).rejects.toThrow('Invalid method parameter(s)');
+    });
+  });
+
+  describe('getSupportedMethods', () => {
+    it('returns a set of both protocol and account Snap methods', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
+
+      rootMessenger.registerActionHandler('SnapController:getAll', () => {
+        return [getTruncatedSnap()];
+      });
+
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
+
+      expect(
+        messenger.call('MultichainRouter:getSupportedMethods', {
+          scope: SOLANA_CAIP2,
+        }),
+      ).toStrictEqual(['signAndSendTransaction', 'getVersion']);
+    });
+
+    it('handles lack of protocol Snaps', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
+
+      rootMessenger.registerActionHandler('SnapController:getAll', () => {
+        return [getTruncatedSnap()];
+      });
+
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => ({}),
+      );
+
+      expect(
+        messenger.call('MultichainRouter:getSupportedMethods', {
+          scope: SOLANA_CAIP2,
+        }),
+      ).toStrictEqual(['signAndSendTransaction']);
+    });
+
+    it('handles lack of account Snaps', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+      });
+
+      rootMessenger.registerActionHandler('SnapController:getAll', () => {
+        return [getTruncatedSnap()];
+      });
+
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => [],
+      );
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
+
+      expect(
+        messenger.call('MultichainRouter:getSupportedMethods', {
+          scope: SOLANA_CAIP2,
+        }),
+      ).toStrictEqual(['getVersion']);
+    });
   });
 });

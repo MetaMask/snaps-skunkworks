@@ -18,6 +18,11 @@ export type MultichainRouterHandleRequestAction = {
   handler: MultichainRouter['handleRequest'];
 };
 
+export type MultichainRouterGetSupportedMethodsAction = {
+  type: `${typeof name}:getSupportedMethods`;
+  handler: MultichainRouter['getSupportedMethods'];
+};
+
 // Since the AccountsController depends on snaps-controllers we manually type this
 type InternalAccount = {
   id: string;
@@ -46,7 +51,9 @@ export type KeyringControllerSubmitNonEvmRequestAction = {
   }) => Promise<Json>;
 };
 
-export type MultichainRouterActions = MultichainRouterHandleRequestAction;
+export type MultichainRouterActions =
+  | MultichainRouterHandleRequestAction
+  | MultichainRouterGetSupportedMethodsAction;
 
 export type MultichainRouterAllowedActions =
   | GetAllSnaps
@@ -85,6 +92,11 @@ export class MultichainRouter {
     this.#messenger.registerActionHandler(
       `${name}:handleRequest`,
       async (...args) => this.handleRequest(...args),
+    );
+
+    this.#messenger.registerActionHandler(
+      `${name}:getSupportedMethods`,
+      (...args) => this.getSupportedMethods(...args),
     );
   }
 
@@ -193,6 +205,18 @@ export class MultichainRouter {
     }, []);
   }
 
+  /**
+   * Handle an incoming JSON-RPC request tied to a specific scope by routing
+   * to either a procotol Snap or an account Snap.
+   *
+   * @param options - An options bag.
+   * @param options.connectedAddresses - Addresses currently connected to the origin.
+   * @param options.origin - The origin of the RPC request.
+   * @param options.request - The JSON-RPC request.
+   * @param options.scope - The CAIP-2 scope for the request.
+   * @returns The response from the chosen Snap.
+   * @throws If no handler was found.
+   */
   async handleRequest({
     connectedAddresses,
     origin,
@@ -246,5 +270,26 @@ export class MultichainRouter {
 
     // If no compatible account or protocol Snaps were found, throw.
     throw rpcErrors.methodNotFound();
+  }
+
+  /**
+   * Get a list of supported methods for a given scope.
+   * This combines both protocol and account Snaps supported methods.
+   *
+   * @param options - An options bag.
+   * @param options.scope - The CAIP-2 scope.
+   * @returns A list of supported methods.
+   */
+  getSupportedMethods({ scope }: { scope: CaipChainId }): string[] {
+    const accountMethods = this.#messenger
+      .call('AccountsController:listMultichainAccounts', scope)
+      .filter((account: InternalAccount) => account.metadata.snap?.enabled)
+      .flatMap((account) => account.methods);
+
+    const protocolMethods = this.#getProtocolSnaps(scope).flatMap(
+      (snap) => snap.methods,
+    );
+
+    return Array.from(new Set([...accountMethods, ...protocolMethods]));
   }
 }
