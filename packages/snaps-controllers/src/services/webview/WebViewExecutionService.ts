@@ -5,6 +5,7 @@ import { WebViewMessageStream } from './WebViewMessageStream';
 
 export type WebViewExecutionServiceArgs = ExecutionServiceArgs & {
   getWebView: () => Promise<WebViewInterface>;
+  btoa?: (data: string) => string;
 };
 
 export class WebViewExecutionService extends ProxyExecutionService {
@@ -14,6 +15,7 @@ export class WebViewExecutionService extends ProxyExecutionService {
     messenger,
     setupSnapProvider,
     getWebView,
+    btoa,
   }: WebViewExecutionServiceArgs) {
     super({
       messenger,
@@ -22,6 +24,7 @@ export class WebViewExecutionService extends ProxyExecutionService {
         name: 'parent',
         target: 'child',
         getWebView,
+        btoa,
       }),
     });
     this.#getWebView = getWebView;

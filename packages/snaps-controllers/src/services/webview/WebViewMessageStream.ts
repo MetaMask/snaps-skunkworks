@@ -14,6 +14,7 @@ export type WebViewStreamArgs = {
   name: string;
   target: string;
   getWebView: () => Promise<WebViewInterface>;
+  btoa?: (data: string) => string;
 };
 
 /**
@@ -26,6 +27,8 @@ export class WebViewMessageStream extends BasePostMessageStream {
 
   #webView: WebViewInterface | undefined;
 
+  #btoa?: (data: string) => string;
+
   /**
    * Creates a stream for communicating with other streams inside a WebView.
    *
@@ -34,12 +37,14 @@ export class WebViewMessageStream extends BasePostMessageStream {
    * multiple streams sharing the same window object.
    * @param args.target - The name of the stream to exchange messages with.
    * @param args.getWebView - A asynchronous getter for the webview.
+   * @param args.btoa - An optional function that encodes a string to base64.
    */
-  constructor({ name, target, getWebView }: WebViewStreamArgs) {
+  constructor({ name, target, getWebView, btoa }: WebViewStreamArgs) {
     super();
 
     this.#name = name;
     this.#target = target;
+    this.#btoa = btoa;
 
     this._onMessage = this._onMessage.bind(this);
 
@@ -58,6 +63,15 @@ export class WebViewMessageStream extends BasePostMessageStream {
       });
   }
 
+  #encodeMessage(json: string): string {
+    if (this.#btoa) {
+      return this.#btoa(json);
+    }
+
+    const bytes = stringToBytes(json);
+    return bytesToBase64(bytes);
+  }
+
   protected _postMessage(data: unknown): void {
     assert(this.#webView);
     const json = JSON.stringify({
@@ -67,9 +81,7 @@ export class WebViewMessageStream extends BasePostMessageStream {
 
     // To prevent XSS, we base64 encode the message before injecting it.
     // This adds significant performance overhead.
-    // TODO: Should we use mobile native base64 here?
-    const bytes = stringToBytes(json);
-    const base64 = bytesToBase64(bytes);
+    const base64 = this.#encodeMessage(json);
     this.#webView.injectJavaScript(`window.postMessage('${base64}')`);
   }
 

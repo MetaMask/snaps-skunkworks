@@ -1,4 +1,9 @@
-import { base64ToBytes, bytesToString } from '@metamask/utils';
+import {
+  base64ToBytes,
+  bytesToBase64,
+  bytesToString,
+  stringToBytes,
+} from '@metamask/utils';
 
 import { WebViewMessageStream } from '../services/webview/WebViewMessageStream';
 
@@ -52,6 +57,11 @@ export function createWebViewObjects() {
     name: 'a',
     target: 'b',
     getWebView: mockGetWebViewA,
+    // For one of the streams, we test that a custom btoa function is used.
+    btoa: (data: string) => {
+      const bytes = stringToBytes(data);
+      return bytesToBase64(bytes);
+    },
   });
 
   const streamB = new WebViewMessageStream({
