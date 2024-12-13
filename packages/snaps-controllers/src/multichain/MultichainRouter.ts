@@ -6,6 +6,7 @@ import {
   SnapEndowments,
 } from '@metamask/snaps-rpc-methods';
 import type { Json, JsonRpcRequest, SnapId } from '@metamask/snaps-sdk';
+import type { Caip2ChainId } from '@metamask/snaps-utils';
 import { HandlerType } from '@metamask/snaps-utils';
 import type { CaipAccountId, CaipChainId } from '@metamask/utils';
 import { hasProperty, parseCaipAccountId } from '@metamask/utils';
@@ -36,19 +37,23 @@ type InternalAccount = {
   };
 };
 
+type SnapKeyring = {
+  submitRequest: (request: Record<string, Json>) => Promise<Json>;
+  resolveAccountAddress: (options: {
+    snapId: SnapId;
+    scope: Caip2ChainId;
+    request: Json;
+  }) => Promise<{ address: CaipAccountId } | null>;
+};
+
+// Expecting a bound function that calls KeyringController.withKeyring selecting the Snap keyring
+type WithSnapKeyringFunction = <ReturnType>(
+  operation: (keyring: SnapKeyring) => Promise<ReturnType>,
+) => Promise<ReturnType>;
+
 export type AccountsControllerListMultichainAccountsAction = {
   type: `AccountsController:listMultichainAccounts`;
   handler: (chainId?: CaipChainId) => InternalAccount[];
-};
-
-export type KeyringControllerSubmitNonEvmRequestAction = {
-  type: `KeyringController:submitNonEvmRequest`;
-  handler: (args: {
-    address: string;
-    method: string;
-    params?: Json[] | Record<string, Json>;
-    chainId: CaipChainId;
-  }) => Promise<Json>;
 };
 
 export type MultichainRouterActions =
@@ -59,8 +64,7 @@ export type MultichainRouterAllowedActions =
   | GetAllSnaps
   | HandleSnapRequest
   | GetPermissions
-  | AccountsControllerListMultichainAccountsAction
-  | KeyringControllerSubmitNonEvmRequestAction;
+  | AccountsControllerListMultichainAccountsAction;
 
 export type MultichainRouterEvents = never;
 
@@ -74,6 +78,7 @@ export type MultichainRouterMessenger = RestrictedControllerMessenger<
 
 export type MultichainRouterArgs = {
   messenger: MultichainRouterMessenger;
+  withSnapKeyring: WithSnapKeyringFunction;
 };
 
 type ProtocolSnap = {
@@ -86,8 +91,11 @@ const name = 'MultichainRouter';
 export class MultichainRouter {
   #messenger: MultichainRouterMessenger;
 
-  constructor({ messenger }: MultichainRouterArgs) {
+  #withSnapKeyring: WithSnapKeyringFunction;
+
+  constructor({ messenger, withSnapKeyring }: MultichainRouterArgs) {
     this.#messenger = messenger;
+    this.#withSnapKeyring = withSnapKeyring;
 
     this.#messenger.registerActionHandler(
       `${name}:handleRequest`,
@@ -107,20 +115,12 @@ export class MultichainRouter {
   ) {
     try {
       // TODO: Decide if we should call this using another abstraction.
-      const result = (await this.#messenger.call(
-        'SnapController:handleRequest',
-        {
+      const result = (await this.#withSnapKeyring(async (keyring) =>
+        keyring.resolveAccountAddress({
           snapId,
-          origin: 'metamask',
-          request: {
-            method: 'keyring_resolveAccountAddress',
-            params: {
-              scope,
-              request,
-            },
-          },
-          handler: HandlerType.OnKeyringRequest,
-        },
+          request,
+          scope,
+        }),
       )) as { address: CaipAccountId } | null;
       const address = result?.address;
       return address ? parseCaipAccountId(address).address : null;
@@ -176,7 +176,7 @@ export class MultichainRouter {
     }
 
     return {
-      address: selectedAccount.address,
+      accountId: selectedAccount.id,
       snapId: selectedAccount.metadata.snap.id,
     };
   }
@@ -239,12 +239,16 @@ export class MultichainRouter {
     );
     if (accountSnap) {
       // TODO: Decide on API for this.
-      return this.#messenger.call('KeyringController:submitNonEvmRequest', {
-        address: accountSnap.address,
-        method,
-        params,
-        chainId: scope,
-      });
+      return this.#withSnapKeyring(async (keyring) =>
+        keyring.submitRequest({
+          id: accountSnap.accountId,
+          scope,
+          request: {
+            method,
+            params,
+          },
+        }),
+      );
     }
 
     // If the RPC request cannot be serviced by an account Snap,

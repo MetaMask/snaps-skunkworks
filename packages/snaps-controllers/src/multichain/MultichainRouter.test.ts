@@ -11,6 +11,7 @@ import {
   SOLANA_CAIP2,
   MOCK_SOLANA_ACCOUNTS,
   MOCK_BTC_ACCOUNTS,
+  getMockWithSnapKeyring,
 } from '../test-utils';
 import { MultichainRouter } from './MultichainRouter';
 
@@ -19,22 +20,21 @@ describe('MultichainRouter', () => {
     it('can route signing requests to account Snaps without address resolution', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring({
+        submitRequest: jest.fn().mockResolvedValue({
+          txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
+        }),
+      });
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
         'AccountsController:listMultichainAccounts',
         () => MOCK_BTC_ACCOUNTS,
-      );
-
-      rootMessenger.registerActionHandler(
-        'KeyringController:submitNonEvmRequest',
-        async () => ({
-          txid: '53de51e2fa75c3cfa51132865f7d430138b1cd92a8f5267ec836ec565b422969',
-        }),
       );
 
       rootMessenger.registerActionHandler(
@@ -66,22 +66,21 @@ describe('MultichainRouter', () => {
     it('can route signing requests to account Snaps using address resolution', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring({
+        submitRequest: jest.fn().mockResolvedValue({
+          signature: '0x',
+        }),
+      });
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
         'AccountsController:listMultichainAccounts',
         () => MOCK_SOLANA_ACCOUNTS,
-      );
-
-      rootMessenger.registerActionHandler(
-        'KeyringController:submitNonEvmRequest',
-        async () => ({
-          signature: '0x',
-        }),
       );
 
       rootMessenger.registerActionHandler(
@@ -113,13 +112,15 @@ describe('MultichainRouter', () => {
       expect(result).toStrictEqual({ signature: '0x' });
     });
 
-    it('can route protocol requests to procotol Snaps', async () => {
+    it('can route protocol requests to protocol Snaps', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
@@ -161,10 +162,12 @@ describe('MultichainRouter', () => {
     it('throws if no suitable Snaps are found', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
@@ -190,10 +193,15 @@ describe('MultichainRouter', () => {
     it('throws if address resolution fails', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring({
+        // Simulate the Snap returning a bogus address
+        resolveAccountAddress: jest.fn().mockResolvedValue({ address: 'foo' }),
+      });
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
@@ -204,17 +212,6 @@ describe('MultichainRouter', () => {
       rootMessenger.registerActionHandler(
         'PermissionController:getPermissions',
         () => MOCK_SOLANA_SNAP_PERMISSIONS,
-      );
-
-      rootMessenger.registerActionHandler(
-        'SnapController:handleRequest',
-        async ({ handler }) => {
-          if (handler === HandlerType.OnKeyringRequest) {
-            // Simulate the Snap returning a bogus address
-            return { address: 'foo' };
-          }
-          throw new Error('Unmocked request');
-        },
       );
 
       await expect(
@@ -234,10 +231,18 @@ describe('MultichainRouter', () => {
     it('throws if address resolution returns an address that isnt available', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring({
+        // Simulate the Snap returning an unconnected address
+        resolveAccountAddress: jest.fn().mockResolvedValue({
+          address:
+            'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKa',
+        }),
+      });
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
@@ -248,20 +253,6 @@ describe('MultichainRouter', () => {
       rootMessenger.registerActionHandler(
         'PermissionController:getPermissions',
         () => MOCK_SOLANA_SNAP_PERMISSIONS,
-      );
-
-      rootMessenger.registerActionHandler(
-        'SnapController:handleRequest',
-        async ({ handler }) => {
-          if (handler === HandlerType.OnKeyringRequest) {
-            // Simulate the Snap returning an unconnected address
-            return {
-              address:
-                'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKa',
-            };
-          }
-          throw new Error('Unmocked request');
-        },
       );
 
       await expect(
@@ -283,10 +274,12 @@ describe('MultichainRouter', () => {
     it('returns a set of both protocol and account Snap methods', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler('SnapController:getAll', () => {
@@ -313,10 +306,12 @@ describe('MultichainRouter', () => {
     it('handles lack of protocol Snaps', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler('SnapController:getAll', () => {
@@ -343,10 +338,12 @@ describe('MultichainRouter', () => {
     it('handles lack of account Snaps', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
 
       /* eslint-disable-next-line no-new */
       new MultichainRouter({
         messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler('SnapController:getAll', () => {

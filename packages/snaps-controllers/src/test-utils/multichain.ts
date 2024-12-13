@@ -87,3 +87,25 @@ export const MOCK_SOLANA_SNAP_PERMISSIONS: Record<
     parentCapability: SnapEndowments.Protocol,
   },
 };
+
+type MockSnapKeyring = {
+  submitRequest: (request: unknown) => Promise<unknown>;
+  resolveAccountAddress: (options: unknown) => Promise<unknown>;
+};
+
+type MockOperationCallback = <ReturnType>(
+  keyring: MockSnapKeyring,
+) => Promise<ReturnType>;
+
+export const getMockWithSnapKeyring = (
+  { submitRequest = jest.fn(), resolveAccountAddress = jest.fn() } = {
+    submitRequest: jest.fn(),
+    resolveAccountAddress: jest.fn(),
+  },
+) => {
+  return async (callback: MockOperationCallback) =>
+    callback({
+      submitRequest,
+      resolveAccountAddress,
+    });
+};
