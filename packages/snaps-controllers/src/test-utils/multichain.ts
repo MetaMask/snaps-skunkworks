@@ -2,7 +2,7 @@ import type { PermissionConstraint } from '@metamask/permission-controller';
 import { SnapEndowments } from '@metamask/snaps-rpc-methods';
 import { SnapCaveatType } from '@metamask/snaps-utils';
 import { MOCK_SNAP_ID } from '@metamask/snaps-utils/test-utils';
-import type { CaipAccountId, CaipChainId } from '@metamask/utils';
+import type { CaipAccountId, CaipChainId, Json } from '@metamask/utils';
 
 export const BTC_CAIP2 =
   'bip122:000000000019d6689c085ae165831e93' as CaipChainId;
@@ -89,13 +89,13 @@ export const MOCK_SOLANA_SNAP_PERMISSIONS: Record<
 };
 
 type MockSnapKeyring = {
-  submitRequest: (request: unknown) => Promise<unknown>;
-  resolveAccountAddress: (options: unknown) => Promise<unknown>;
+  submitRequest: (request: unknown) => Promise<Json>;
+  resolveAccountAddress: (
+    options: unknown,
+  ) => Promise<{ address: CaipAccountId } | null>;
 };
 
-type MockOperationCallback = <ReturnType>(
-  keyring: MockSnapKeyring,
-) => Promise<ReturnType>;
+type MockOperationCallback = (keyring: MockSnapKeyring) => Promise<Json>;
 
 export const getMockWithSnapKeyring = (
   { submitRequest = jest.fn(), resolveAccountAddress = jest.fn() } = {

@@ -8,7 +8,11 @@ import {
 import type { Json, JsonRpcRequest, SnapId } from '@metamask/snaps-sdk';
 import type { Caip2ChainId } from '@metamask/snaps-utils';
 import { HandlerType } from '@metamask/snaps-utils';
-import type { CaipAccountId, CaipChainId } from '@metamask/utils';
+import type {
+  CaipAccountId,
+  CaipChainId,
+  JsonRpcParams,
+} from '@metamask/utils';
 import { hasProperty, parseCaipAccountId } from '@metamask/utils';
 
 import { getRunnableSnaps } from '../snaps';
@@ -245,7 +249,7 @@ export class MultichainRouter {
           scope,
           request: {
             method,
-            params,
+            params: params as JsonRpcParams,
           },
         }),
       );
