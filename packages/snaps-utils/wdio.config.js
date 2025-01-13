@@ -69,8 +69,6 @@ const config = {
   logLevel: 'error',
 
   services: [
-    'chromedriver',
-    'geckodriver',
     [
       'static-server',
       {
