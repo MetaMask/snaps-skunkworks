@@ -5,7 +5,6 @@ import type { Ora } from 'ora';
 import type {
   Compiler,
   ProvidePlugin,
-  ResolvePluginInstance,
   Resolver,
   StatsError,
   WebpackPluginInstance,
@@ -232,6 +231,13 @@ export class SnapsWatchPlugin implements WebpackPluginInstance {
 }
 
 /**
+ * Webpack's resolver plugin interface, which is not exported by Webpack.
+ */
+type ResolverPlugin = {
+  apply: (resolver: Resolver) => void;
+};
+
+/**
  * The options for the {@link SnapsBuiltInResolver}.
  */
 export type SnapsBuiltInResolverOptions = {
@@ -247,7 +253,7 @@ export type SnapsBuiltInResolverOptions = {
  * plugin is used to warn the user when they try to import a built-in module,
  * when no fallback is configured.
  */
-export class SnapsBuiltInResolver implements ResolvePluginInstance {
+export class SnapsBuiltInResolver implements ResolverPlugin {
   /**
    * The built-in modules that have been imported, but not resolved.
    */

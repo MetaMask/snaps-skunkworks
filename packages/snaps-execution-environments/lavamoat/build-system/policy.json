@@ -157,6 +157,7 @@
         "path.basename": true,
         "path.dirname": true,
         "path.join": true,
+        "path.relative": true,
         "path.resolve": true
       },
       "globals": {
@@ -2369,19 +2370,12 @@
         "define": true
       },
       "packages": {
-        "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/resolve-uri": true,
-        "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/sourcemap-codec": true
+        "terser>@jridgewell/source-map>@jridgewell/gen-mapping>@jridgewell/sourcemap-codec": true,
+        "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/resolve-uri": true
       }
     },
     "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/resolve-uri": {
       "globals": {
-        "define": true
-      }
-    },
-    "terser>@jridgewell/source-map>@jridgewell/trace-mapping>@jridgewell/sourcemap-codec": {
-      "globals": {
-        "Buffer": true,
-        "TextDecoder": true,
         "define": true
       }
     },
@@ -2397,13 +2391,8 @@
       }
     },
     "vite>postcss>picocolors": {
-      "builtin": {
-        "tty.isatty": true
-      },
       "globals": {
-        "process.argv.includes": true,
-        "process.env": true,
-        "process.platform": true
+        "process": true
       }
     },
     "yargs": {

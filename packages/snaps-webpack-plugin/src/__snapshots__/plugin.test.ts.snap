@@ -2,7 +2,6 @@
 
 exports[`SnapsWebpackPlugin applies a transform 1`] = `
 "(() => {
-  var __webpack_exports__ = {};
   const foo = 'bar';
 })();"
 `;
@@ -10,7 +9,6 @@ exports[`SnapsWebpackPlugin applies a transform 1`] = `
 exports[`SnapsWebpackPlugin forwards the options 1`] = `
 "/******/(() => {
   // webpackBootstrap
-  var __webpack_exports__ = {};
 
   // foo bar
   /* baz qux */

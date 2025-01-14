@@ -1,4 +1,5 @@
 import packageJson from '@metamask/snaps-sdk/package.json';
+import type { SemVerVersion } from '@metamask/utils';
 
 /**
  * Get the current supported platform version.
@@ -9,6 +10,6 @@ import packageJson from '@metamask/snaps-sdk/package.json';
  *
  * @returns The platform version.
  */
-export function getPlatformVersion() {
-  return packageJson.version;
+export function getPlatformVersion(): SemVerVersion {
+  return packageJson.version as SemVerVersion;
 }

@@ -4,6 +4,7 @@ import {
   getSnapManifest,
 } from '@metamask/snaps-utils/test-utils';
 import normalFs from 'fs';
+import type webpackModule from 'webpack';
 
 import { getMockConfig } from '../../test-utils';
 import { getCompiler } from '../../webpack';
@@ -24,8 +25,10 @@ jest.mock('../../webpack', () => ({
       .requireActual<typeof webpack>('../../webpack')
       .getCompiler(...args);
 
-    compiler.inputFileSystem = normalFs;
-    compiler.outputFileSystem = normalFs;
+    compiler.inputFileSystem =
+      normalFs as unknown as webpackModule.InputFileSystem;
+    compiler.outputFileSystem =
+      normalFs as unknown as webpackModule.OutputFileSystem;
 
     return compiler;
   }),
@@ -57,6 +60,7 @@ describe('watch', () => {
     // @ts-expect-error - Partial mock.
     mock.mockImplementationOnce(() => ({
       watch: watchMock,
+      watching: {},
     }));
 
     await watch(

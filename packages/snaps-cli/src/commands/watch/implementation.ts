@@ -1,3 +1,4 @@
+import { assert } from '@metamask/utils';
 import { basename } from 'path';
 import type { Watching } from 'webpack';
 
@@ -38,6 +39,11 @@ export async function watch(
           reject(watchError);
           return;
         }
+
+        assert(
+          compiler.watching,
+          'Expected `compiler.watching` to be defined.',
+        );
 
         resolve(compiler.watching);
       },

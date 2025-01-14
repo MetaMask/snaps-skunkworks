@@ -61,8 +61,8 @@ const bundle = async ({
     ...webpackOptions,
   });
 
-  bundler.inputFileSystem = fileSystem;
-  bundler.outputFileSystem = fileSystem;
+  bundler.inputFileSystem = fileSystem as unknown as webpack.InputFileSystem;
+  bundler.outputFileSystem = fileSystem as unknown as webpack.OutputFileSystem;
 
   await fs.mkdir('/lib', { recursive: true });
   await fs.writeFile('/foo.js', code);

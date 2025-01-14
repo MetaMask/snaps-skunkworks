@@ -93,7 +93,7 @@
     "memfs": "^3.4.13",
     "prettier-plugin-packagejson": "^2.5.2",
     "typescript": "~5.3.3",
-    "webpack": "^5.88.0"
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": "^18.16 || >=20"

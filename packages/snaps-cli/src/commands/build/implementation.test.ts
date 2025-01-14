@@ -9,6 +9,7 @@ import {
 import normalFs from 'fs';
 import { dirname, resolve } from 'path';
 import type { Configuration } from 'webpack';
+import type webpackModule from 'webpack';
 
 import { getMockConfig } from '../../test-utils';
 import { getCompiler } from '../../webpack';
@@ -36,8 +37,10 @@ jest.mock('../../webpack', () => ({
       .requireActual<typeof webpack>('../../webpack')
       .getCompiler(...args);
 
-    compiler.inputFileSystem = normalFs;
-    compiler.outputFileSystem = normalFs;
+    compiler.inputFileSystem =
+      normalFs as unknown as webpackModule.InputFileSystem;
+    compiler.outputFileSystem =
+      normalFs as unknown as webpackModule.OutputFileSystem;
 
     return compiler;
   }),
@@ -48,11 +51,14 @@ jest.mock('../../webpack/utils', () => ({
   getDefaultLoader: jest.fn<
     ReturnType<typeof utils.getDefaultLoader>,
     Parameters<typeof utils.getDefaultLoader>
-  >(async (config) => {
+  >(async (config): ReturnType<typeof utils.getDefaultLoader> => {
     if (config.legacy) {
       return {
         loader: BROWSERIFY_LOADER_PATH,
-        options: config.legacy,
+        options: {
+          ...config.legacy,
+          fn: jest.fn(),
+        },
       };
     }
 
@@ -129,7 +135,7 @@ describe('build', () => {
 
     const output = await fs.readFile('/snap/output.js', 'utf8');
     expect(output).toMatchInlineSnapshot(
-      `"(()=>{var r={67:r=>{r.exports.onRpcRequest=({request:r})=>{console.log("Hello, world!");const{method:e,id:o}=r;return e+o}}},e={};var o=function o(t){var s=e[t];if(void 0!==s)return s.exports;var n=e[t]={exports:{}};return r[t](n,n.exports,o),n.exports}(67);module.exports=o})();"`,
+      `"(()=>{var r={157:r=>{r.exports.onRpcRequest=({request:r})=>{console.log("Hello, world!");const{method:e,id:o}=r;return e+o}}},e={};var o=function o(t){var s=e[t];if(void 0!==s)return s.exports;var n=e[t]={exports:{}};return r[t](n,n.exports,o),n.exports}(157);module.exports=o})();"`,
     );
   });
 
@@ -165,7 +171,7 @@ describe('build', () => {
     expect(output).toMatchInlineSnapshot(`
       "(() => {
         var __webpack_modules__ = {
-          67: module => {
+          157: module => {
             module.exports.onRpcRequest = ({
               request
             }) => {
@@ -190,7 +196,7 @@ describe('build', () => {
           __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
           return module.exports;
         }
-        var __webpack_exports__ = __webpack_require__(67);
+        var __webpack_exports__ = __webpack_require__(157);
         module.exports = __webpack_exports__;
       })();"
     `);
