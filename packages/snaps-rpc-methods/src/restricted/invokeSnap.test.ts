@@ -87,7 +87,7 @@ describe('implementation', () => {
     ({
       getSnap: jest.fn(),
       handleSnapRpcRequest: jest.fn(),
-    } as any);
+    }) as any;
   it('calls handleSnapRpcRequest', async () => {
     const hooks = getMockHooks();
     hooks.getSnap.mockImplementation(getTruncatedSnap);

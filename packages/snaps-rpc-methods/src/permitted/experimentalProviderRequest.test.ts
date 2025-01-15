@@ -36,7 +36,7 @@ describe('snap_experimentalProviderRequest', () => {
         getNetworkClientById: jest.fn().mockImplementation(() => ({
           provider: { request: jest.fn().mockResolvedValue('0x1') },
         })),
-      } as any);
+      }) as any;
 
     it('returns the result from the network client', async () => {
       const { implementation } = providerRequestHandler;

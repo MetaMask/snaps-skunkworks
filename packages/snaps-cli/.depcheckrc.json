@@ -13,6 +13,7 @@
     "buffer",
     "eslint-config-*",
     "eslint-plugin-*",
+    "jest",
     "jest-silent-reporter",
     "events",
     "is-core-module",

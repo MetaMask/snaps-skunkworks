@@ -197,7 +197,7 @@ describe('nodeModelsToComponent', () => {
 });
 
 describe('boxToCode', () => {
-  it('creates code from a component', () => {
+  it('creates code from a component', async () => {
     const component = Box({
       children: [
         Text({ children: 'foo' }),
@@ -207,7 +207,7 @@ describe('boxToCode', () => {
       ],
     });
 
-    const code = boxToCode(component);
+    const code = await boxToCode(component);
     expect(code).toMatchInlineSnapshot(`
       "import { Box, Text } from '@metamask/snaps-sdk/jsx';
 
@@ -224,7 +224,7 @@ describe('boxToCode', () => {
     `);
   });
 
-  it('creates code from a component with a form', () => {
+  it('creates code from a component with a form', async () => {
     const component = Box({
       children: [
         Text({ children: 'foo' }),
@@ -242,7 +242,7 @@ describe('boxToCode', () => {
       ],
     });
 
-    const code = boxToCode(component);
+    const code = await boxToCode(component);
     expect(code).toMatchInlineSnapshot(`
       "import { Box, Button, Field, Form, Input, Text } from '@metamask/snaps-sdk/jsx';
 

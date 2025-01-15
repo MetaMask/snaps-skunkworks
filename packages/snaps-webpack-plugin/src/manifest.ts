@@ -1,6 +1,9 @@
 import type { WriteFileFunction } from '@metamask/snaps-utils/node';
 import { promises as fs } from 'fs';
-import { format, resolveConfig } from 'prettier';
+import { resolveConfig } from 'prettier';
+import * as babel from 'prettier/plugins/babel';
+import * as estree from 'prettier/plugins/estree';
+import { format } from 'prettier/standalone';
 
 /**
  * Format the manifest data with Prettier and write it to disk.
@@ -22,10 +25,11 @@ export async function writeManifest(
     editorconfig: true,
   });
 
-  const formattedManifest = format(data, {
+  const formattedManifest = await format(data, {
     ...config,
     parser: 'json',
     filepath: path,
+    plugins: [babel, estree],
   });
 
   await writeFileFn(path, formattedManifest);

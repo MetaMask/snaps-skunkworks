@@ -21,7 +21,7 @@ describe('wallet_invokeSnap', () => {
       ({
         id: 'some-id',
         jsonrpc: jsonrpc2,
-      } as PendingJsonRpcResponse<InvokeSnapResult>);
+      }) as PendingJsonRpcResponse<InvokeSnapResult>;
 
     it('invokes snap using hook', async () => {
       const params = {

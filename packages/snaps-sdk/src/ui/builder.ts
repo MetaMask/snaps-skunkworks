@@ -10,12 +10,10 @@ import type { NodeType } from './nodes';
  *
  * @internal
  */
-type NodeBuilder<Node extends Component, Keys extends (keyof Node)[]> = Omit<
-  Node,
-  'type'
-> extends Record<string, never>
-  ? (...args: []) => Node
-  : (...args: [Omit<Node, 'type'>] | NodeArrayType<Node, Keys>) => Node;
+type NodeBuilder<Node extends Component, Keys extends (keyof Node)[]> =
+  Omit<Node, 'type'> extends Record<string, never>
+    ? (...args: []) => Node
+    : (...args: [Omit<Node, 'type'>] | NodeArrayType<Node, Keys>) => Node;
 
 /**
  * Map from an array of node keys to the corresponding array type.

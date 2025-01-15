@@ -30,7 +30,7 @@ describe('snap_getFile', () => {
     const getMockHooks = () =>
       ({
         getSnapFile: jest.fn(),
-      } as GetFileHooks);
+      }) as GetFileHooks;
 
     it('returns the result received from the getSnapFile hook', async () => {
       const { implementation } = getFileHandler;

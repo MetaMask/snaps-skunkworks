@@ -75,20 +75,21 @@ export type ExecutionServiceOptions<
  * @template Service - The type of the execution service.
  */
 export type InstallSnapOptions<
-  Service extends new (...args: any[]) => InstanceType<
-    typeof AbstractExecutionService<unknown>
-  >,
-> = ExecutionServiceOptions<Service> extends Record<string, never>
-  ? {
-      executionService: Service;
-      executionServiceOptions?: ExecutionServiceOptions<Service>;
-      options?: SimulationUserOptions;
-    }
-  : {
-      executionService: Service;
-      executionServiceOptions: ExecutionServiceOptions<Service>;
-      options?: SimulationUserOptions;
-    };
+  Service extends new (
+    ...args: any[]
+  ) => InstanceType<typeof AbstractExecutionService<unknown>>,
+> =
+  ExecutionServiceOptions<Service> extends Record<string, never>
+    ? {
+        executionService: Service;
+        executionServiceOptions?: ExecutionServiceOptions<Service>;
+        options?: SimulationUserOptions;
+      }
+    : {
+        executionService: Service;
+        executionServiceOptions: ExecutionServiceOptions<Service>;
+        options?: SimulationUserOptions;
+      };
 
 export type InstalledSnap = {
   snapId: SnapId;
@@ -253,9 +254,9 @@ export type PermittedMiddlewareHooks = {
  * @template Service - The type of the execution service.
  */
 export async function installSnap<
-  Service extends new (...args: any[]) => InstanceType<
-    typeof AbstractExecutionService
-  >,
+  Service extends new (
+    ...args: any[]
+  ) => InstanceType<typeof AbstractExecutionService>,
 >(
   snapId: SnapId,
   {

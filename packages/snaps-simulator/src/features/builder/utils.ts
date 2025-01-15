@@ -16,8 +16,9 @@ import {
 import { is } from '@metamask/superstruct';
 import { assert, hasProperty } from '@metamask/utils';
 import type { NodeModel } from '@minoru/react-dnd-treeview';
-import typescript from 'prettier/parser-typescript';
-import prettier from 'prettier/standalone';
+import * as estree from 'prettier/plugins/estree';
+import * as typescript from 'prettier/plugins/typescript';
+import { format } from 'prettier/standalone';
 
 /**
  * Get the text of a node model.
@@ -184,10 +185,10 @@ function getComponentTypes(component: JSXElement): string[] {
  * @param component - The root panel.
  * @returns The code.
  */
-export function boxToCode(component: BoxElement): string {
+export async function boxToCode(component: BoxElement): Promise<string> {
   const types = getComponentTypes(component).join(', ');
 
-  return prettier.format(
+  return await format(
     `
       import { ${types} } from '@metamask/snaps-sdk/jsx';
 
@@ -195,7 +196,7 @@ export function boxToCode(component: BoxElement): string {
 `,
     {
       parser: 'typescript',
-      plugins: [typescript],
+      plugins: [estree, typescript],
       printWidth: 80,
       tabWidth: 2,
       singleQuote: true,

@@ -8,9 +8,10 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 import { Box, type JSXElement } from '@metamask/snaps-sdk/jsx';
+import { logError } from '@metamask/snaps-utils';
 import type { NodeModel } from '@minoru/react-dnd-treeview';
 import type { FunctionComponent } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Editor } from '../../components';
 import { TemplateComponentList, NodeTree, NodeRenderer } from './components';
@@ -27,6 +28,12 @@ export const Builder: FunctionComponent = () => {
       data: Box({ children: null }),
     },
   ]);
+
+  const [code, setCode] = useState<string>('');
+
+  useEffect(() => {
+    boxToCode(nodeModelsToComponent(items)).then(setCode).catch(logError);
+  }, [items]);
 
   const incrementId = () => {
     setId((state) => state + 1);
@@ -103,7 +110,7 @@ export const Builder: FunctionComponent = () => {
               >
                 <Editor
                   border="none"
-                  value={boxToCode(nodeModelsToComponent(items))}
+                  value={code}
                   language="typescript"
                   options={{
                     readOnly: true,

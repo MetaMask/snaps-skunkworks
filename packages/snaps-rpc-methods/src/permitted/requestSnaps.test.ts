@@ -178,7 +178,7 @@ describe('implementation', () => {
       installSnaps: jest.fn(),
       requestPermissions: jest.fn(),
       getPermissions: jest.fn(),
-    } as any);
+    }) as any;
 
   it('requests permissions if needed', async () => {
     const { implementation } = requestSnapsHandler;

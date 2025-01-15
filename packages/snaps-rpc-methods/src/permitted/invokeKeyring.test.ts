@@ -40,7 +40,7 @@ describe('wallet_invokeKeyring', () => {
         hasPermission: jest.fn(),
         handleSnapRpcRequest: jest.fn(),
         getAllowedKeyringMethods: jest.fn(),
-      } as any);
+      }) as any;
 
     it('invokes the snap and returns the result', async () => {
       const { implementation } = invokeKeyringHandler;

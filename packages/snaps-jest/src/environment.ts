@@ -85,9 +85,9 @@ export class SnapsEnvironment extends NodeEnvironment {
    * @returns The installed Snap.
    */
   async installSnap<
-    Service extends new (...args: any[]) => InstanceType<
-      typeof AbstractExecutionService
-    >,
+    Service extends new (
+      ...args: any[]
+    ) => InstanceType<typeof AbstractExecutionService>,
   >(
     snapId: string = this.snapId,
     options: Partial<InstallSnapOptions<Service>> = {},

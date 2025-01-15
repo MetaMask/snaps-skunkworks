@@ -40,8 +40,8 @@ export const StatusIndicator = () => {
     status === SnapStatus.Ok
       ? 'text.success'
       : status === SnapStatus.Error
-      ? 'text.error'
-      : 'info.default';
+        ? 'text.error'
+        : 'info.default';
 
   const handleClick = () => {
     dispatch(openConfigurationModal());

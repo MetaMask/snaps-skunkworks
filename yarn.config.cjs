@@ -165,19 +165,22 @@ module.exports = defineConfig({
           getRelativePath(workspace, 'scripts', 'since-latest-release.sh'),
         );
 
-        if (workspace.cwd !== 'packages/examples') {
+        if (
+          workspace.cwd !== 'packages/examples' &&
+          workspace.cwd !== 'packages/snaps-simulator'
+        ) {
           // All non-root packages must have the same "test" script.
           if (workspace.manifest.scripts['test:browser']) {
             expectWorkspaceField(
               workspace,
               'scripts.test',
-              'jest --reporters=jest-silent-reporter && yarn test:browser',
+              'node --experimental-vm-modules $(yarn bin jest) --reporters=jest-silent-reporter && yarn test:browser',
             );
           } else {
             expectWorkspaceField(
               workspace,
               'scripts.test',
-              'jest --reporters=jest-silent-reporter',
+              'node --experimental-vm-modules $(yarn bin jest) --reporters=jest-silent-reporter',
             );
           }
 
@@ -185,18 +188,22 @@ module.exports = defineConfig({
           expectWorkspaceField(
             workspace,
             'scripts.test:clean',
-            'jest --clearCache',
+            'node --experimental-vm-modules $(yarn bin jest) --clearCache',
           );
 
           // All non-root packages must have the same "test:verbose" script.
           expectWorkspaceField(
             workspace,
             'scripts.test:verbose',
-            'jest --verbose',
+            'node --experimental-vm-modules $(yarn bin jest) --verbose',
           );
 
           // All non-root packages must have the same "test:watch" script.
-          expectWorkspaceField(workspace, 'scripts.test:watch', 'jest --watch');
+          expectWorkspaceField(
+            workspace,
+            'scripts.test:watch',
+            'node --experimental-vm-modules $(yarn bin jest) --watch',
+          );
         }
       }
 

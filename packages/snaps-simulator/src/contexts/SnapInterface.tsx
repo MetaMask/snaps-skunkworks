@@ -143,7 +143,7 @@ export const SnapInterfaceContextProvider: FunctionComponent<
   const handleEvent: HandleEvent = ({
     event,
     name,
-    value = name ? (state as FormState)[name] ?? undefined : undefined,
+    value = name ? ((state as FormState)[name] ?? undefined) : undefined,
   }) => {
     const fn = THROTTLED_EVENTS.includes(event)
       ? snapRequestThrottled

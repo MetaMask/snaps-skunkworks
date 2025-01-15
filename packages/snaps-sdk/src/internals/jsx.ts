@@ -26,55 +26,56 @@ type IsUnion<Type> = [Type] extends [UnionToIntersection<Type>] ? false : true;
  * This is copied from `superstruct` but fixes some issues with the original
  * implementation.
  */
-type StructSchema<Type> = IsUnion<Type> extends true
-  ? null
-  : [Type] extends [EmptyObject]
-  ? EmptyObject
-  : [Type] extends [string | undefined | null]
-  ? [Type] extends [`0x${string}`]
+type StructSchema<Type> =
+  IsUnion<Type> extends true
     ? null
-    : [Type] extends [IsMatch<Type, string | undefined | null>]
-    ? null
-    : [Type] extends [IsUnion<Type>]
-    ? EnumSchema<Type>
-    : Type
-  : [Type] extends [number | undefined | null]
-  ? [Type] extends [IsMatch<Type, number | undefined | null>]
-    ? null
-    : [Type] extends [IsUnion<Type>]
-    ? EnumSchema<Type>
-    : Type
-  : [Type] extends [boolean]
-  ? [Type] extends [IsExactMatch<Type, boolean>]
-    ? null
-    : Type
-  : Type extends
-      | bigint
-      | symbol
-      | undefined
-      | null
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      | Function
-      | Date
-      | Error
-      | RegExp
-      | Map<any, any>
-      | WeakMap<any, any>
-      | Set<any>
-      | WeakSet<any>
-      | Promise<any>
-  ? null
-  : Type extends (infer E)[]
-  ? Type extends IsTuple<Type>
-    ? null
-    : Struct<E>
-  : Type extends object
-  ? Type extends IsRecord<Type>
-    ? null
-    : {
-        [InnerKey in keyof Type]: Describe<Type[InnerKey]>;
-      }
-  : null;
+    : [Type] extends [EmptyObject]
+      ? EmptyObject
+      : [Type] extends [string | undefined | null]
+        ? [Type] extends [`0x${string}`]
+          ? null
+          : [Type] extends [IsMatch<Type, string | undefined | null>]
+            ? null
+            : [Type] extends [IsUnion<Type>]
+              ? EnumSchema<Type>
+              : Type
+        : [Type] extends [number | undefined | null]
+          ? [Type] extends [IsMatch<Type, number | undefined | null>]
+            ? null
+            : [Type] extends [IsUnion<Type>]
+              ? EnumSchema<Type>
+              : Type
+          : [Type] extends [boolean]
+            ? [Type] extends [IsExactMatch<Type, boolean>]
+              ? null
+              : Type
+            : Type extends
+                  | bigint
+                  | symbol
+                  | undefined
+                  | null
+                  // eslint-disable-next-line @typescript-eslint/ban-types
+                  | Function
+                  | Date
+                  | Error
+                  | RegExp
+                  | Map<any, any>
+                  | WeakMap<any, any>
+                  | Set<any>
+                  | WeakSet<any>
+                  | Promise<any>
+              ? null
+              : Type extends (infer E)[]
+                ? Type extends IsTuple<Type>
+                  ? null
+                  : Struct<E>
+                : Type extends object
+                  ? Type extends IsRecord<Type>
+                    ? null
+                    : {
+                        [InnerKey in keyof Type]: Describe<Type[InnerKey]>;
+                      }
+                  : null;
 
 /**
  * Describe a struct type.

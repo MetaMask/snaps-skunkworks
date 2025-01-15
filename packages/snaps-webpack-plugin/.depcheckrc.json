@@ -9,6 +9,8 @@
     "@typescript-eslint/*",
     "eslint-config-*",
     "eslint-plugin-*",
+    "jest",
+    "jest",
     "jest-silent-reporter",
     "prettier-plugin-packagejson",
     "ts-node",

@@ -50,7 +50,7 @@ describe('implementation', () => {
       getInterface: jest
         .fn()
         .mockReturnValue({ content: text('foo'), state: {}, snapId: 'foo' }),
-    } as DialogMethodHooks);
+    }) as DialogMethodHooks;
 
   it('accepts string dialog types', async () => {
     const hooks = getMockDialogHooks();
