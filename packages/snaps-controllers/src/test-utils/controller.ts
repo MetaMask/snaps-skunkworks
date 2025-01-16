@@ -52,12 +52,12 @@ import type {
   SnapInterfaceControllerEvents,
   StoredInterface,
 } from '../interface/SnapInterfaceController';
-import { SnapController } from '../snaps';
 import type {
   MultichainRouterActions,
   MultichainRouterAllowedActions,
   MultichainRouterEvents,
 } from '../multichain';
+import { SnapController } from '../snaps';
 import type {
   AllowedActions,
   AllowedEvents,

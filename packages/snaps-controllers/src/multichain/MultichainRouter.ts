@@ -243,7 +243,6 @@ export class MultichainRouter {
     scope: CaipChainId;
     request: JsonRpcRequest;
   }): Promise<unknown> {
-    // TODO: Determine if the request is already validated here?
     const { method, params } = request;
 
     // If the RPC request can be serviced by an account Snap, route it there.
