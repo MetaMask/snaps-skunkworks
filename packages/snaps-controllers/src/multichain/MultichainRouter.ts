@@ -28,6 +28,11 @@ export type MultichainRouterGetSupportedMethodsAction = {
   handler: MultichainRouter['getSupportedMethods'];
 };
 
+export type MultichainRouterGetSupportedAccountsAction = {
+  type: `${typeof name}:getSupportedAccounts`;
+  handler: MultichainRouter['getSupportedAccounts'];
+};
+
 // Since the AccountsController depends on snaps-controllers we manually type this
 type InternalAccount = {
   id: string;
@@ -62,7 +67,8 @@ export type AccountsControllerListMultichainAccountsAction = {
 
 export type MultichainRouterActions =
   | MultichainRouterHandleRequestAction
-  | MultichainRouterGetSupportedMethodsAction;
+  | MultichainRouterGetSupportedMethodsAction
+  | MultichainRouterGetSupportedAccountsAction;
 
 export type MultichainRouterAllowedActions =
   | GetAllSnaps
@@ -109,6 +115,11 @@ export class MultichainRouter {
     this.#messenger.registerActionHandler(
       `${name}:getSupportedMethods`,
       (...args) => this.getSupportedMethods(...args),
+    );
+
+    this.#messenger.registerActionHandler(
+      `${name}:getSupportedAccounts`,
+      (...args) => this.getSupportedAccounts(...args),
     );
   }
 
@@ -299,5 +310,19 @@ export class MultichainRouter {
     );
 
     return Array.from(new Set([...accountMethods, ...protocolMethods]));
+  }
+
+  /**
+   * Get a list of supported accounts for a given scope.
+   *
+   * @param options - An options bag.
+   * @param options.scope - The CAIP-2 scope.
+   * @returns A list of CAIP-10 addresses.
+   */
+  getSupportedAccounts({ scope }: { scope: CaipChainId }): string[] {
+    return this.#messenger
+      .call('AccountsController:listMultichainAccounts', scope)
+      .filter((account: InternalAccount) => account.metadata.snap?.enabled)
+      .map((account) => `${scope}:${account.address}`);
   }
 }

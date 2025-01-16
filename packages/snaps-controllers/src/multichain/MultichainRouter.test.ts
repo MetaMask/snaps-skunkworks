@@ -367,4 +367,40 @@ describe('MultichainRouter', () => {
       ).toStrictEqual(['getVersion']);
     });
   });
+
+  describe('getSupportedAccounts', () => {
+    it('returns a set of both protocol and account Snap methods', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+        withSnapKeyring,
+      });
+
+      rootMessenger.registerActionHandler('SnapController:getAll', () => {
+        return [getTruncatedSnap()];
+      });
+
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+      );
+
+      expect(
+        messenger.call('MultichainRouter:getSupportedAccounts', {
+          scope: SOLANA_CAIP2,
+        }),
+      ).toStrictEqual([
+        'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv',
+      ]);
+    });
+  });
 });
