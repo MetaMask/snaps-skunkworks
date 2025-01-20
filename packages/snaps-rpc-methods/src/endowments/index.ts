@@ -125,10 +125,10 @@ export const handlerEndowments: Record<HandlerType, string | null> = {
   [HandlerType.OnHomePage]: homePageEndowmentBuilder.targetName,
   [HandlerType.OnSettingsPage]: settingsPageEndowmentBuilder.targetName,
   [HandlerType.OnSignature]: signatureInsightEndowmentBuilder.targetName,
-  [HandlerType.OnProtocolRequest]: protocolEndowmentBuilder.targetName,
   [HandlerType.OnUserInput]: null,
   [HandlerType.OnAssetsLookup]: assetsEndowmentBuilder.targetName,
   [HandlerType.OnAssetsConversion]: assetsEndowmentBuilder.targetName,
+  [HandlerType.OnProtocolRequest]: protocolEndowmentBuilder.targetName,
 };
 
 export * from './enum';

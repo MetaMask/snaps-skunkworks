@@ -297,9 +297,7 @@ describe('MultichainRouter', () => {
       );
 
       expect(
-        messenger.call('MultichainRouter:getSupportedMethods', {
-          scope: SOLANA_CAIP2,
-        }),
+        messenger.call('MultichainRouter:getSupportedMethods', SOLANA_CAIP2),
       ).toStrictEqual(['signAndSendTransaction', 'getVersion']);
     });
 
@@ -329,9 +327,7 @@ describe('MultichainRouter', () => {
       );
 
       expect(
-        messenger.call('MultichainRouter:getSupportedMethods', {
-          scope: SOLANA_CAIP2,
-        }),
+        messenger.call('MultichainRouter:getSupportedMethods', SOLANA_CAIP2),
       ).toStrictEqual(['signAndSendTransaction']);
     });
 
@@ -361,15 +357,13 @@ describe('MultichainRouter', () => {
       );
 
       expect(
-        messenger.call('MultichainRouter:getSupportedMethods', {
-          scope: SOLANA_CAIP2,
-        }),
+        messenger.call('MultichainRouter:getSupportedMethods', SOLANA_CAIP2),
       ).toStrictEqual(['getVersion']);
     });
   });
 
   describe('getSupportedAccounts', () => {
-    it('returns a set of both protocol and account Snap methods', async () => {
+    it('returns a set of accounts for the requested scope', async () => {
       const rootMessenger = getRootMultichainRouterMessenger();
       const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
       const withSnapKeyring = getMockWithSnapKeyring();
@@ -380,8 +374,29 @@ describe('MultichainRouter', () => {
         withSnapKeyring,
       });
 
-      rootMessenger.registerActionHandler('SnapController:getAll', () => {
-        return [getTruncatedSnap()];
+      rootMessenger.registerActionHandler(
+        'AccountsController:listMultichainAccounts',
+        () => MOCK_SOLANA_ACCOUNTS,
+      );
+
+      expect(
+        messenger.call('MultichainRouter:getSupportedAccounts', SOLANA_CAIP2),
+      ).toStrictEqual([
+        'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv',
+      ]);
+    });
+  });
+
+  describe('isSupportedScope', () => {
+    it('returns true if an account Snap exists', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+        withSnapKeyring,
       });
 
       rootMessenger.registerActionHandler(
@@ -389,18 +404,30 @@ describe('MultichainRouter', () => {
         () => MOCK_SOLANA_ACCOUNTS,
       );
 
+      expect(
+        messenger.call('MultichainRouter:isSupportedScope', SOLANA_CAIP2),
+      ).toBe(true);
+    });
+
+    it('returns false if no account Snap is found', async () => {
+      const rootMessenger = getRootMultichainRouterMessenger();
+      const messenger = getRestrictedMultichainRouterMessenger(rootMessenger);
+      const withSnapKeyring = getMockWithSnapKeyring();
+
+      /* eslint-disable-next-line no-new */
+      new MultichainRouter({
+        messenger,
+        withSnapKeyring,
+      });
+
       rootMessenger.registerActionHandler(
-        'PermissionController:getPermissions',
-        () => MOCK_SOLANA_SNAP_PERMISSIONS,
+        'AccountsController:listMultichainAccounts',
+        () => [],
       );
 
       expect(
-        messenger.call('MultichainRouter:getSupportedAccounts', {
-          scope: SOLANA_CAIP2,
-        }),
-      ).toStrictEqual([
-        'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:7S3P4HxJpyyigGzodYwHtCxZyUQe9JiBMHyRWXArAaKv',
-      ]);
+        messenger.call('MultichainRouter:isSupportedScope', SOLANA_CAIP2),
+      ).toBe(false);
     });
   });
 });
