@@ -162,19 +162,24 @@ export function getServer(config: ProcessedConfig) {
    * Start the server on the port specified in the config.
    *
    * @param port - The port to listen on.
+   * @param host - The host to listen on.
    * @returns A promise that resolves when the server is listening. The promise
    * resolves to an object with the port and the server instance. Note that if
    * the `config.server.port` is `0`, the OS will choose a random port for us,
    * so we need to get the port from the server after it starts.
    */
-  const listen = async (port = config.server.port) => {
+  const listen = async (
+    port = config.server.port,
+    host = config.server.host,
+  ) => {
     return new Promise<{
       port: number;
+      host: string;
       server: Server;
       close: () => Promise<void>;
     }>((resolve, reject) => {
       try {
-        server.listen(port, () => {
+        server.listen(port, host, () => {
           const close = async () => {
             await new Promise<void>((resolveClose, rejectClose) => {
               server.close((closeError) => {
@@ -188,7 +193,12 @@ export function getServer(config: ProcessedConfig) {
           };
 
           const address = server.address() as AddressInfo;
-          resolve({ port: address.port, server, close });
+          resolve({
+            port: address.port,
+            host: address.address,
+            server,
+            close,
+          });
         });
       } catch (listenError) {
         reject(listenError);

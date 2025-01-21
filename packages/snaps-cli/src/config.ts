@@ -110,6 +110,13 @@ export type SnapBrowserifyConfig = {
     port?: number;
 
     /**
+     * The host to listen the server on.
+     *
+     * @default localhost
+     */
+    host?: string;
+
+    /**
      * The root directory to serve the snap from.
      *
      * @default `process.cwd()`
@@ -312,6 +319,13 @@ export type SnapWebpackConfig = {
      * @default 8081
      */
     port?: number;
+
+    /**
+     * The host to listen the server on.
+     *
+     * @default localhost
+     */
+    host?: string;
   };
 
   /**
@@ -541,6 +555,7 @@ export const SnapsBrowserifyConfigStruct = object({
       eval: defaulted(boolean(), true),
       manifest: defaulted(boolean(), true),
       port: defaulted(number(), 8081),
+      host: defaulted(string(), 'localhost'),
       outfileName: defaulted(string(), 'bundle.js'),
       root: defaulted(file(), process.cwd()),
       sourceMaps: defaulted(boolean(), false),
@@ -603,6 +618,7 @@ export const SnapsWebpackConfigStruct = object({
       enabled: defaulted(boolean(), true),
       root: defaulted(file(), process.cwd()),
       port: defaulted(number(), 8081),
+      host: defaulted(string(), 'localhost'),
     }),
     {},
   ),
@@ -969,6 +985,7 @@ export function getWebpackConfig(
       enabled: legacyConfig.cliOptions.serve,
       port: legacyConfig.cliOptions.port,
       root: legacyConfig.cliOptions.root,
+      host: legacyConfig.cliOptions.host,
     },
     stats: {
       verbose: false,

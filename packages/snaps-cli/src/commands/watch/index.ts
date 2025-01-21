@@ -22,12 +22,14 @@ const command = {
       .option('serve', builders.serve)
       .option('root', builders.root)
       .option('port', builders.port)
+      .option('host', builders.host)
       .implies('writeManifest', 'manifest')
       .implies('depsToTranspile', 'transpilationMode');
   },
   handler: async (argv: YargsArgs) =>
     watchHandler(argv.context.config, {
       port: argv.port,
+      host: argv.host,
     }),
 };
 

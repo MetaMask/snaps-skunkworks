@@ -7,6 +7,7 @@ type ServeOptions = {
    * The port to listen on.
    */
   port: number;
+  host: string;
 };
 
 /**
@@ -24,7 +25,7 @@ export async function serveHandler(
 
   // If the `configPort` is `0`, the OS will choose a random port for us, so we
   // need to get the port from the server after it starts.
-  const { port } = await server.listen(options.port);
+  const { port, host } = await server.listen(options.port, options.host);
 
-  info(`The server is listening on http://localhost:${port}.`);
+  info(`The server is listening on http://${host}:${port}.`);
 }
