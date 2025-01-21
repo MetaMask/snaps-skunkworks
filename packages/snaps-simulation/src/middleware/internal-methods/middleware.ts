@@ -11,9 +11,10 @@ export type InternalMethodsMiddlewareHooks = {
   /**
    * A hook that returns the user's secret recovery phrase.
    *
+   * @param keyringId - The ID of the keyring to get the mnemonic for.
    * @returns The user's secret recovery phrase.
    */
-  getMnemonic: () => Promise<Uint8Array>;
+  getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 };
 
 const methodHandlers = {

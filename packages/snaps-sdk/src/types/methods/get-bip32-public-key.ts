@@ -9,6 +9,7 @@ import type { Bip32Entropy } from '../permissions';
  * to `false`.
  */
 export type GetBip32PublicKeyParams = Bip32Entropy & {
+  keyringId?: string;
   compressed?: boolean;
 };
 
