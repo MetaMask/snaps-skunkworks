@@ -20,3 +20,5 @@ export const LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS = {
     iterations: 10_000,
   },
 };
+
+export const PERMITTED_CHAINS_ENDOWMENT = 'endowment:permitted-chains';

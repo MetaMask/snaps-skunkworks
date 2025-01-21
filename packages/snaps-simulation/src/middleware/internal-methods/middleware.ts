@@ -6,6 +6,7 @@ import { getAccountsHandler } from './accounts';
 import { getChainIdHandler } from './chain-id';
 import { getNetworkVersionHandler } from './net-version';
 import { getProviderStateHandler } from './provider-state';
+import { getSwitchEthereumChainHandler } from './switch-ethereum-chain';
 
 export type InternalMethodsMiddlewareHooks = {
   /**
@@ -23,6 +24,7 @@ const methodHandlers = {
   eth_accounts: getAccountsHandler,
   eth_chainId: getChainIdHandler,
   net_version: getNetworkVersionHandler,
+  wallet_switchEthereumChain: getSwitchEthereumChainHandler,
   /* eslint-enable @typescript-eslint/naming-convention */
 };
 

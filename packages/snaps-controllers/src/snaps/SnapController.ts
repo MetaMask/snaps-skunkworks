@@ -9,6 +9,7 @@ import type {
 } from '@metamask/base-controller';
 import { BaseController } from '@metamask/base-controller';
 import type { CryptographicFunctions } from '@metamask/key-tree';
+import type { NetworkControllerGetNetworkClientByIdAction } from '@metamask/network-controller';
 import type {
   Caveat,
   GetEndowments,
@@ -31,6 +32,7 @@ import type {
 } from '@metamask/permission-controller';
 import { SubjectType } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
+import type { SelectedNetworkControllerGetNetworkClientIdForDomainAction } from '@metamask/selected-network-controller';
 import type { BlockReason } from '@metamask/snaps-registry';
 import {
   WALLET_SNAP_PERMISSION_KEY,
@@ -125,10 +127,10 @@ import type {
   TerminateAllSnapsAction,
   TerminateSnapAction,
 } from '../services';
-import type { EncryptionResult } from '../types';
-import {
-  type ExportableKeyEncryptor,
-  type KeyDerivationOptions,
+import type {
+  EncryptionResult,
+  ExportableKeyEncryptor,
+  KeyDerivationOptions,
 } from '../types';
 import {
   fetchSnap,
@@ -140,6 +142,7 @@ import {
 import {
   ALLOWED_PERMISSIONS,
   LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS,
+  PERMITTED_CHAINS_ENDOWMENT,
 } from './constants';
 import type { SnapLocation } from './location';
 import { detectSnapLocation } from './location';
@@ -612,7 +615,9 @@ export type AllowedActions =
   | Update
   | ResolveVersion
   | CreateInterface
-  | GetInterface;
+  | GetInterface
+  | NetworkControllerGetNetworkClientByIdAction
+  | SelectedNetworkControllerGetNetworkClientIdForDomainAction;
 
 export type AllowedEvents =
   | ExecutionServiceEvents
@@ -3920,7 +3925,48 @@ export class SnapController extends BaseController<
   }
 
   /**
-   * Updates the permissions for a snap following an install, update or rollback.
+   * Get the permissions to grant to a Snap following an install, update or
+   * rollback.
+   *
+   * @param snapId - The snap ID.
+   * @param newPermissions - The new permissions to be granted.
+   * @returns The permissions to grant to the Snap.
+   */
+  #getPermissionsToGrant(snapId: SnapId, newPermissions: RequestedPermissions) {
+    if (Object.keys(newPermissions).includes(SnapEndowments.EthereumProvider)) {
+      // This will return the globally selected network if the Snap doesn't have
+      // one set.
+      const networkClientId = this.messagingSystem.call(
+        'SelectedNetworkController:getNetworkClientIdForDomain',
+        snapId,
+      );
+
+      const { configuration } = this.messagingSystem.call(
+        'NetworkController:getNetworkClientById',
+        networkClientId,
+      );
+
+      // This needs to be assigned to have proper type inference.
+      const modifiedPermissions: RequestedPermissions = {
+        ...newPermissions,
+        [PERMITTED_CHAINS_ENDOWMENT]: {
+          caveats: [
+            {
+              type: 'restrictNetworkSwitching',
+              value: [configuration.chainId],
+            },
+          ],
+        },
+      };
+
+      return modifiedPermissions;
+    }
+
+    return newPermissions;
+  }
+
+  /**
+   * Update the permissions for a snap following an install, update or rollback.
    *
    * Grants newly requested permissions and revokes unused/revoked permissions.
    *
@@ -3953,8 +3999,13 @@ export class SnapController extends BaseController<
     }
 
     if (isNonEmptyArray(Object.keys(newPermissions))) {
+      const approvedPermissions = this.#getPermissionsToGrant(
+        snapId,
+        newPermissions,
+      );
+
       this.messagingSystem.call('PermissionController:grantPermissions', {
-        approvedPermissions: newPermissions,
+        approvedPermissions,
         subject: { origin: snapId },
         requestData,
       });

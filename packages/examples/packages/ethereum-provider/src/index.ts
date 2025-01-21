@@ -10,7 +10,23 @@ import {
   hexToNumber,
 } from '@metamask/utils';
 
-import type { PersonalSignParams, SignTypedDataParams } from './types';
+import type {
+  BaseParams,
+  PersonalSignParams,
+  SignTypedDataParams,
+} from './types';
+
+/**
+ * Set the active Ethereum chain for the Snap.
+ *
+ * @param chainId - The chain ID to switch to.
+ */
+async function switchChain(chainId: Hex) {
+  await ethereum.request({
+    method: 'wallet_switchEthereumChain',
+    params: [{ chainId }],
+  });
+}
 
 /**
  * Get the current gas price using the `ethereum` global. This is essentially
@@ -207,6 +223,9 @@ async function signTypedData(message: string, from: string) {
  * @see https://docs.metamask.io/snaps/reference/rpc-api/#wallet_invokesnap
  */
 export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
+  const { chainId = '0x1' } = (request.params as BaseParams) ?? {};
+  await switchChain(chainId);
+
   switch (request.method) {
     case 'getGasPrice':
       return await getGasPrice();

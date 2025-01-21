@@ -103,7 +103,10 @@ import {
   waitForStateChange,
 } from '../test-utils';
 import { delay } from '../utils';
-import { LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS } from './constants';
+import {
+  LEGACY_ENCRYPTION_KEY_DERIVATION_OPTIONS,
+  PERMITTED_CHAINS_ENDOWMENT,
+} from './constants';
 import { SnapsRegistryStatus } from './registry';
 import type { SnapControllerState } from './SnapController';
 import {
@@ -4872,6 +4875,216 @@ describe('SnapController', () => {
         WALLET_SNAP_PERMISSION_KEY,
         SnapCaveatType.SnapIds,
         { ...existingCaveatValue, [snapId]: {} },
+      );
+
+      snapController.destroy();
+    });
+
+    it('grants the `endowment:permitted-chains` permission to a Snap with `endowment:ethereum-provider`', async () => {
+      const rootMessenger = getControllerMessenger();
+      const messenger = getSnapControllerMessenger(rootMessenger);
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => ({}),
+      );
+
+      rootMessenger.registerActionHandler(
+        'SelectedNetworkController:getNetworkClientIdForDomain',
+        () => 'mainnet',
+      );
+
+      rootMessenger.registerActionHandler(
+        'NetworkController:getNetworkClientById',
+        () => ({
+          // @ts-expect-error - Partial network client.
+          configuration: {
+            chainId: '0x1',
+          },
+        }),
+      );
+
+      const { manifest } = await getMockSnapFilesWithUpdatedChecksum({
+        manifest: getSnapManifest({
+          initialPermissions: {
+            'endowment:page-home': {},
+            'endowment:ethereum-provider': {},
+          },
+        }),
+      });
+
+      const snapController = getSnapController(
+        getSnapControllerOptions({
+          messenger,
+          detectSnapLocation: loopbackDetect({ manifest }),
+        }),
+      );
+
+      await snapController.installSnaps(MOCK_ORIGIN, {
+        [MOCK_SNAP_ID]: {},
+      });
+
+      const approvedPermissions = {
+        'endowment:page-home': {
+          caveats: null,
+        },
+        'endowment:ethereum-provider': {},
+        [PERMITTED_CHAINS_ENDOWMENT]: {
+          caveats: [
+            {
+              type: 'restrictNetworkSwitching',
+              value: ['0x1'],
+            },
+          ],
+        },
+      };
+
+      expect(messenger.call).toHaveBeenCalledWith(
+        'PermissionController:grantPermissions',
+        {
+          approvedPermissions,
+          subject: { origin: MOCK_SNAP_ID },
+          requestData: expect.any(Object),
+        },
+      );
+
+      snapController.destroy();
+    });
+
+    it('overrides the `endowment:permitted-chains` permission if the Snap specifies it in its manifest', async () => {
+      const rootMessenger = getControllerMessenger();
+      const messenger = getSnapControllerMessenger(rootMessenger);
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => ({}),
+      );
+
+      rootMessenger.registerActionHandler(
+        'SelectedNetworkController:getNetworkClientIdForDomain',
+        () => 'mainnet',
+      );
+
+      rootMessenger.registerActionHandler(
+        'NetworkController:getNetworkClientById',
+        () => ({
+          // @ts-expect-error - Partial network client.
+          configuration: {
+            chainId: '0x1',
+          },
+        }),
+      );
+
+      const { manifest } = await getMockSnapFilesWithUpdatedChecksum({
+        manifest: getSnapManifest({
+          initialPermissions: {
+            'endowment:page-home': {},
+            'endowment:ethereum-provider': {},
+            [PERMITTED_CHAINS_ENDOWMENT]: {
+              caveats: [
+                {
+                  type: 'restrictNetworkSwitching',
+                  value: ['0x5'],
+                },
+              ],
+            },
+          },
+        }),
+      });
+
+      const snapController = getSnapController(
+        getSnapControllerOptions({
+          messenger,
+          detectSnapLocation: loopbackDetect({ manifest }),
+        }),
+      );
+
+      await snapController.installSnaps(MOCK_ORIGIN, {
+        [MOCK_SNAP_ID]: {},
+      });
+
+      const approvedPermissions = {
+        'endowment:page-home': {
+          caveats: null,
+        },
+        'endowment:ethereum-provider': {},
+        [PERMITTED_CHAINS_ENDOWMENT]: {
+          caveats: [
+            {
+              type: 'restrictNetworkSwitching',
+              value: ['0x1'],
+            },
+          ],
+        },
+      };
+
+      expect(messenger.call).toHaveBeenCalledWith(
+        'PermissionController:grantPermissions',
+        {
+          approvedPermissions,
+          subject: { origin: MOCK_SNAP_ID },
+          requestData: expect.any(Object),
+        },
+      );
+
+      snapController.destroy();
+    });
+
+    it('does not grant the `endowment:permitted-chains` permission if the Snap does not have the `endowment:ethereum-provider` permission', async () => {
+      const rootMessenger = getControllerMessenger();
+      const messenger = getSnapControllerMessenger(rootMessenger);
+
+      rootMessenger.registerActionHandler(
+        'PermissionController:getPermissions',
+        () => ({}),
+      );
+
+      rootMessenger.registerActionHandler(
+        'SelectedNetworkController:getNetworkClientIdForDomain',
+        () => {
+          throw new Error('This should not be called.');
+        },
+      );
+
+      rootMessenger.registerActionHandler(
+        'NetworkController:getNetworkClientById',
+        () => {
+          throw new Error('This should not be called.');
+        },
+      );
+
+      const { manifest } = await getMockSnapFilesWithUpdatedChecksum({
+        manifest: getSnapManifest({
+          initialPermissions: {
+            'endowment:page-home': {},
+          },
+        }),
+      });
+
+      const snapController = getSnapController(
+        getSnapControllerOptions({
+          messenger,
+          detectSnapLocation: loopbackDetect({ manifest }),
+        }),
+      );
+
+      await snapController.installSnaps(MOCK_ORIGIN, {
+        [MOCK_SNAP_ID]: {},
+      });
+
+      const approvedPermissions = {
+        'endowment:page-home': {
+          caveats: null,
+        },
+      };
+
+      expect(messenger.call).toHaveBeenCalledWith(
+        'PermissionController:grantPermissions',
+        {
+          approvedPermissions,
+          subject: { origin: MOCK_SNAP_ID },
+          requestData: expect.any(Object),
+        },
       );
 
       snapController.destroy();
