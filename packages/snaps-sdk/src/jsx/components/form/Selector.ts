@@ -10,12 +10,14 @@ import type { SelectorOptionElement } from './SelectorOption';
  * @property title - The title of the selector. This is displayed in the UI.
  * @property value - The selected value of the selector.
  * @property children - The children of the selector.
+ * @property disabled - Whether the Selector is disabled.
  */
 export type SelectorProps = {
   name: string;
   title: string;
   value?: string | undefined;
   children: SnapsChildren<SelectorOptionElement>;
+  disabled?: boolean | undefined;
 };
 
 const TYPE = 'Selector';
@@ -29,6 +31,7 @@ const TYPE = 'Selector';
  * @param props.title - The title of the selector field. This is displayed in the UI.
  * @param props.value - The selected value of the selector.
  * @param props.children - The children of the selector.
+ * @property disabled - Whether the Selector is disabled.
  * @returns A selector element.
  * @example
  * <Selector name="selector">

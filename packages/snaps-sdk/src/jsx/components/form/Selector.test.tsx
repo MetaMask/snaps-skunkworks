@@ -100,4 +100,45 @@ describe('Selector', () => {
       key: null,
     });
   });
+
+  it('renders a disabled selector', () => {
+    const result = (
+      <Selector
+        name="selector"
+        value="foo"
+        title="Choose an option"
+        disabled={true}
+      >
+        <SelectorOption value="foo">
+          <Card title="Foo" value="$1" />
+        </SelectorOption>
+      </Selector>
+    );
+
+    expect(result).toStrictEqual({
+      type: 'Selector',
+      props: {
+        name: 'selector',
+        value: 'foo',
+        title: 'Choose an option',
+        disabled: true,
+        children: {
+          type: 'SelectorOption',
+          props: {
+            value: 'foo',
+            children: {
+              type: 'Card',
+              props: {
+                title: 'Foo',
+                value: '$1',
+              },
+              key: null,
+            },
+          },
+          key: null,
+        },
+      },
+      key: null,
+    });
+  });
 });

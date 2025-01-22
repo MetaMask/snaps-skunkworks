@@ -14,9 +14,15 @@ describe('Checkbox', () => {
     });
   });
 
-  it('renders a checkbox with a variant and a label', () => {
+  it('renders a disabled checkbox with a variant and a label', () => {
     const result = (
-      <Checkbox name="foo" label="Foo" checked={true} variant="toggle" />
+      <Checkbox
+        name="foo"
+        label="Foo"
+        checked={true}
+        variant="toggle"
+        disabled={true}
+      />
     );
 
     expect(result).toStrictEqual({
@@ -26,6 +32,7 @@ describe('Checkbox', () => {
         checked: true,
         variant: 'toggle',
         label: 'Foo',
+        disabled: true,
       },
       key: null,
     });

@@ -13,4 +13,22 @@ describe('Radio', () => {
       key: null,
     });
   });
+
+  it('renders a disabled radio option', () => {
+    const result = (
+      <Radio value="foo" disabled={true}>
+        Foo
+      </Radio>
+    );
+
+    expect(result).toStrictEqual({
+      type: 'Radio',
+      props: {
+        value: 'foo',
+        disabled: true,
+        children: 'Foo',
+      },
+      key: null,
+    });
+  });
 });

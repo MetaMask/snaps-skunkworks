@@ -26,4 +26,17 @@ describe('FileInput', () => {
       key: null,
     });
   });
+
+  it('renders disabled file input', () => {
+    const result = <FileInput name="foo" disabled={true} />;
+
+    expect(result).toStrictEqual({
+      type: 'FileInput',
+      props: {
+        name: 'foo',
+        disabled: true,
+      },
+      key: null,
+    });
+  });
 });

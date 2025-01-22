@@ -9,12 +9,15 @@ const TYPE = 'RadioGroup';
  *
  * @property name - The name of the dropdown. This is used to identify the
  * state in the form data.
+ * @property value - The value of the radio group element.
  * @property children - Radio options in form of <Radio> elements.
+ * @property disabled - Whether the RadioGroup is disabled.
  */
 type RadioGroupProps = {
   name: string;
   value?: string | undefined;
   children: SnapsChildren<RadioElement>;
+  disabled?: boolean | undefined;
 };
 
 /**

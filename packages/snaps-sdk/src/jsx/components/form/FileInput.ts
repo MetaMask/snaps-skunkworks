@@ -10,11 +10,13 @@ import { createSnapComponent } from '../../component';
  * specified, the file input field accepts all file types.
  * @property compact - Whether the file input field is compact. Default is
  * `false`.
+ * @property disabled - whether the file input is disabled.
  */
 export type FileInputProps = {
   name: string;
   accept?: string[] | undefined;
   compact?: boolean | undefined;
+  disabled?: boolean | undefined;
 };
 
 const TYPE = 'FileInput';
@@ -33,6 +35,7 @@ const TYPE = 'FileInput';
  * valid values, see the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept).
  * @param props.compact - Whether the file input field is compact. Default is
  * `false`.
+ * @param props.disabled - Whether the file input is disabled.
  * @returns A file input element.
  * @example
  * <FileInput name="file" accept={['image/*']} />
