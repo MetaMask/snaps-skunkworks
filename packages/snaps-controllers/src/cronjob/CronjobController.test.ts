@@ -308,7 +308,7 @@ describe('CronjobController', () => {
 
     expect(() =>
       cronjobController.scheduleBackgroundEvent(backgroundEvent),
-    ).toThrow('Cannot schedule an event in the past.');
+    ).toThrow('Cannot schedule execution in the past.');
 
     expect(cronjobController.state.events).toStrictEqual({});
 
