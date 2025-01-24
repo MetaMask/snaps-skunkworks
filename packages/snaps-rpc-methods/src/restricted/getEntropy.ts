@@ -76,7 +76,7 @@ export type GetEntropyHooks = {
   /**
    * @returns The mnemonic of the user's primary keyring.
    */
-  getMnemonic: () => Promise<Uint8Array>;
+  getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 
   /**
    * Waits for the extension to be unlocked.
@@ -130,7 +130,7 @@ function getEntropyImplementation({
     );
 
     await getUnlockPromise(true);
-    const mnemonicPhrase = await getMnemonic();
+    const mnemonicPhrase = await getMnemonic(params?.keyringId);
 
     return deriveEntropy({
       input: origin,

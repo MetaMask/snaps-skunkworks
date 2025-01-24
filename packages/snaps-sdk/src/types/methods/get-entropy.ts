@@ -8,6 +8,7 @@ import type { Hex } from '@metamask/utils';
  * @property salt - The optional salt to use when deriving the entropy.
  */
 export type GetEntropyParams = {
+  keyringId?: string;
   version: 1;
   salt?: string;
 };
