@@ -12,6 +12,7 @@ export enum HandlerType {
   OnUserInput = 'onUserInput',
   OnAssetsLookup = 'onAssetsLookup',
   OnAssetsConversion = 'onAssetsConversion',
+  OnProtocolRequest = 'onProtocolRequest',
 }
 
 export type SnapHandler = {

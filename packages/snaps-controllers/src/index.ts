@@ -5,3 +5,4 @@ export * from './utils';
 export * from './cronjob';
 export * from './interface';
 export * from './insights';
+export * from './multichain';

@@ -53,4 +53,9 @@ export enum SnapCaveatType {
    * Caveat specifying the max request time for a handler endowment.
    */
   MaxRequestTime = 'maxRequestTime',
+
+  /**
+   * Caveat specifying a list of scopes serviced by an endowment.
+   */
+  ProtocolSnapScopes = 'protocolSnapScopes',
 }

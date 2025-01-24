@@ -1683,6 +1683,48 @@ describe('BaseSnapExecutor', () => {
     });
   });
 
+  it('supports onProtocolRequest export', async () => {
+    const CODE = `
+      module.exports.onProtocolRequest = ({ origin, scope, request }) => ({ origin, scope, request })
+    `;
+
+    const executor = new TestSnapExecutor();
+    await executor.executeSnap(1, MOCK_SNAP_ID, CODE, []);
+
+    expect(await executor.readCommand()).toStrictEqual({
+      jsonrpc: '2.0',
+      id: 1,
+      result: 'OK',
+    });
+
+    const params = {
+      scope: 'solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp',
+      request: {
+        jsonrpc: '2.0',
+        id: 'foo',
+        method: 'getVersion',
+      },
+    };
+
+    await executor.writeCommand({
+      jsonrpc: '2.0',
+      id: 2,
+      method: 'snapRpc',
+      params: [
+        MOCK_SNAP_ID,
+        HandlerType.OnProtocolRequest,
+        MOCK_ORIGIN,
+        { jsonrpc: '2.0', method: '', params },
+      ],
+    });
+
+    expect(await executor.readCommand()).toStrictEqual({
+      id: 2,
+      jsonrpc: '2.0',
+      result: { origin: MOCK_ORIGIN, ...params },
+    });
+  });
+
   describe('lifecycle hooks', () => {
     const LIFECYCLE_HOOKS = [HandlerType.OnInstall, HandlerType.OnUpdate];
 

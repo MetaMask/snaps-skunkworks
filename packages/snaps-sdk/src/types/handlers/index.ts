@@ -5,6 +5,7 @@ export * from './home-page';
 export * from './keyring';
 export * from './lifecycle';
 export * from './name-lookup';
+export * from './protocol';
 export * from './rpc-request';
 export * from './transaction';
 export * from './signature';

@@ -1,9 +1,12 @@
 import type {
+  OnAssetsConversionHandler,
+  OnAssetsLookupHandler,
   OnCronjobHandler,
   OnHomePageHandler,
   OnInstallHandler,
   OnKeyringRequestHandler,
   OnNameLookupHandler,
+  OnProtocolRequestHandler,
   OnRpcRequestHandler,
   OnSettingsPageHandler,
   OnSignatureHandler,
@@ -114,17 +117,26 @@ export const SNAP_EXPORTS = {
   [HandlerType.OnAssetsLookup]: {
     type: HandlerType.OnAssetsLookup,
     required: true,
-    validator: (snapExport: unknown): snapExport is OnUserInputHandler => {
+    validator: (snapExport: unknown): snapExport is OnAssetsLookupHandler => {
       return typeof snapExport === 'function';
     },
   },
   [HandlerType.OnAssetsConversion]: {
     type: HandlerType.OnAssetsConversion,
     required: true,
-    validator: (snapExport: unknown): snapExport is OnUserInputHandler => {
+    validator: (snapExport: unknown): snapExport is OnAssetsConversionHandler => {
       return typeof snapExport === 'function';
     },
   },
+  [HandlerType.OnProtocolRequest]: {
+    type: HandlerType.OnProtocolRequest,
+    required: false,
+    validator: (
+      snapExport: unknown,
+    ): snapExport is OnProtocolRequestHandler => {
+      return typeof snapExport === 'function';
+    },
+  }
 } as const;
 
 export const OnTransactionSeverityResponseStruct = object({

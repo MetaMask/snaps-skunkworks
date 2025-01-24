@@ -27,6 +27,7 @@ import {
   isValidSemVerRange,
   inMilliseconds,
   Duration,
+  CaipChainIdStruct,
 } from '@metamask/utils';
 
 import { isEqual } from '../array';
@@ -174,6 +175,11 @@ export const MaxRequestTimeStruct = size(
   MAXIMUM_REQUEST_TIMEOUT,
 );
 
+export const ProtocolScopesStruct = record(
+  CaipChainIdStruct,
+  object({ methods: array(string()) }),
+);
+
 // Utility type to union with for all handler structs
 export const HandlerCaveatsStruct = object({
   maxRequestTime: optional(MaxRequestTimeStruct),
@@ -203,6 +209,12 @@ export const PermissionsStruct: Describe<InitialPermissions> = type({
   'endowment:ethereum-provider': optional(EmptyObjectStruct),
   'endowment:keyring': optional(
     mergeStructs(HandlerCaveatsStruct, KeyringOriginsStruct),
+  ),
+  'endowment:protocol': optional(
+    mergeStructs(
+      HandlerCaveatsStruct,
+      object({ scopes: ProtocolScopesStruct }),
+    ),
   ),
   'endowment:lifecycle-hooks': optional(HandlerCaveatsStruct),
   'endowment:name-lookup': optional(
