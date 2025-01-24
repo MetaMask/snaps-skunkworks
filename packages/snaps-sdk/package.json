@@ -92,7 +92,7 @@
   },
   "dependencies": {
     "@metamask/key-tree": "^10.0.2",
-    "@metamask/providers": "^18.3.1",
+    "@metamask/providers": "^19.0.0",
     "@metamask/rpc-errors": "^7.0.2",
     "@metamask/superstruct": "^3.1.0",
     "@metamask/utils": "^11.0.1"
