@@ -6,7 +6,7 @@ import type { VirtualFile } from './virtual-file';
 /**
  * Provides fast, asynchronous base64 encoding.
  *
- * @param input - The input value, assumed to be coercable to bytes.
+ * @param input - The input value, assumed to be coercible to bytes.
  * @returns A base64 string.
  */
 export async function encodeBase64(input: Uint8Array | VirtualFile | string) {
