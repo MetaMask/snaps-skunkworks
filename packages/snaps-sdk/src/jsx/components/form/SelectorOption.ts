@@ -7,10 +7,12 @@ import type { CardElement } from '../Card';
  * @property value - The value of the selector option. This is used to populate the
  * state in the form data.
  * @property children - The component to display.
+ * @property disabled - Whether the selector option is disabled.
  */
 export type SelectorOptionProps = {
   value: string;
   children: CardElement;
+  disabled?: boolean;
 };
 
 const TYPE = 'SelectorOption';
@@ -23,6 +25,7 @@ const TYPE = 'SelectorOption';
  * @param props.value - The value of the selector option. This is used to populate the
  * state in the form data.
  * @param props.children - The component to display.
+ * @param props.disabled - Whether the selector option is disabled.
  * @returns A selector option element.
  * @example
  * <Selector name="selector">

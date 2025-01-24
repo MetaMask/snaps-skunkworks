@@ -270,6 +270,7 @@ export const CheckboxStruct: Describe<CheckboxElement> = element('Checkbox', {
   checked: optional(boolean()),
   label: optional(string()),
   variant: optional(nullUnion([literal('default'), literal('toggle')])),
+  disabled: optional(boolean()),
 });
 
 /**
@@ -279,6 +280,7 @@ export const GenericInputPropsStruct = object({
   name: string(),
   value: optional(string()),
   placeholder: optional(string()),
+  disabled: optional(boolean()),
 });
 
 /**
@@ -351,6 +353,7 @@ export const DropdownStruct: Describe<DropdownElement> = element('Dropdown', {
   name: string(),
   value: optional(string()),
   children: children([OptionStruct]),
+  disabled: optional(boolean()),
 });
 
 /**
@@ -387,6 +390,7 @@ export const SelectorOptionStruct: Describe<SelectorOptionElement> = element(
   {
     value: string(),
     children: CardStruct,
+    disabled: optional(boolean()),
   },
 );
 
@@ -398,6 +402,7 @@ export const SelectorStruct: Describe<SelectorElement> = element('Selector', {
   title: string(),
   value: optional(string()),
   children: children([SelectorOptionStruct]),
+  disabled: optional(boolean()),
 });
 
 /**
@@ -406,6 +411,7 @@ export const SelectorStruct: Describe<SelectorElement> = element('Selector', {
 export const RadioStruct: Describe<RadioElement> = element('Radio', {
   value: string(),
   children: string(),
+  disabled: optional(boolean()),
 });
 
 /**
@@ -417,6 +423,7 @@ export const RadioGroupStruct: Describe<RadioGroupElement> = element(
     name: string(),
     value: optional(string()),
     children: children([RadioStruct]),
+    disabled: optional(boolean()),
   },
 );
 
@@ -429,6 +436,7 @@ export const FileInputStruct: Describe<FileInputElement> = element(
     name: string(),
     accept: nullUnion([optional(array(string()))]),
     compact: optional(boolean()),
+    disabled: optional(boolean()),
   },
 );
 

@@ -210,8 +210,11 @@ describe('ButtonStruct', () => {
 describe('InputStruct', () => {
   it.each([
     <Input name="foo" type="text" />,
+    <Input name="foo" type="text" disabled={true} />,
     <Input name="foo" type="password" />,
+    <Input name="foo" type="password" disabled={true} />,
     <Input name="foo" type="number" />,
+    <Input name="foo" type="number" disabled={true} />,
     <Input name="foo" type="text" value="bar" />,
     <Input name="foo" type="text" placeholder="bar" />,
     <Input name="foo" type="number" min={0} max={10} step={1} />,
@@ -811,6 +814,7 @@ describe('CheckboxStruct', () => {
     <Checkbox name="foo" />,
     <Checkbox name="foo" checked={true} />,
     <Checkbox name="foo" checked={true} label="Foo" variant="toggle" />,
+    <Checkbox name="foo" checked={true} disabled={true} label="Foo" />,
   ])('validates a dropdown element', (value) => {
     expect(is(value, CheckboxStruct)).toBe(true);
   });
@@ -899,6 +903,10 @@ describe('DropdownStruct', () => {
       <Option value="option1">Option 1</Option>
       <Option value="option2">Option 2</Option>
     </Dropdown>,
+    <Dropdown name="foo" disabled={true}>
+      <Option value="option1">Option 1</Option>
+      <Option value="option2">Option 2</Option>
+    </Dropdown>,
   ])('validates a dropdown element', (value) => {
     expect(is(value, DropdownStruct)).toBe(true);
   });
@@ -930,6 +938,12 @@ describe('RadioGroupStruct', () => {
       <Radio value="option1">Option 1</Radio>
       <Radio value="option2">Option 2</Radio>
     </RadioGroup>,
+    <RadioGroup name="foo" disabled={true}>
+      <Radio value="option1">Option 1</Radio>
+      <Radio value="option2" disabled={true}>
+        Option 2
+      </Radio>
+    </RadioGroup>,
   ])('validates a radio group element', (value) => {
     expect(is(value, RadioGroupStruct)).toBe(true);
   });
@@ -960,6 +974,7 @@ describe('FileInputStruct', () => {
     <FileInput name="foo" />,
     <FileInput name="foo" accept={['image/*']} />,
     <FileInput name="foo" compact />,
+    <FileInput name="foo" disabled={true} compact />,
   ])('validates a file input element', (value) => {
     expect(is(value, FileInputStruct)).toBe(true);
   });
@@ -999,6 +1014,16 @@ describe('SelectorStruct', () => {
       </SelectorOption>
       <SelectorOption value="option2">
         <Card title="bar" value="$1" />
+      </SelectorOption>
+    </Selector>,
+    <Selector name="foo" title="Title" disabled={true}>
+      <SelectorOption value="option1">
+        <Card title="Foo" value="$1" />
+      </SelectorOption>
+    </Selector>,
+    <Selector name="foo" title="Title">
+      <SelectorOption value="option1" disabled={true}>
+        <Card title="Foo" value="$1" />
       </SelectorOption>
     </Selector>,
   ])('validates a selector element', (value) => {

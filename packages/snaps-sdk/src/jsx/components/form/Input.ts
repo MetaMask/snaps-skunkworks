@@ -6,6 +6,7 @@ export type GenericInputProps = {
   name: string;
   value?: string | undefined;
   placeholder?: string | undefined;
+  disabled?: boolean | undefined;
 };
 
 export type TextInputProps = { type: 'text' } & GenericInputProps;
@@ -57,6 +58,7 @@ const TYPE = 'Input';
  * Only applicable to the type `number` input.
  * @param props.step - The step value of the input field.
  * Only applicable to the type `number` input.
+ * @param props.disabled - Whether the input is disabled.
  * @returns An input element.
  * @example
  * <Input name="username" type="text" />
