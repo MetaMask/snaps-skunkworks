@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "description": "MetaMask example snap demonstrating the use of RPC methods for managing dynamic permissions.",
+  "proposedName": "Dynamic Permissions Example Snap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MetaMask/snaps.git"
+  },
+  "source": {
+    "shasum": "wX4pqJ2RkmZdllC1iVnHP4uE4sWiqTb6GWXNyEUDnCA=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "packageName": "@metamask/dynamic-permissions-example-snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_dialog": {},
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": false
+    }
+  },
+  "dynamicPermissions": {
+    "endowment:network-access": {},
+    "endowment:webassembly": {},
+    "endowment:ethereum-provider": {},
+    "snap_getBip44Entropy": [
+      {
+        "coinType": 3
+      },
+      {
+        "coinType": 1
+      }
+    ]
+  },
+  "manifestVersion": "0.1"
+}
