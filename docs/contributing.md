@@ -137,7 +137,7 @@ To use preview builds locally, follow these steps:
   GITHUB_NPM_TOKEN=<your personal access token> METAMASK_NPM_REGISTRY=https://npm.pkg.github.com yarn install
   ```
 
-  - It's recommended to use your machine's local keychain to store the token,
+  - It's recommended to use your machine's local keychain to store the token
     and retrieve it from there. For example on macOS, you can use:
     ```bash
     GITHUB_NPM_TOKEN=$(security find-generic-password -s 'GitHub NPM Token' -w) METAMASK_NPM_REGISTRY=https://npm.pkg.github.com yarn install
@@ -168,7 +168,7 @@ GitHub action are used to automate the release process.
 
 2. **Update changelogs for relevant packages.**
 
-   At this point you will be on a new release branch, and a new section will
+   At this point, you will be on a new release branch, and a new section will
    have been added to the changelog of each package you specified in the
    previous step.
 
@@ -200,7 +200,7 @@ GitHub action are used to automate the release process.
    "Release \<new version\>".
 
    If changes are made to the base branch, the release branch will need to be
-   updated with these changes and review/QA will need to restart again. As such,
+   updated with these changes, and review/QA will need to restart again. As such,
    it's probably best to avoid merging other PRs into the base branch while
    review is underway.
 
@@ -224,4 +224,4 @@ GitHub action are used to automate the release process.
 
    Once the `publish-npm` job has finished,
    [check NPM](https://npms.io/search?q=scope%3Ametamask) to verify that all
-   relevant packages has been published.
+   relevant packages have been published.
