@@ -115,7 +115,7 @@
     "@metamask/auto-changelog": "^3.4.4",
     "@metamask/browser-passworder": "^6.0.0",
     "@metamask/eslint-config": "^12.1.0",
-    "@metamask/eslint-config-jest": "^12.1.0",
+    "@metamask/eslint-config-jest": "^14.0.0",
     "@metamask/eslint-config-nodejs": "^12.1.0",
     "@metamask/eslint-config-typescript": "^12.1.0",
     "@metamask/template-snap": "^0.7.0",
