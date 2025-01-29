@@ -3211,6 +3211,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:^9.11.0":
+  version: 9.19.0
+  resolution: "@eslint/js@npm:9.19.0"
+  checksum: 10/d8133a83330676d5f0827713af2e9bbf35530631a93520fb59ead6b827a325c54fdd7ad99f2158f895fb393c47bbc55dfdaa945998a647f3b9230f1d5324a626
+  languageName: node
+  linkType: hard
+
 "@ethereumjs/common@npm:^3.2.0":
   version: 3.2.0
   resolution: "@ethereumjs/common@npm:3.2.0"
@@ -4256,7 +4263,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/snaps-utils": "workspace:^"
     "@swc/core": "npm:1.3.78"
     "@swc/jest": "npm:^0.2.26"
@@ -4449,6 +4456,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@metamask/eslint-config-typescript@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "@metamask/eslint-config-typescript@npm:14.0.0"
+  dependencies:
+    "@eslint/js": "npm:^9.11.0"
+  peerDependencies:
+    "@metamask/eslint-config": ^14.0.0
+    eslint: ^9.11.0
+    eslint-import-resolver-typescript: ^3.6.3
+    eslint-plugin-import-x: ^4.3.0
+    eslint-plugin-jsdoc: ^50.2.4
+    typescript: ">=4.8.4 <5.6"
+    typescript-eslint: ^8.6.0
+  checksum: 10/cbf0a9e8523292d41140f90630863d034301422f16e6a42e5881c3593e83c07d0394787563d3e88fee02aa22042a9ca974363d3f192374e31bb0729c6ca8734e
+  languageName: node
+  linkType: hard
+
 "@metamask/eslint-config@npm:^12.1.0":
   version: 12.1.0
   resolution: "@metamask/eslint-config@npm:12.1.0"
@@ -4632,7 +4656,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.42.1"
     "@typescript-eslint/parser": "npm:^6.21.0"
     depcheck: "npm:^1.4.7"
@@ -5574,7 +5598,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/snaps-utils": "workspace:^"
     "@swc/core": "npm:1.3.78"
     "@swc/jest": "npm:^0.2.26"
@@ -5625,7 +5649,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/snaps-utils": "workspace:^"
     "@metamask/snaps-webpack-plugin": "workspace:^"
@@ -5717,7 +5741,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/json-rpc-engine": "npm:^10.0.2"
     "@metamask/json-rpc-middleware-stream": "npm:^8.0.6"
     "@metamask/key-tree": "npm:^10.0.2"
@@ -5819,7 +5843,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/json-rpc-engine": "npm:^10.0.2"
     "@metamask/object-multiplex": "npm:^2.1.0"
     "@metamask/post-message-stream": "npm:^9.0.0"
@@ -5899,7 +5923,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/snaps-controllers": "workspace:^"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/snaps-simulation": "workspace:^"
@@ -5957,7 +5981,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/snaps-utils": "workspace:^"
     "@rollup/plugin-virtual": "npm:^2.1.0"
     "@swc/core": "npm:1.3.78"
@@ -5996,7 +6020,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/json-rpc-engine": "npm:^10.0.2"
     "@metamask/key-tree": "npm:^10.0.2"
     "@metamask/permission-controller": "npm:^11.0.5"
@@ -6042,7 +6066,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/key-tree": "npm:^10.0.2"
     "@metamask/providers": "npm:^18.3.1"
     "@metamask/rpc-errors": "npm:^7.0.2"
@@ -6084,7 +6108,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/eth-json-rpc-middleware": "npm:^15.1.2"
     "@metamask/json-rpc-engine": "npm:^10.0.2"
     "@metamask/json-rpc-middleware-stream": "npm:^8.0.6"
@@ -6146,7 +6170,7 @@ __metadata:
     "@metamask/eslint-config-browser": "npm:^11.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/eth-json-rpc-middleware": "npm:^15.1.2"
     "@metamask/json-rpc-engine": "npm:^10.0.2"
     "@metamask/json-rpc-middleware-stream": "npm:^8.0.6"
@@ -6255,7 +6279,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/key-tree": "npm:^10.0.2"
     "@metamask/permission-controller": "npm:^11.0.5"
     "@metamask/post-message-stream": "npm:^9.0.0"
@@ -6334,7 +6358,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/snaps-sdk": "workspace:^"
     "@metamask/snaps-utils": "workspace:^"
     "@metamask/utils": "npm:^11.0.1"
@@ -6395,7 +6419,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/ethereum-provider-example-snap": "workspace:^"
     "@metamask/ethers-js-example-snap": "workspace:^"
     "@metamask/file-upload-example-snap": "workspace:^"
@@ -20483,7 +20507,7 @@ __metadata:
     "@metamask/eslint-config": "npm:^12.1.0"
     "@metamask/eslint-config-jest": "npm:^12.1.0"
     "@metamask/eslint-config-nodejs": "npm:^12.1.0"
-    "@metamask/eslint-config-typescript": "npm:^12.1.0"
+    "@metamask/eslint-config-typescript": "npm:^14.0.0"
     "@metamask/utils": "npm:^11.0.1"
     "@swc/core": "npm:1.3.78"
     "@ts-bridge/cli": "npm:^0.6.1"
