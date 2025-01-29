@@ -80,7 +80,7 @@
     "@metamask/auto-changelog": "^3.4.4",
     "@metamask/eslint-config": "^12.1.0",
     "@metamask/eslint-config-jest": "^12.1.0",
-    "@metamask/eslint-config-nodejs": "^12.1.0",
+    "@metamask/eslint-config-nodejs": "^14.0.0",
     "@metamask/eslint-config-typescript": "^12.1.0",
     "@ts-bridge/cli": "^0.6.1",
     "@types/express": "^4.17.17",
