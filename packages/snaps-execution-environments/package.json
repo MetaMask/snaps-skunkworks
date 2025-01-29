@@ -67,7 +67,7 @@
     "@metamask/json-rpc-engine": "^10.0.2",
     "@metamask/object-multiplex": "^2.1.0",
     "@metamask/post-message-stream": "^9.0.0",
-    "@metamask/providers": "^18.3.1",
+    "@metamask/providers": "^19.0.0",
     "@metamask/rpc-errors": "^7.0.2",
     "@metamask/snaps-sdk": "workspace:^",
     "@metamask/snaps-utils": "workspace:^",
