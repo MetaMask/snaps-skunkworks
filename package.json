@@ -92,7 +92,7 @@
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^6.21.0",
     "@yarnpkg/types": "^4.0.0",
-    "chromedriver": "^132.0.1",
+    "chromedriver": "^132.0.2",
     "depcheck": "^1.4.7",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
