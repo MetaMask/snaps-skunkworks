@@ -656,6 +656,9 @@ describe('FooterStruct', () => {
     <Footer>
       <Button name="cancel">Cancel {true && 'foo'}</Button>
     </Footer>,
+    <Footer requireScroll>
+      <Button name="accept">Accept</Button>
+    </Footer>,
   ])('validates a footer element', (value) => {
     expect(is(value, FooterStruct)).toBe(true);
   });

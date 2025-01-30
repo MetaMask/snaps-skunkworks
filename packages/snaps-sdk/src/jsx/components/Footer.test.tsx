@@ -27,7 +27,7 @@ describe('Footer', () => {
 
   it('renders a footer element with multiple buttons', () => {
     const result = (
-      <Footer>
+      <Footer requireScroll>
         <Button name="cancel">Cancel</Button>
         <Button name="confirm">Confirm</Button>
       </Footer>
@@ -37,6 +37,7 @@ describe('Footer', () => {
       type: 'Footer',
       key: null,
       props: {
+        requireScroll: true,
         children: [
           {
             type: 'Button',
