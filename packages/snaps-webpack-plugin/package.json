@@ -59,7 +59,7 @@
   "dependencies": {
     "@metamask/snaps-sdk": "workspace:^",
     "@metamask/snaps-utils": "workspace:^",
-    "@metamask/utils": "^11.0.1",
+    "@metamask/utils": "^11.1.0",
     "prettier": "^2.8.8",
     "webpack-sources": "^3.2.3"
   },

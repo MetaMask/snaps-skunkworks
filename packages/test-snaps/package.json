@@ -68,7 +68,7 @@
     "@metamask/send-flow-example-snap": "workspace:^",
     "@metamask/signature-insights-example-snap": "workspace:^",
     "@metamask/snaps-utils": "workspace:^",
-    "@metamask/utils": "^11.0.1",
+    "@metamask/utils": "^11.1.0",
     "@metamask/wasm-example-snap": "workspace:^",
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^1.9.5",
