@@ -682,7 +682,7 @@ type SnapControllerArgs = {
   environmentEndowmentPermissions?: string[];
 
   /**
-   * Excluded permissions with its associated error message used to forbid certain permssions.
+   * Excluded permissions with its associated error message used to forbid certain permissions.
    */
   excludedPermissions?: Record<string, string>;
 
