@@ -13,7 +13,7 @@ export class NodeThreadExecutionService extends AbstractExecutionService<Worker>
   }> {
     const worker = new Worker(
       require.resolve(
-        '@metamask/snaps-execution-environments/dist/browserify/node-thread/bundle.js',
+        '@metamask/snaps-execution-environments/dist/webpack/node-thread/bundle.js',
       ),
       {
         stdout: true,

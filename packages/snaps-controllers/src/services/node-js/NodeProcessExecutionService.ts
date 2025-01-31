@@ -13,7 +13,7 @@ export class NodeProcessExecutionService extends AbstractExecutionService<ChildP
   }> {
     const worker = fork(
       require.resolve(
-        '@metamask/snaps-execution-environments/dist/browserify/node-process/bundle.js',
+        '@metamask/snaps-execution-environments/dist/webpack/node-process/bundle.js',
       ),
       {
         stdio: 'pipe',

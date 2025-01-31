@@ -82,7 +82,7 @@ const config = {
             mount: '/',
             path: resolve(
               __dirname,
-              '../snaps-execution-environments/dist/browserify/iframe',
+              '../snaps-execution-environments/dist/webpack/iframe',
             ),
           },
 

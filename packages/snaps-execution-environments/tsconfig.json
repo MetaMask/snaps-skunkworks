@@ -5,7 +5,12 @@
     "typeRoots": ["../../node_modules/@types", "./node_modules/@types"],
     "allowJs": true
   },
-  "include": ["./src", "webpack.config.js", "scripts", "package.json"],
+  "include": [
+    "./src",
+    "webpack.config.ts",
+    "scripts",
+    "package.json",
+  ],
   "references": [
     {
       "path": "../snaps-sdk"

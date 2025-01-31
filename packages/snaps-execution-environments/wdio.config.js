@@ -100,7 +100,7 @@ const config = {
           // The iframe execution service bundle.
           {
             mount: '/',
-            path: resolve(__dirname, './dist/browserify/iframe'),
+            path: resolve(__dirname, './dist/webpack/iframe'),
           },
 
           // The web worker execution service bundle.
