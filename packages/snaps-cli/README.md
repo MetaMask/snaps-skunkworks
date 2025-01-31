@@ -315,6 +315,13 @@ be served by the development server.
 The port to run the development server on. If set to `0`, a random port will
 be used.
 
+##### `server.host`
+
+- Type: `string`
+- Default: `localhost`
+
+The hostname to run the development server on.
+
 #### `environment`
 
 - Type: `Record<string, unknown>`

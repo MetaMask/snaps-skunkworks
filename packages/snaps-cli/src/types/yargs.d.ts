@@ -28,6 +28,7 @@ type YargsArgs = {
   stripComments: boolean;
   transformHtmlComments: boolean;
   port: number;
+  host: string;
   dist: string;
   src: string;
   eval: boolean;

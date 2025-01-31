@@ -12,6 +12,11 @@ type WatchOptions = {
    * The port to listen on.
    */
   port?: number;
+
+  /**
+   * The host to listen on.
+   */
+  host?: string;
 };
 
 type WatchContext = {
@@ -37,9 +42,12 @@ const steps: Steps<WatchContext> = [
     condition: ({ config }) => config.server.enabled,
     task: async ({ config, options, spinner }) => {
       const server = getServer(config);
-      const { port } = await server.listen(options.port ?? config.server.port);
+      const { port, host } = await server.listen(
+        options.port ?? config.server.port,
+        options.host ?? config.server.host,
+      );
 
-      info(`The server is listening on http://localhost:${port}.`, spinner);
+      info(`The server is listening on http://${host}:${port}.`, spinner);
     },
   },
   {
