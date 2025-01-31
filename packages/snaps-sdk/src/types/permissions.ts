@@ -25,10 +25,12 @@ export type NameLookupMatchers =
 export type Bip32Entropy = {
   curve: SupportedCurve;
   path: string[];
+  keyringId?: string;
 };
 
 export type Bip44Entropy = {
   coinType: number;
+  keyringId?: string;
 };
 
 export type RequestedSnap = {

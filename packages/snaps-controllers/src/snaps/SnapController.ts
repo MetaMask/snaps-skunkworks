@@ -747,11 +747,12 @@ type SnapControllerArgs = {
   encryptor: ExportableKeyEncryptor;
 
   /**
-   * A hook to access the mnemonic of the user's primary keyring.
+   * A hook to access the mnemonic of the user's keyring, if the keyringId is not provided, it will return the mnemonic of the primary keyring.
    *
+   * @param keyringId - The ID of the keyring to get the mnemonic for.
    * @returns The mnemonic as bytes.
    */
-  getMnemonic: () => Promise<Uint8Array>;
+  getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 
   /**
    * A hook to get dynamic feature flags at runtime.
@@ -850,7 +851,7 @@ export class SnapController extends BaseController<
 
   #encryptor: ExportableKeyEncryptor;
 
-  #getMnemonic: () => Promise<Uint8Array>;
+  #getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 
   #getFeatureFlags: () => DynamicFeatureFlags;
 

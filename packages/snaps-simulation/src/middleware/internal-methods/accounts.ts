@@ -10,7 +10,7 @@ import type {
 } from '@metamask/utils';
 
 export type GetAccountsHandlerHooks = {
-  getMnemonic: () => Promise<Uint8Array>;
+  getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 };
 
 /**

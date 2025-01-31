@@ -74,9 +74,10 @@ export const getEntropyBuilder = Object.freeze({
 
 export type GetEntropyHooks = {
   /**
-   * @returns The mnemonic of the user's primary keyring.
+   * @param keyringId - The ID of the keyring to get the mnemonic for.
+   * @returns The mnemonic of the user's keyring, if the keyringId is not provided, it will return the mnemonic of the primary keyring.
    */
-  getMnemonic: () => Promise<Uint8Array>;
+  getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 
   /**
    * Waits for the extension to be unlocked.
@@ -130,7 +131,7 @@ function getEntropyImplementation({
     );
 
     await getUnlockPromise(true);
-    const mnemonicPhrase = await getMnemonic();
+    const mnemonicPhrase = await getMnemonic(params.keyringId);
 
     return deriveEntropy({
       input: origin,

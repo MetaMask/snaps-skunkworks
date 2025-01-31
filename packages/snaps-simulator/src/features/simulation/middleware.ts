@@ -21,7 +21,7 @@ export const methodHandlers = {
 /* eslint-enable @typescript-eslint/naming-convention */
 
 export type MiscMiddlewareHooks = {
-  getMnemonic: () => Promise<Uint8Array>;
+  getMnemonic: (keyringId?: string) => Promise<Uint8Array>;
 };
 
 /**
