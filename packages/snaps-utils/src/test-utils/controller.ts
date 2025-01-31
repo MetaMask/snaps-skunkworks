@@ -3,12 +3,12 @@ import type {
   ActionHandler,
   EventConstraint,
 } from '@metamask/base-controller';
-import { ControllerMessenger } from '@metamask/base-controller';
+import { Messenger } from '@metamask/base-controller';
 
 export class MockControllerMessenger<
   Action extends ActionConstraint,
   Event extends EventConstraint,
-> extends ControllerMessenger<Action, Event> {
+> extends Messenger<Action, Event> {
   /**
    * Registers an action handler for the given action type. If an action handler
    * already exists for the given action type, it will be overwritten.

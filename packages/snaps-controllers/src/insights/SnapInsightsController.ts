@@ -1,5 +1,5 @@
 import type {
-  RestrictedControllerMessenger,
+  RestrictedMessenger,
   ControllerGetStateAction,
   ControllerStateChangeEvent,
 } from '@metamask/base-controller';
@@ -58,7 +58,7 @@ export type SnapInsightsControllerAllowedEvents =
   | TransactionControllerTransactionStatusUpdatedEvent
   | SignatureStateChange;
 
-export type SnapInsightsControllerMessenger = RestrictedControllerMessenger<
+export type SnapInsightsControllerMessenger = RestrictedMessenger<
   typeof controllerName,
   SnapInsightsControllerActions | SnapInsightsControllerAllowedActions,
   SnapInsightControllerEvents | SnapInsightsControllerAllowedEvents,

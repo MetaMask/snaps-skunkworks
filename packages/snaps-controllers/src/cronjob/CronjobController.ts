@@ -1,5 +1,5 @@
 import type {
-  RestrictedControllerMessenger,
+  RestrictedMessenger,
   ControllerGetStateAction,
   ControllerStateChangeEvent,
 } from '@metamask/base-controller';
@@ -78,7 +78,7 @@ export type CronjobControllerEvents =
   | SnapDisabled
   | CronjobControllerStateChangeEvent;
 
-export type CronjobControllerMessenger = RestrictedControllerMessenger<
+export type CronjobControllerMessenger = RestrictedMessenger<
   typeof controllerName,
   CronjobControllerActions,
   CronjobControllerEvents,

@@ -1,7 +1,7 @@
 import type {
   ControllerGetStateAction,
   ControllerStateChangeEvent,
-  RestrictedControllerMessenger,
+  RestrictedMessenger,
 } from '@metamask/base-controller';
 import { BaseController } from '@metamask/base-controller';
 import type { SnapsRegistryDatabase } from '@metamask/snaps-registry';
@@ -88,7 +88,7 @@ export type SnapsRegistryStateChangeEvent = ControllerStateChangeEvent<
 
 export type SnapsRegistryEvents = SnapsRegistryStateChangeEvent;
 
-export type SnapsRegistryMessenger = RestrictedControllerMessenger<
+export type SnapsRegistryMessenger = RestrictedMessenger<
   'SnapsRegistry',
   SnapsRegistryActions,
   SnapsRegistryEvents,

@@ -3,7 +3,7 @@ import type {
   UpdateRequestState,
 } from '@metamask/approval-controller';
 import type {
-  RestrictedControllerMessenger,
+  RestrictedMessenger,
   ControllerGetStateAction,
   ControllerStateChangeEvent,
 } from '@metamask/base-controller';
@@ -644,7 +644,7 @@ export type AllowedEvents =
   | SnapUpdated
   | KeyringControllerLock;
 
-type SnapControllerMessenger = RestrictedControllerMessenger<
+type SnapControllerMessenger = RestrictedMessenger<
   typeof controllerName,
   SnapControllerActions | AllowedActions,
   SnapControllerEvents | AllowedEvents,
