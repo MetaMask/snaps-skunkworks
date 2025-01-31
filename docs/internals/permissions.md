@@ -197,7 +197,7 @@ const permissionSpecifications = {
 
 const permissionController = new PermissionController({
   caveatSpecifications,
-  messenger: controllerMessenger, // assume this was given
+  messenger: permissionControllerMessenger, // assume this was given
   permissionSpecifications,
   unrestrictedMethods: ['wallet_unrestrictedMethod'],
 });

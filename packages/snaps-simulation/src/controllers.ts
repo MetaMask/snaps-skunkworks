@@ -1,4 +1,4 @@
-import type { ControllerMessenger } from '@metamask/base-controller';
+import type { Messenger } from '@metamask/base-controller';
 import type {
   CaveatSpecificationConstraint,
   PermissionSpecificationConstraint,
@@ -42,13 +42,13 @@ export type RootControllerAllowedActions =
 export type RootControllerAllowedEvents =
   SnapInterfaceControllerStateChangeEvent;
 
-export type RootControllerMessenger = ControllerMessenger<
+export type RootControllerMessenger = Messenger<
   RootControllerAllowedActions,
   RootControllerAllowedEvents
 >;
 
 export type GetControllersOptions = {
-  controllerMessenger: ControllerMessenger<any, any>;
+  controllerMessenger: Messenger<any, any>;
   hooks: RestrictedMiddlewareHooks;
   runSaga: RunSagaFunction;
   options: SimulationOptions;

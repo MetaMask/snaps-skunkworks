@@ -1,4 +1,4 @@
-import { ControllerMessenger } from '@metamask/base-controller';
+import { Messenger } from '@metamask/base-controller';
 import {
   getSnapManifest,
   MOCK_SNAP_ID,
@@ -45,7 +45,7 @@ describe('getPermissionSpecifications', () => {
         hooks: MOCK_HOOKS,
         runSaga: jest.fn(),
         options: getMockOptions(),
-        controllerMessenger: new ControllerMessenger(),
+        controllerMessenger: new Messenger(),
       }),
     ).toMatchInlineSnapshot(`
       {
@@ -324,7 +324,7 @@ describe('getPermissionSpecifications', () => {
 describe('getEndowments', () => {
   it('returns the endowments', async () => {
     const controllers = getControllers({
-      controllerMessenger: new ControllerMessenger(),
+      controllerMessenger: new Messenger(),
       hooks: MOCK_HOOKS,
       runSaga: jest.fn(),
       options: getMockOptions(),

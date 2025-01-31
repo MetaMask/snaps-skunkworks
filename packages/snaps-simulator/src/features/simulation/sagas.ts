@@ -1,4 +1,4 @@
-import { ControllerMessenger } from '@metamask/base-controller';
+import { Messenger } from '@metamask/base-controller';
 import { createFetchMiddleware } from '@metamask/eth-json-rpc-middleware';
 import { JsonRpcEngine } from '@metamask/json-rpc-engine';
 import { createEngineStream } from '@metamask/json-rpc-middleware-stream';
@@ -89,17 +89,14 @@ const DEFAULT_ENVIRONMENT_URL = `https://execution.metamask.io/iframe/${packageJ
 /**
  * Register the misc controller actions.
  *
- * @param controllerMessenger - The controller messenger.
+ * @param messenger - The messenger.
  */
-export function registerActions(
-  controllerMessenger: ControllerMessenger<any, any>,
-) {
-  controllerMessenger.registerActionHandler(
-    'PhishingController:testOrigin',
-    () => ({ result: false }),
-  );
+export function registerActions(messenger: Messenger<any, any>) {
+  messenger.registerActionHandler('PhishingController:testOrigin', () => ({
+    result: false,
+  }));
 
-  controllerMessenger.registerActionHandler(
+  messenger.registerActionHandler(
     'PhishingController:maybeUpdateState',
     async () => Promise.resolve(),
   );
@@ -114,9 +111,9 @@ export function registerActions(
  * @yields Puts the execution environment after creation.
  */
 export function* initSaga({ payload }: PayloadAction<string>) {
-  const controllerMessenger = new ControllerMessenger<any, any>();
+  const messenger = new Messenger<any, any>();
 
-  registerActions(controllerMessenger);
+  registerActions(messenger);
 
   const srp: string = yield select(getSrp);
 
@@ -161,7 +158,7 @@ export function* initSaga({ payload }: PayloadAction<string>) {
   };
 
   const subjectMetadataController = new SubjectMetadataController({
-    messenger: controllerMessenger.getRestricted({
+    messenger: messenger.getRestricted({
       name: 'SubjectMetadataController',
       allowedActions: [],
       allowedEvents: [],
@@ -170,7 +167,7 @@ export function* initSaga({ payload }: PayloadAction<string>) {
   });
 
   const permissionController = new PermissionController({
-    messenger: controllerMessenger.getRestricted({
+    messenger: messenger.getRestricted({
       name: 'PermissionController',
       allowedActions: [
         `ApprovalController:addRequest`,
@@ -192,7 +189,7 @@ export function* initSaga({ payload }: PayloadAction<string>) {
   });
 
   const snapInterfaceController = new SnapInterfaceController({
-    messenger: controllerMessenger.getRestricted({
+    messenger: messenger.getRestricted({
       name: 'SnapInterfaceController',
       allowedActions: [
         `PhishingController:testOrigin`,
@@ -244,7 +241,7 @@ export function* initSaga({ payload }: PayloadAction<string>) {
 
   const executionService = new IframeExecutionService({
     iframeUrl: new URL(environmentUrl),
-    messenger: controllerMessenger.getRestricted({
+    messenger: messenger.getRestricted({
       name: 'ExecutionService',
       allowedActions: [],
       allowedEvents: [],

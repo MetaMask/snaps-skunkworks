@@ -1,4 +1,4 @@
-import type { RestrictedControllerMessenger } from '@metamask/base-controller';
+import type { RestrictedMessenger } from '@metamask/base-controller';
 import type { SnapRpcHookArgs } from '@metamask/snaps-utils';
 import type { Json } from '@metamask/utils';
 
@@ -90,7 +90,7 @@ export type ExecutionServiceActions =
   | TerminateSnapAction
   | TerminateAllSnapsAction;
 
-export type ExecutionServiceMessenger = RestrictedControllerMessenger<
+export type ExecutionServiceMessenger = RestrictedMessenger<
   'ExecutionService',
   ExecutionServiceActions,
   ExecutionServiceEvents,

@@ -3,7 +3,7 @@ import type {
   HasApprovalRequest,
 } from '@metamask/approval-controller';
 import type {
-  RestrictedControllerMessenger,
+  RestrictedMessenger,
   ControllerGetStateAction,
   ControllerStateChangeEvent,
 } from '@metamask/base-controller';
@@ -127,7 +127,7 @@ export type SnapInterfaceControllerEvents =
   | SnapInterfaceControllerStateChangeEvent
   | NotificationListUpdatedEvent;
 
-export type SnapInterfaceControllerMessenger = RestrictedControllerMessenger<
+export type SnapInterfaceControllerMessenger = RestrictedMessenger<
   typeof controllerName,
   SnapInterfaceControllerActions | SnapInterfaceControllerAllowedActions,
   SnapInterfaceControllerEvents,

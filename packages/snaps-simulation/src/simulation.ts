@@ -2,7 +2,7 @@ import type {
   ActionConstraint,
   EventConstraint,
 } from '@metamask/base-controller';
-import { ControllerMessenger } from '@metamask/base-controller';
+import { Messenger } from '@metamask/base-controller';
 import { createEngineStream } from '@metamask/json-rpc-middleware-stream';
 import {
   type CryptographicFunctions,
@@ -94,7 +94,7 @@ export type InstalledSnap = {
   snapId: SnapId;
   store: Store;
   executionService: InstanceType<typeof AbstractExecutionService>;
-  controllerMessenger: ControllerMessenger<ActionConstraint, EventConstraint>;
+  controllerMessenger: Messenger<ActionConstraint, EventConstraint>;
   runSaga: RunSagaFunction;
 };
 
@@ -276,7 +276,7 @@ export async function installSnap<
   // Create Redux store.
   const { store, runSaga } = createStore(options);
 
-  const controllerMessenger = new ControllerMessenger<any, any>();
+  const controllerMessenger = new Messenger<any, any>();
 
   registerActions(controllerMessenger, runSaga);
 

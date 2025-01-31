@@ -1,4 +1,4 @@
-import { ControllerMessenger } from '@metamask/base-controller';
+import { Messenger } from '@metamask/base-controller';
 import {
   PermissionController,
   SubjectMetadataController,
@@ -21,7 +21,7 @@ const MOCK_HOOKS: RestrictedMiddlewareHooks = {
 describe('getControllers', () => {
   it('returns the controllers', () => {
     const { permissionController, subjectMetadataController } = getControllers({
-      controllerMessenger: new ControllerMessenger(),
+      controllerMessenger: new Messenger(),
       hooks: MOCK_HOOKS,
       runSaga: jest.fn(),
       options: getMockOptions(),

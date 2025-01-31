@@ -93,9 +93,7 @@ describe('NodeThreadExecutionService', () => {
 
   it('can handle errors out of band', async () => {
     expect.assertions(2);
-    const { service, controllerMessenger } = createService(
-      NodeThreadExecutionService,
-    );
+    const { service, messenger } = createService(NodeThreadExecutionService);
     const snapId = 'TestSnap';
     await service.executeSnap({
       snapId,
@@ -118,7 +116,7 @@ describe('NodeThreadExecutionService', () => {
     });
 
     const unhandledErrorPromise = new Promise((resolve) => {
-      controllerMessenger.subscribe(
+      messenger.subscribe(
         'ExecutionService:unhandledError',
         (_snapId: string, error: SnapErrorJson) => {
           resolve(error);

@@ -1,4 +1,4 @@
-import type { RestrictedControllerMessenger } from '@metamask/base-controller';
+import type { RestrictedMessenger } from '@metamask/base-controller';
 import type { GetPermissions } from '@metamask/permission-controller';
 import { rpcErrors } from '@metamask/rpc-errors';
 import {
@@ -93,7 +93,7 @@ export type MultichainRouterAllowedActions =
 
 export type MultichainRouterEvents = never;
 
-export type MultichainRouterMessenger = RestrictedControllerMessenger<
+export type MultichainRouterMessenger = RestrictedMessenger<
   typeof name,
   MultichainRouterActions | MultichainRouterAllowedActions,
   never,

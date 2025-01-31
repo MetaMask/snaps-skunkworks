@@ -1,4 +1,4 @@
-import { ControllerMessenger } from '@metamask/base-controller';
+import { Messenger } from '@metamask/base-controller';
 import { SnapInterfaceController } from '@metamask/snaps-controllers';
 
 import { registerActions } from '../sagas';
@@ -9,7 +9,7 @@ import { registerActions } from '../sagas';
  * @returns The {@link SnapInterfaceController}.
  */
 export function getSnapInterfaceController() {
-  const messenger = new ControllerMessenger<any, any>();
+  const messenger = new Messenger<any, any>();
 
   registerActions(messenger);
 
